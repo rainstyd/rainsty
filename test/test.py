@@ -1,6 +1,10 @@
 import time
 
 
-print(time.time())
-print("hello world!")
-print(time.time())
+def main():
+    print(time.time())
+    print('Hello World!')
+
+
+if __name__ == '__main__':
+    main()
