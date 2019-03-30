@@ -1,8 +1,10 @@
-import time
+# test.py
+
+from datetime import datetime
 
 
 def main():
-    print(time.time())
+    print(datetime.now())
     print('Hello World!')
 
 
