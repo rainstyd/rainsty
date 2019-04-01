@@ -3,7 +3,7 @@
 import os
 import json
 
-HERE = '/'.join(os.path.realpath(__file__).strip().split('/')[:-1])
+HERE = os.path.realpath(__file__).strip()[:-6]
 
 
 class DFAFilter(object):
