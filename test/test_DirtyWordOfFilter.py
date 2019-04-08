@@ -7,7 +7,7 @@ import time
 def main():
     time1 = time.time()
     gfw = DFAFilter()
-    text = "你真是个大傻逼，大傻子，傻大个，大坏蛋，坏人。"
+    text = "你真是个大傻逼，大傻子，傻大个，大坏蛋，坏人。乱交, 乱小"
     result = gfw.filter(text)
 
     print(text)

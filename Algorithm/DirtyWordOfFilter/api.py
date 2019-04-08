@@ -24,7 +24,12 @@ class DFAFilter(object):
                 if char in level:
                     step_ins += 1
                     if self.delimit not in level[char]:
-                        level = level[char]
+                        if step_ins == 1:
+                            level = level[char]
+                        else:
+                            ret.append(word_re * step_ins)
+                            start += step_ins - 1
+                            break
                     else:
                         ret.append(word_re * step_ins)
                         start += step_ins - 1
