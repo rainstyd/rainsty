@@ -42,8 +42,8 @@ def main():
                             dict[line[0]][line[1]][line[2]]['return'] = 0
     import json
     print(json.dumps(dict, separators=(',', ':'), ensure_ascii=False, indent=4))
-    with open('../file/WordLibrary_test.json', 'a', encoding='utf-8') as a:
-        a.write(json.dumps(dict, separators=(',', ':'), ensure_ascii=False, indent=4))
+    with open('../file/WordLibrary_test.json', 'w', encoding='utf-8') as w:
+        w.write(json.dumps(dict, separators=(',', ':'), ensure_ascii=False, indent=4))
 
 
 if __name__ == '__main__':
