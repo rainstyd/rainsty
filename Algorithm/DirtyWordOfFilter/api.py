@@ -11,7 +11,7 @@ class DFAFilter(object):
         self.keyword_chains = {}
         with open(os.path.join(HERE, 'static', 'WordLibrary.json'), 'r', encoding='utf-8') as f:
             self.keyword_chains = json.loads(f.read())
-        self.delimit = 'return'
+        self.delimit = '\x00'
 
     def filter(self, message, word_re="*"):
         message = message.lower()
