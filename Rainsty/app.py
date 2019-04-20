@@ -1,3 +1,3 @@
-# -*- coding: utf-8 -*-
+# app.py
 
 import socket
