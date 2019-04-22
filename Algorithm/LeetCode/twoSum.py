@@ -43,10 +43,12 @@ class Solution02(object):
         :type target: int
         :rtype: List[int]
         """
-        for n in range(len(nums)):
+        length = len(nums)
+        for n in range(length):
             if target - nums[n] in nums:
-                for u in range(n+1, len(nums)):
-                    if nums[u] == target - nums[n]:
+                result = target - nums[n]
+                for u in range(n + 1, length):
+                    if nums[u] == result:
                         return [n, u]
 
 
