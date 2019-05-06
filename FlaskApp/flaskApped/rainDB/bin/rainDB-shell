@@ -1,0 +1,94 @@
+#!/bin/bash
+
+
+function Verify(){
+    if [ ! -e "./logs/${DATABASE}" ];then
+        mkdir ./logs/${DATABASE}
+    fi
+    }
+
+
+function Save(){
+    echo $INFO
+    if [ ! -e "./data/${DATABASE}" ];then
+        mkdir ./data/${DATABASE}
+    fi
+    if [ -e "./data/${DATABASE}/$TABLE.rdb" ];then
+        id=`cat ./data/${DATABASE}/$TABLE.rdb|grep id |tail -n 1 | awk -F ',' '{print $1}' | awk -F '==' '{print $2}'`
+        id=`expr $id + 1`
+    else
+        id=1
+    fi
+    echo "id=="$id","${INFO} >> ./data/${DATABASE}/$TABLE.rdb
+    unset id
+    }
+
+
+function Delete(){
+    sed -i "s/^id.*,$INFO.*/#\0/g" ./data/${DATABASE}/$TABLE.rdb
+    if [ $? -eq 0 ];then
+        return 0
+    else
+        return 1
+    fi
+    }
+
+
+function Update(){
+    echo "Update..."
+    }
+
+
+function Query(){
+    query_info=`cat ./data/${DATABASE}/$TABLE.rdb | grep "$INFO"| grep -v "#"` >> ./logs/$DATABASE/$TABLE.log 2>&1
+    if [ $? -eq 0 ];then
+        return 0
+    else
+        return 1
+    fi
+    }
+
+
+function Main(){
+    if [ ${COMMAND} == 'save' ];then
+        Verify >> /dev/null 2>&1
+        Save >> ./logs/$DATABASE/$TABLE.log 2>&1
+        if [ $? -eq 0 ];then
+            printf "True"
+        else
+            printf "False"
+        fi
+    fi
+
+    if [ ${COMMAND} == 'delete' ];then
+        Verify >> /dev/null 2>&1
+        Delete >> ./logs/$DATABASE/$TABLE.log 2>&1
+        if [ $? -eq 0 ];then
+            printf "True"
+        else
+            printf "False"
+        fi
+    fi
+
+    if [ ${COMMAND} == 'update' ];then
+        Verify >> /dev/null 2>&1
+    fi
+
+    if [ ${COMMAND} == 'query' ];then
+        Verify >> /dev/null 2>&1
+        Query >> ./logs/$DATABASE/$TABLE.log 2>&1
+        if [ $? -eq 0 ];then
+            printf "$query_info"
+        else
+            printf "None"
+        fi
+    fi
+}
+
+COMMAND=$1
+DATABASE=$2
+TABLE=$3
+INFO=$4
+query_info="None"
+Main
+
