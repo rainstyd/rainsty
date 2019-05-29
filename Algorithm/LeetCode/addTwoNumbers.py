@@ -98,8 +98,8 @@ if __name__ == '__main__':
     l2_1.next = l2_2
     l2_2.next = l2_3
 
-    res = Solution().addTwoNumbers(l1_1, l2_1)
+    s = Solution().addTwoNumbers(l1_1, l2_1)
 
-    print(res.val)
-    print(res.next.val)
-    print(res.next.next.val)
+    print(s.val)
+    print(s.next.val)
+    print(s.next.next.val)

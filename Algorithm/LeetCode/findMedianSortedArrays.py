@@ -38,7 +38,7 @@ class Solution(object):
         if len(nums) % 2 == 1:
             return nums[int(l / 2)]
         else:
-            return float(nums[int(l / 2)] + nums[int(l / 2 -1)]) / 2
+            return float(nums[int(l / 2)] + nums[int(l / 2 - 1)]) / 2
 
 
 if __name__ == '__main__':

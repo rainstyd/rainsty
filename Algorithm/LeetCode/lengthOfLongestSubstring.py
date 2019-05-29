@@ -55,5 +55,5 @@ class Solution(object):
 
 if __name__ == '__main__':
     s = 'abcdaafdaf'
-    r = Solution().lengthOfLongestSubstring(s)
-    print(r)
+    s = Solution().lengthOfLongestSubstring(s)
+    print(s)
