@@ -9,6 +9,6 @@
 """
 
 from . import app
-from .main import ThingsResource
+from .main import *
 
-app.add_route('/main', ThingsResource())
+app.add_route('/main', Main())
