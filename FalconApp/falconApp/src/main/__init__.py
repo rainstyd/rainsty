@@ -9,4 +9,4 @@
 """
 
 from src import app
-from .route import app
+from .__route__ import app

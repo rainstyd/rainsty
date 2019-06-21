@@ -9,5 +9,5 @@
 """
 
 from falcon_manage import app
-from .main.route import app
-from .test.route import app
+from .main.__route__ import app
+from .test.__route__ import app
