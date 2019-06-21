@@ -17,3 +17,10 @@ None
 None
 None
 [2019-06-21 11:39:22 +0800] [2082] [INFO] Booting worker with pid: 2082
+[2019-06-21 13:37:16 +0800] [2067] [CRITICAL] WORKER TIMEOUT (pid:2082)
+[2019-06-21 13:37:16 +0800] [2082] [INFO] Worker exiting (pid: 2082)
+<Request: GET 'http://127.0.0.1:5000/main'>
+{}
+None
+None
+[2019-06-21 13:37:16 +0800] [2252] [INFO] Booting worker with pid: 2252

@@ -3,7 +3,7 @@
 
 """
 @author: rainsty
-@file:   things.py
+@file:   main.py
 @time:   2019-06-20 10:34
 @description:
 """
