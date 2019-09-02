@@ -33,6 +33,8 @@ else:
 for r in range(1, 10):
     if r > 5:
         print(r)
+    else:
+        break
 else:
     print('111')
 
