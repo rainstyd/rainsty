@@ -7,20 +7,21 @@
 @time:   2019-09-03 17:42
 @description:
 """
-import requests
-from lxml import html
-etree = html.etree
+from lxml import etree
 
 text = '''
 <div>
-    <ul>
-         <li class="item-0"><a href="link1.html">第一个</a></li>
-         <li class="item-1"><a href="link2.html">second item</a></li>
-         <li class="item-0"><a href="link5.html">a属性</a>
-     </ul>
- </div>
+   <ul>
+     <li name="wjk" class="two">wjk</li>
+    <li name="wang" class="three">wang</li>
+    <li name="karry" class="four">karry</li>
+   </ul>
+</div>
 '''
 
 html = etree.HTML(text)
-
-print(html)
+results = html.xpath('//li')
+for r in results:
+    print(r.tag)
+    print(r.text)
+    print(r.attrib)
