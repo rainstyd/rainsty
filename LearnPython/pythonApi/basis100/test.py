@@ -1,4 +1,4 @@
-from singleton import singleton
+from .singleton import singleton
 
 
 def test():
