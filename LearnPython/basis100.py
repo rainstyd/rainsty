@@ -15,8 +15,8 @@ import matplotlib.pyplot as plt
 from functools import reduce
 from datetime import datetime
 from collections import Counter
-from pythonApi.basis100.singleton import singleton
-from pythonApi.basis100.test import test
+from .pythonApi.basis100.singleton import singleton
+from .pythonApi.basis100.test import test
 from random import randint
 
 
