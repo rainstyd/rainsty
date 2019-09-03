@@ -8,15 +8,12 @@ import pandas as pd
 import re
 import os
 import sys
-sys.path.append('./pythonApi/basis100')
 import time
 import json
 import matplotlib.pyplot as plt
 from functools import reduce
 from datetime import datetime
 from collections import Counter
-from .pythonApi.basis100.singleton import singleton
-from .pythonApi.basis100.test import test
 from random import randint
 
 
@@ -496,8 +493,8 @@ def test052():
 
 def test053():
     print('test053...')
-    sing = singleton
-    return sing
+    # sing = singleton
+    # return sing
 
 
 def test054():
@@ -928,7 +925,7 @@ if __name__ == '__main__':
     print(test032())
     print(test033())
     print(test034())
-    print(test035())
+    # print(test035())
     try:
         print(test036())
     except:
@@ -952,7 +949,6 @@ if __name__ == '__main__':
     print(test053())
     print(test053())
     print('test...')
-    print(test())
     print(test054())
     print(test055())
     print(test056())
