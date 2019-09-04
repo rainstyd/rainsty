@@ -3,7 +3,7 @@
 
 def main():
     dict = {}
-    with open('../file/sq2.txt', 'r', encoding='utf-8') as r:
+    with open('./file/sq2.txt', 'r', encoding='utf-8') as r:
         for line in r.readlines():
             line = line[:-1].split(',')
             if line[0] not in dict:
@@ -42,7 +42,7 @@ def main():
                             dict[line[0]][line[1]][line[2]]['\x00'] = 0
     import json
     print(json.dumps(dict, separators=(',', ':'), ensure_ascii=False, indent=4))
-    with open('../file/WordLibrary_test.json', 'w', encoding='utf-8') as w:
+    with open('./file/WordLibrary_test.json', 'w', encoding='utf-8') as w:
         w.write(json.dumps(dict, separators=(',', ':'), ensure_ascii=False, indent=4))
 
 
