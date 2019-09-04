@@ -1,0 +1,11 @@
+ept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+Cache-Control: no-cache
+Connection: keep-alive
+Cookie: agent_sofang_session=e62475f6b9f443ad1bf0ec3411cc247feec77085; XSRF-TOKEN=eyJpdiI6Ilc1SHViNEZiS2RnK1RPN1V4TXpWZ1E9PSIsInZhbHVlIjoiQ0ZPUSs0ZEE2d3JOWmZzYU9FN2lFQWJXZUhJSm4rdUd6VzJiR0Q4R2hzUmFhRGJHUjRqRTU2d3BLNmUxWDdrcnlub1FEMU80ZEdTS3FhRVo0ZGxpN0E9PSIsIm1hYyI6IjRiOTNlYzJhNWU1MTRkZjIzM2JhYTcyNGIyYzAyZjg3ZjMwYTg5NDAwOTRkMWU0ZjRhNDIzMDhlZjczN2Y1N2UifQ%3D%3D
+Host: agent.sofang.com
+Pragma: no-cache
+Referer: http://agent.sofang.com/majorChoose
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36
