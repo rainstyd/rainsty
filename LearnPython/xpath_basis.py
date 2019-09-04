@@ -17,9 +17,9 @@ from lxml import etree
     text = '''
     <div>
        <ul>
-         <li name="wjk" class="two">wjk</li>
-        <li name="wang" class="three">wang</li>
-        <li name="karry" class="four">karry</li>
+         <li name="zhang" class="two">张三</li>
+        <li name="li" class="three">李四</li>
+        <li name="wang" class="four">王五</li>
        </ul>
     </div>
     '''
