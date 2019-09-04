@@ -18,6 +18,8 @@ function Main(){
     if [ -e $name ];then
         cat my_ssq.txt > my_ssq.json
         rm -rf my_ssq.txt
+        rm -rf ./caipiaoSSQ/__pycache__
+        rm -rf ./caipiaoSSQ/spiders/__pycache__
     fi
     }
 
