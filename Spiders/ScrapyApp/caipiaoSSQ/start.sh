@@ -10,6 +10,7 @@
 
 
 function Main(){
+    echo '' > nohup.out
     /usr/rain/python/bin/scrapy crawl ssq > nohup.out 2>&1
 
     name="./my_ssq.txt"
