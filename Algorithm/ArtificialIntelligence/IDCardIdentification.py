@@ -25,14 +25,14 @@ def get_file_content(filePath):
 
 path = '../../Test/file/picture/'
 image = get_file_content(path + '1567605252774.jpg')
+
 # idCardSide = "front"
-#
 # """ 调用身份证识别 """
 # res = client.idcard(image, idCardSide)
 # print(res)
 
 """ 如果有可选参数 """
-options = {}
+options = dict()
 options["detect_direction"] = "true"
 options["probability"] = "true"
 
