@@ -39,9 +39,10 @@ def get_html_xpath(xpath):
     url = 'http://www.jinxiaoke.com/'
     resp = requests.get(url)
     code = resp.encoding
-    html = etree.HTML(resp.text)
+    # print(resp.text.encode(code).decode('utf-8'))
+    html = etree.HTML(resp.text.encode(code).decode('utf-8'))
     results = html.xpath(xpath)
-    return [(r.text.encode(code).decode('utf-8'), r.attrib) for r in results if r.text is not None]
+    return [(r.text, r.attrib) for r in results if r.text is not None]
 
 
 def main():
