@@ -1,0 +1,45 @@
+set number
+set smarttab
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set guifont=Courier\ New\ 10
+set nocompatible
+set syntax=on
+set softtabstop=4
+set showcmd
+set encoding=utf-8
+set t_Co=256
+set showmatch
+set hlsearch
+set history=100
+set autoread
+set listchars=tab:»■,trail:■
+set list
+set wildmenu
+set wildmode=longest:list,full
+
+autocmd BufNewFile *.py,*.sh exec ":call SetTitle()"
+func SetTitle()
+    if &filetype == 'sh'
+        call setline(1,"\#!/bin/bash")
+        call append(line("."), "")
+        call append(line(".")+1, "")
+    endif
+
+    if &filetype == 'python'
+        call setline(1,"\#!/usr/bin/python")
+        call append(line("."), "\# encoding: utf-8")
+        call append(line(".")+1, "")
+        call append(line(".")+2, "\"\"\"")
+        call append(line(".")+3, "@author: rainsty")
+        call append(line(".")+4, "@file:   ".expand("%"))
+        call append(line(".")+5, "@time:   ".strftime("%Y-%m-%d %H:%M:%S"))
+        call append(line(".")+6, "@description:")
+        call append(line(".")+7, "\"\"\"")
+        call append(line(".")+8, "")
+        call append(line(".")+9, "")
+    endif
+    autocmd BufNewFile * normal G
+endfunc
