@@ -20,7 +20,6 @@ set list
 set wildmenu
 set wildmode=longest:list,full
 
-autocmd BufNewFile *.py,*.sh exec ":call SetTitle()"
 func SetTitle()
     if &filetype == 'sh'
         call setline(1,"\#!/bin/bash")
@@ -41,5 +40,8 @@ func SetTitle()
         call append(line(".")+8, "")
         call append(line(".")+9, "")
     endif
-    autocmd BufNewFile * normal G
 endfunc
+
+autocmd BufNewFile *.py,*.sh exec ":call SetTitle()"
+autocmd BufNewFile * normal G
+
