@@ -44,4 +44,3 @@ endfunc
 
 autocmd BufNewFile *.py,*.sh exec ":call SetTitle()"
 autocmd BufNewFile * normal G
-
