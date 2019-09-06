@@ -41,22 +41,18 @@ async def download_img(url):
         # print(filename)
         file_path = FILE_PATH + filename
 
-        if os.path.exists(file_path):
-            print('The file %s is exists.' % filename)
-        else:
+        content=""
+        try:
+            async with aiohttp.ClientSession(
+                connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
+                response = await session.get(url, timeout=60)
+                content = await response.read()
+                await session.close()
+        except BaseException as e:
+            print('contant error:' + str(e))
 
-            content=""
-            try:
-                async with aiohttp.ClientSession(
-                    connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
-                    response = await session.get(url, timeout=60)
-                    content = await response.read()
-                    await session.close()
-            except BaseException as e:
-                print('contant error:' + str(e))
-
-            with open(file_path, 'wb') as f:
-                f.write(content)
+        with open(file_path, 'wb') as w:
+            w.write(content)
     except BaseException as e:
         print('download_img error: ' + str(e))
 

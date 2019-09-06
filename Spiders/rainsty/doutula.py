@@ -54,11 +54,8 @@ def download_img(url):
         # print(filename)
         file_path = FILE_PATH + filename
 
-        if os.path.exists(file_path):
-            print('The file %s is exists.' % filename)
-        else:
-            with open(file_path, 'wb') as w:
-                w.write(requests.get(url).content)
+        with open(file_path, 'wb') as w:
+            w.write(requests.get(url).content)
 
     except BaseException as e:
         print('download_img error: ' + str(e))
