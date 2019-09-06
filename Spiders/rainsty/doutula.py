@@ -31,7 +31,9 @@ def get_html_xpath(url, xpath):
 
 
 def main():
-    urls = [r['href'] for r in  get_html_xpath('https://www.doutula.com/', '//div[@class="col-sm-9 center-wrap"]/a')]
+    urls = [r['href'] for r in get_html_xpath(
+        'https://www.doutula.com/',
+        '//div[@class="col-sm-9 center-wrap"]/a')]
 
     for url in urls:
         res = get_html_xpath(url, '//li[@class="list-group-item"]//a/img')
@@ -44,7 +46,7 @@ def main():
 
 
 if __name__ == '__main__':
-    print(datetime.now())
+    start = datetime.now()
     main()
-    print(datetime.now())
-    print(datetime.now())
+    end = datetime.now()
+    print(end - start)
