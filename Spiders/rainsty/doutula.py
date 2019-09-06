@@ -48,7 +48,6 @@ def get_html_url_xpath(url, xpath):
 def download_img(url):
     try:
         filename = url.split('/')[-1]
-        # print(filename)
         file_path = FILE_PATH + filename
 
         with open(file_path, 'wb') as w:

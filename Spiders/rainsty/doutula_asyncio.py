@@ -44,7 +44,6 @@ async def save_img(content, file_path):
 async def download_img(url):
     try:
         filename = url.split('/')[-1]
-        # print(filename)
         file_path = FILE_PATH + filename
 
         content=""
