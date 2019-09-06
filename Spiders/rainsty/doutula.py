@@ -61,9 +61,7 @@ def download_img(url):
 
 
 def main():
-    urls = [r['href'] for r in get_html_xpath(
-        'https://www.doutula.com/',
-        '//div[@class="col-sm-9 center-wrap"]/a')]
+    urls = [r['href'] for r in get_html_xpath('https://www.doutula.com/', '//div[@class="col-sm-9 center-wrap"]/a')]
 
     for url in urls:
         res = get_html_url_xpath(url, '//li[@class="list-group-item"]//a/img')
