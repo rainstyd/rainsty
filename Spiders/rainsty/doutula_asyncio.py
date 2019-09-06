@@ -18,12 +18,14 @@ import time
 FILE_PATH = '../../Test/file/picture/'
 
 
-def get_html_xpath(url, xpath):
+def get_url_results(url):
     resp = requests.get(url)
-    code = resp.encoding
-    # print(resp.text.encode(code).decode('utf-8'))
-    html = etree.HTML(resp.text.encode(code).decode('utf-8'))
-    results = html.xpath(xpath)
+    html = etree.HTML(resp.text.encode(resp.encoding).decode('utf-8'))
+    return html.xpath(xpath)
+
+
+def get_html_xpath(url, xpath):
+    results = get_url_results(url)
     result = list()
     for r in results:
         try:
