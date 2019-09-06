@@ -1,3 +1,75 @@
+" Rainsty Vim Config
+
+"" Vundle ------------------------------------------------------
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+    Plugin 'VundleVim/Vundle.vim'
+    Plugin 'davidhalter/Jedi-vim'
+    Plugin 'Shougo/neocomplcache.vim'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'Xuyuanp/nerdtree-git-plugin'
+    Plugin 'vim-scripts/indentpython.vim'
+    Plugin 'vim-syntastic/syntastic'
+    Plugin 'nvie/vim-flake8'
+    Plugin 'jiangmiao/auto-pairs'
+    Plugin 'Yggdroot/indentLine'
+    Plugin 'Lokaltog/vim-powerline'
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+call vundle#end()
+filetype plugin indent on
+
+
+" nerdtree ----------------------------------------------------
+let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
+nmap <C-n> :NERDTreeToggle<CR>
+nmap <leader>e :Errors<CR>
+
+" Syntastic ---------------------------------------------------
+let g:syntastic_check_on_open = 1
+let g:syntastic_enable_signs = 0
+
+" Airline -----------------------------------------------------
+let g:airline_powerline_fonts = 0
+let g:airline_theme = 'bubblegum'
+let g:airline#extensions#whitespace#enabled = 0
+
+" linenr ------------------------------------------------------
+syntax on
+highlight DiffAdd           cterm=bold ctermbg=none  ctermfg=119
+highlight DiffDelete        cterm=bold ctermbg=none  ctermfg=167
+highlight DiffChange        cterm=bold ctermbg=none  ctermfg=227
+highlight SignifySignAdd    cterm=bold ctermbg=237   ctermfg=119
+highlight SignifySignDelete cterm=bold ctermbg=237   ctermfg=167
+highlight SignifySignChange cterm=bold ctermbg=237   ctermfg=227
+highlight LineNr            cterm=bold ctermbg=black ctermfg=100
+
+" Jedi-vim ----------------------------------------------------
+let g:jedi#goto_command = ',d'
+let g:jedi#usages_command = ',o'
+let g:jedi#goto_assignments_command = ',a'
+set completeopt-=preview
+nmap ,D :tab split<CR>:call jedi#goto()<CR>
+
+" NeoComplCache -----------------------------------------------
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_ignore_case = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_enable_fuzzy_completion = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_fuzzy_completion_start_length = 1
+let g:neocomplcache_auto_completion_start_length = 1
+let g:neocomplcache_manual_completion_start_length = 1
+let g:neocomplcache_min_keyword_length = 1
+let g:neocomplcache_min_syntax_length = 1
+let g:neocomplcache_same_filetype_lists = {}
+let g:neocomplcache_same_filetype_lists._ = '_'
+
 set number
 set smarttab
 set tabstop=4
@@ -44,3 +116,4 @@ endfunc
 
 autocmd BufNewFile *.py,*.sh exec ":call SetTitle()"
 autocmd BufNewFile * normal G
+

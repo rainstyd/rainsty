@@ -47,7 +47,8 @@ async def download_img(url):
 
             content=""
             try:
-                async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
+                async with aiohttp.ClientSession(
+                    connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
                     response = await session.get(url, timeout=60)
                     content = await response.read()
                     await session.close()
@@ -68,7 +69,6 @@ async def get_html_url_xpath(url, xpath):
     results = html.xpath(xpath)
 
     for r in results:
-        print(r.attrib['src'])
         await download_img(r.attrib['src'])
 
 
@@ -78,7 +78,8 @@ def main():
         '//div[@class="col-sm-9 center-wrap"]/a')]
 
     try:
-        tasks = [asyncio.ensure_future(get_html_url_xpath(url, '//li[@class="list-group-item"]//a/img')) for url in urls]
+        tasks = [asyncio.ensure_future(get_html_url_xpath(
+            url, '//li[@class="list-group-item"]//a/img')) for url in urls]
         loop = asyncio.get_event_loop()
         loop.run_until_complete(asyncio.wait(tasks))
     except BaseException as e:
