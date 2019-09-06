@@ -14,7 +14,6 @@ from datetime import datetime
 import asyncio
 import aiohttp
 import time
-import os
 
 FILE_PATH = '../../Test/file/picture/'
 

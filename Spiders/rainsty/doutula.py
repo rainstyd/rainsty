@@ -11,7 +11,6 @@
 import requests
 from lxml import etree
 from datetime import datetime
-import os
 
 FILE_PATH = '../../Test/file/picture/'
 
@@ -61,7 +60,6 @@ def download_img(url):
         print('download_img error: ' + str(e))
 
 
-
 def main():
     urls = [r['href'] for r in get_html_xpath(
         'https://www.doutula.com/',
@@ -81,3 +79,4 @@ if __name__ == '__main__':
     main()
     end = datetime.now()
     print('Sum the time is: {}S'.format(end - start))
+
