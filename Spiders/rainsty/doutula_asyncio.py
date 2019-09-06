@@ -16,8 +16,7 @@ import aiohttp
 import time
 import os
 
-# FILE_PATH = '~/rainsty/Test/file/picture/'
-FILE_PATH = './'
+FILE_PATH = '../../Test/file/picture/'
 
 
 def get_html_xpath(url, xpath):
@@ -31,8 +30,7 @@ def get_html_xpath(url, xpath):
         try:
             result.append(r.attrib)
         except BaseException as e:
-            print(e)
-            pass
+            print('git urls error: %s.' % e)
 
     return result
 
@@ -40,20 +38,24 @@ def get_html_xpath(url, xpath):
 async def download_img(url):
     try:
         filename = url.split('/')[-1]
-        print(filename)
+        # print(filename)
         file_path = FILE_PATH + filename
 
-        content=""
-        try:
-            async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
-                response = await session.get(url, timeout=60)
-                content = await response.read()
-                await session.close()
-        except BaseException as e:
-            print('contant error:' + str(e))
+        if os.path.exists(file_path):
+            print('The file %s is exists.' % filename)
+        else:
 
-        with open(file_path, 'wb') as f:
-            f.write(content)
+            content=""
+            try:
+                async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
+                    response = await session.get(url, timeout=60)
+                    content = await response.read()
+                    await session.close()
+            except BaseException as e:
+                print('contant error:' + str(e))
+
+            with open(file_path, 'wb') as f:
+                f.write(content)
     except BaseException as e:
         print('download_img error: ' + str(e))
 
@@ -80,11 +82,12 @@ def main():
         loop = asyncio.get_event_loop()
         loop.run_until_complete(asyncio.wait(tasks))
     except BaseException as e:
-        print(e)
+        print('loop error: %s' % e)
 
 
 if __name__ == '__main__':
     start = datetime.now()
     main()
     end = datetime.now()
-    print(end - start)
+    print('Sum the time is: {}S'.format(end - start))
+
