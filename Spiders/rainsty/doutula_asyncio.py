@@ -18,14 +18,14 @@ import time
 FILE_PATH = '../../Test/file/picture/'
 
 
-def get_url_results(url):
+def get_url_results(url, xpath):
     resp = requests.get(url)
     html = etree.HTML(resp.text.encode(resp.encoding).decode('utf-8'))
     return html.xpath(xpath)
 
 
 def get_html_xpath(url, xpath):
-    results = get_url_results(url)
+    results = get_url_results(url, xpath)
     result = list()
     for r in results:
         try:
@@ -34,6 +34,11 @@ def get_html_xpath(url, xpath):
             print('git urls error: %s.' % e)
 
     return result
+
+
+async def save_img(content, file_path):
+    with open(file_path, 'wb') as w:
+        w.write(content)
 
 
 async def download_img(url):
@@ -51,19 +56,14 @@ async def download_img(url):
         except BaseException as e:
             print('contant error:' + str(e))
 
-        with open(file_path, 'wb') as w:
-            w.write(content)
+        await save_img(content, file_path)
+
     except BaseException as e:
         print('download_img error: ' + str(e))
 
 
 async def get_html_url_xpath(url, xpath):
-    resp = requests.get(url)
-    code = resp.encoding
-    # print(resp.text.encode(code).decode('utf-8'))
-    html = etree.HTML(resp.text.encode(code).decode('utf-8'))
-    results = html.xpath(xpath)
-
+    results = get_url_results(url, xpath)
     for r in results:
         await download_img(r.attrib['src'])
 

@@ -15,14 +15,14 @@ from datetime import datetime
 FILE_PATH = '../../Test/file/picture/'
 
 
-def get_url_results(url):
+def get_url_results(url, xpath):
     resp = requests.get(url)
     html = etree.HTML(resp.text.encode(resp.encoding).decode('utf-8'))
     return html.xpath(xpath)
 
 
 def get_html_xpath(url, xpath):
-    results = get_url_results(url)
+    results = get_url_results(url, xpath)
     result = list()
     for r in results:
         try:
@@ -34,7 +34,7 @@ def get_html_xpath(url, xpath):
 
 
 def get_html_url_xpath(url, xpath):
-    results = get_url_results(url)
+    results = get_url_results(url, xpath)
     result = list()
     for r in results:
         try:
