@@ -14,8 +14,9 @@ from datetime import datetime
 import asyncio
 import aiohttp
 import time
+import os
 
-FILE_PATH = '../../Test/file/picture/'
+FILE_PATH = './temp_{}_{}/'.format(__file__, int(datetime.now().timestamp()))
 
 
 def get_url_results(url, xpath):
@@ -67,6 +68,9 @@ async def get_html_url_xpath(url, xpath):
 
 
 def main():
+    if not os.path.exists(FILE_PATH):
+        os.makedirs(FILE_PATH)
+
     urls = [r['href'] for r in get_html_xpath(
         'https://www.doutula.com/', '//div[@class="col-sm-9 center-wrap"]/a')]
 

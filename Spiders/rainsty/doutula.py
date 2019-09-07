@@ -11,8 +11,9 @@
 import requests
 from lxml import etree
 from datetime import datetime
+import os
 
-FILE_PATH = '../../Test/file/picture/'
+FILE_PATH = './temp_{}_{}/'.format(__file__, int(datetime.now().timestamp()))
 
 
 def get_url_results(url, xpath):
@@ -49,15 +50,19 @@ def download_img(url):
     try:
         filename = url.split('/')[-1]
         file_path = FILE_PATH + filename
+        content = requests.get(url).content
 
         with open(file_path, 'wb') as w:
-            w.write(requests.get(url).content)
+            w.write(content)
 
     except BaseException as e:
         print('download_img error: ' + str(e))
 
 
 def main():
+    if not os.path.exists(FILE_PATH):
+        os.makedirs(FILE_PATH)
+
     urls = [r['href'] for r in get_html_xpath(
         'https://www.doutula.com/', '//div[@class="col-sm-9 center-wrap"]/a')]
 
