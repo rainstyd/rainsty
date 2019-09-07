@@ -1,2 +1,0 @@
-140.207.54.80:12706 - - [06/Dec/2018 19:10:30] "HTTP/1.1 POST /rain" - 200 OK
-80.82.70.187:58342 - - [06/Dec/2018 19:12:54] "HTTP/1.1 GET cache/global/img/gs.gif" - 404 Not Found
