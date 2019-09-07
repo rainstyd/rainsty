@@ -13,7 +13,6 @@ from lxml import etree
 from datetime import datetime
 import asyncio
 import aiohttp
-import time
 import os
 
 FILE_PATH = './temp_{}_{}/'.format(__file__, int(datetime.now().timestamp()))
