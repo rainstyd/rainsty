@@ -1,0 +1,19 @@
+Find Action
+Help
+Getting Started
+Keymap Reference
+Demos and Screencasts
+Tip os the Day
+Productivity Guide
+Report Problem
+Support Center
+Submit Feedback
+Show Log in Explorer
+Settings Summary
+Collect and Show Logs in Explorer
+Edit Custom Properties
+Edit Custom VM Options
+Debug Log Settings
+Register
+Check for Updates
+About

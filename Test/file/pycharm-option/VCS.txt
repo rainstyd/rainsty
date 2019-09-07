@@ -1,0 +1,9 @@
+Local History
+Enable Version Control Integration
+VCS Operations Popup
+Apply Patch
+Apply Patch from Clipboard
+Checkout form Version Control
+Import into Version Control
+Browse VCS Repository
+Sync Settings

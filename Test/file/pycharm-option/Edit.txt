@@ -1,0 +1,25 @@
+Undo
+Redo
+Cut
+Copy
+Copy Path
+Copy Relative Path
+Paste
+Paste from History
+Paste Simple
+Remove from Project View
+Find
+Macros
+Select All
+Extend Selection
+Shrink Selection
+Join Lines
+File Paragraph
+Duplicate Line or Selection
+Indent Selection
+Unindent Line or Selection
+Toggle Case
+Convert Indents
+Next Parameter
+Previous Parameter
+Encode XML/HTML Special Characters

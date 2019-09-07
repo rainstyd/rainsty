@@ -1,0 +1,197 @@
+Override Methods
+Implement Methods
+Generate
+Surround With
+Unwrap/Remove
+Completion
+Folding
+Insert Live Template
+Surround with Live Template
+Comment with Line Comment
+Comment with Block Comment
+Reformat Code
+Show reformat File Dialog
+Auto-Indent Lines
+Optimize Imports
+Rearrange Code
+Move Statement Down
+Move Statement up
+Move Element Left
+Move Element Right
+Move Line Down
+Move Line up
+Inspect Code
+Code Clearnup
+Run Inspection by Name
+Configure Current File Analysis
+View Offline Inspection Results
+Locate DuplicatesUndo
+Redo
+Cut
+Copy
+Copy Path
+Copy Relative Path
+Paste
+Paste from History
+Paste Simple
+Remove from Project View
+Find
+Macros
+Select All
+Extend Selection
+Shrink Selection
+Join Lines
+File Paragraph
+Duplicate Line or Selection
+Indent Selection
+Unindent Line or Selection
+Toggle Case
+Convert Indents
+Next Parameter
+Previous Parameter
+Encode XML/HTML Special CharactersNew Project
+New
+New Scratch File
+Open
+Open URL
+Save as
+Open Recent
+Close Project
+Rename Project
+Settings
+Default Settings
+Import Settings
+Export Settings
+Settings Repository
+Save All
+Synchronize
+Invalidate Cachew/Restart
+Export to HTML
+Print
+Add to Favorites
+File Encoding
+Line Separators
+Make Directory Read-only
+Power Save Mode
+ExitFind Action
+Help
+Getting Started
+Keymap Reference
+Demos and Screencasts
+Tip os the Day
+Productivity Guide
+Report Problem
+Support Center
+Submit Feedback
+Show Log in Explorer
+Settings Summary
+Collect and Show Logs in Explorer
+Edit Custom Properties
+Edit Custom VM Options
+Debug Log Settings
+Register
+Check for Updates
+AboutClass
+File
+Symbol
+Back
+Forward
+Last Edit Location
+Next Edit Location
+Bookmarks
+Select In
+Jump to Navigation Bar
+Declaration
+Implementation(s)
+Type Declaration
+Super Method
+Related Symbol
+File Structure
+Directory Path
+Type Hierarchy
+Method Hierarchy
+Call Hierarchy
+Next Highlighted Error
+Previous Highlighted Error
+Next Emmet Edit Point
+Previous Emmet Edit Point
+Next Method
+Previous MethodRefactor This
+Rename
+Change Signature
+Move
+Copy
+Safe Delete
+Extract
+Inline
+Invert Boolean
+Pull Members Up
+Push Members Down
+Convert to Python Package
+Convert to Python ModuleRun
+Debug
+Run with Coverage
+Profile
+Concurrency Diagram for
+Run
+Debug
+Attach to Local Process
+Edit Configurations
+Import Test Results
+Stop
+Show Running List
+Stop Background Processes
+Step Over
+Force Step Into
+Step Out
+Run to Cursor
+Force Run to Cursor
+Pause Program
+Resume Program
+Evaluate Expression
+Quick Evaluate Expression
+Show Execution Point
+Toggle Line Breakpoint
+Toggle Temporary Line Breakpoint
+Toggle Breakpoint Enabled
+View BreakpointsTasks & Contexts
+IDE Scripting Console
+Analyze Stacktrace
+Capture Memory Snapshot
+Python Console
+Create setup.py
+Show Code Coverage Data
+Deployment
+Test RESTful Web Service
+Start SSH session
+Vagrant
+Open CProfile snapshotLocal History
+Enable Version Control Integration
+VCS Operations Popup
+Apply Patch
+Apply Patch from Clipboard
+Checkout form Version Control
+Import into Version Control
+Browse VCS Repository
+Sync SettingsTool Windows
+Quick Documentation
+Recent Files
+Recently Changed Files
+Recent Changes
+Cmpare With
+Quick Switch Scheme
+Toolbar
+Tool Buttons
+Status Bar
+Navigation Bar
+Bidi Text Direction
+Enter Pressentation Mode
+Enter Distraction Free Mode
+Enter Full ScreenStore Current Layout as Default
+Restore Default Layout
+Active Tool Window
+Editor Tabs
+Notifications
+Background Tasks
+Next Project Window
+Previous Project Window

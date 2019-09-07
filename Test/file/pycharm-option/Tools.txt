@@ -1,0 +1,12 @@
+Tasks & Contexts
+IDE Scripting Console
+Analyze Stacktrace
+Capture Memory Snapshot
+Python Console
+Create setup.py
+Show Code Coverage Data
+Deployment
+Test RESTful Web Service
+Start SSH session
+Vagrant
+Open CProfile snapshot

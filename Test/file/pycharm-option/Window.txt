@@ -1,0 +1,8 @@
+Store Current Layout as Default
+Restore Default Layout
+Active Tool Window
+Editor Tabs
+Notifications
+Background Tasks
+Next Project Window
+Previous Project Window

@@ -1,0 +1,143 @@
+140.207.54.79:8758 - - [06/Dec/2018 15:22:41] "HTTP/1.1 POST /rain" - 200 OK
+140.207.54.80:56062 - - [06/Dec/2018 15:42:49] "HTTP/1.1 POST /rain" - 200 OK
+140.207.54.80:10232 - - [06/Dec/2018 16:28:16] "HTTP/1.1 POST /rain" - 200 OK
+140.207.54.80:44409 - - [06/Dec/2018 16:28:36] "HTTP/1.1 POST /rain" - 200 OK
+140.207.54.79:31367 - - [06/Dec/2018 16:29:17] "HTTP/1.1 POST /rain" - 200 OK
+140.207.54.79:56672 - - [06/Dec/2018 16:32:19] "HTTP/1.1 POST /rain" - 200 OK
+140.207.54.80:26890 - - [06/Dec/2018 16:34:23] "HTTP/1.1 POST /rain" - 200 OK
+140.207.54.80:47970 - - [06/Dec/2018 16:34:28] "HTTP/1.1 POST /rain" - 200 OK
+140.207.54.80:39188 - - [06/Dec/2018 16:36:47] "HTTP/1.1 POST /rain" - 200 OK
+140.207.54.80:27508 - - [06/Dec/2018 16:36:52] "HTTP/1.1 POST /rain" - 200 OK
+140.207.54.79:65344 - - [06/Dec/2018 16:36:55] "HTTP/1.1 POST /rain" - 200 OK
+140.207.54.80:18937 - - [06/Dec/2018 16:36:57] "HTTP/1.1 POST /rain" - 200 OK
+http://0.0.0.0:80/
+Handle Post webdata is  <xml><ToUserName><![CDATA[gh_749a88be6afb]]></ToUserName>
+<FromUserName><![CDATA[oUAe_53Hww5LwuskNY5-IH9nDq_Q]]></FromUserName>
+<CreateTime>1544080961</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[rfsdfd]]></Content>
+<MsgId>6631777230388410900</MsgId>
+</xml>
+Handle Post webdata is  <xml><ToUserName><![CDATA[gh_749a88be6afb]]></ToUserName>
+<FromUserName><![CDATA[oUAe_54mbvXfhrTqjtu6uvsGwdFU]]></FromUserName>
+<CreateTime>1544082169</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+暂且不处理
+Handle Post webdata is  <xml><ToUserName><![CDATA[gh_749a88be6afb]]></ToUserName>
+<FromUserName><![CDATA[oUAe_50WdR3w5_ehiiRjRyybiYRU]]></FromUserName>
+<CreateTime>1544084896</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+暂且不处理
+Handle Post webdata is  <xml><ToUserName><![CDATA[gh_749a88be6afb]]></ToUserName>
+<FromUserName><![CDATA[oUAe_5zdnkA4Xghoyk-WInB2BTBw]]></FromUserName>
+<CreateTime>1544084916</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+暂且不处理
+Handle Post webdata is  <xml><ToUserName><![CDATA[gh_749a88be6afb]]></ToUserName>
+<FromUserName><![CDATA[oUAe_5wSzQTTSrsb9Xw2yAkSz7Ds]]></FromUserName>
+<CreateTime>1544084957</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+暂且不处理
+Handle Post webdata is  <xml><ToUserName><![CDATA[gh_749a88be6afb]]></ToUserName>
+<FromUserName><![CDATA[oUAe_5wSzQTTSrsb9Xw2yAkSz7Ds]]></FromUserName>
+<CreateTime>1544085139</CreateTime>
+<MsgType><![CDATA[image]]></MsgType>
+<PicUrl><![CDATA[http://mmbiz.qpic.cn/mmbiz_jpg/jGMcl32vicBPaMiceY7gUqKGf4mp677KHKchcialQc5pUq26ibUeN3nuiayQ4DaG3047hibb2lF43W56MEequ7KP2WeA/0]]></PicUrl>
+<MsgId>6631795174761773590</MsgId>
+<MediaId><![CDATA[UmIjVDmAoygZnhgiI_Jz38nBwwi8iMZXFqpg_SZCD4DJC7sYizcuoVG8KGh4Pqfc]]></MediaId>
+</xml>
+Handle Post webdata is  <xml><ToUserName><![CDATA[gh_749a88be6afb]]></ToUserName>
+<FromUserName><![CDATA[oUAe_5wSzQTTSrsb9Xw2yAkSz7Ds]]></FromUserName>
+<CreateTime>1544085263</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[哈哈哈]]></Content>
+<MsgId>6631795707337718296</MsgId>
+</xml>
+Handle Post webdata is  <xml><ToUserName><![CDATA[gh_749a88be6afb]]></ToUserName>
+<FromUserName><![CDATA[oUAe_5wSzQTTSrsb9Xw2yAkSz7Ds]]></FromUserName>
+<CreateTime>1544085267</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[考虑咯牙]]></Content>
+<MsgId>6631795724517587482</MsgId>
+</xml>
+Handle Post webdata is  <xml><ToUserName><![CDATA[gh_749a88be6afb]]></ToUserName>
+<FromUserName><![CDATA[oUAe_5zdnkA4Xghoyk-WInB2BTBw]]></FromUserName>
+<CreateTime>1544085407</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[III]]></Content>
+<MsgId>6631796325813008924</MsgId>
+</xml>
+Handle Post webdata is  <xml><ToUserName><![CDATA[gh_749a88be6afb]]></ToUserName>
+<FromUserName><![CDATA[oUAe_5zdnkA4Xghoyk-WInB2BTBw]]></FromUserName>
+<CreateTime>1544085412</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[什么鬼]]></Content>
+<MsgId>6631796347287845406</MsgId>
+</xml>
+Handle Post webdata is  <xml><ToUserName><![CDATA[gh_749a88be6afb]]></ToUserName>
+<FromUserName><![CDATA[oUAe_5zdnkA4Xghoyk-WInB2BTBw]]></FromUserName>
+<CreateTime>1544085415</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[几睡觉睡觉]]></Content>
+<MsgId>6631796360172747296</MsgId>
+</xml>
+Handle Post webdata is  <xml><ToUserName><![CDATA[gh_749a88be6afb]]></ToUserName>
+<FromUserName><![CDATA[oUAe_5zdnkA4Xghoyk-WInB2BTBw]]></FromUserName>
+<CreateTime>1544085416</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[大姐大姐]]></Content>
+<MsgId>6631796364467714594</MsgId>
+</xml>
+Handle Post webdata is  <xml><ToUserName><![CDATA[gh_749a88be6afb]]></ToUserName>
+<FromUserName><![CDATA[oUAe_5zdnkA4Xghoyk-WInB2BT140.207.54.79:31596 - - [06/Dec/2018 16:36:58] "HTTP/1.1 POST /rain" - 200 OK
+140.207.54.79:11951 - - [06/Dec/2018 16:38:05] "HTTP/1.1 POST /rain" - 200 OK
+140.207.54.80:40389 - - [06/Dec/2018 16:40:48] "HTTP/1.1 POST /rain" - 200 OK
+140.207.54.80:62485 - - [06/Dec/2018 16:40:54] "HTTP/1.1 POST /rain" - 200 OK
+140.207.54.79:40865 - - [06/Dec/2018 16:41:04] "HTTP/1.1 POST /rain" - 200 OK
+140.207.54.80:19982 - - [06/Dec/2018 16:41:14] "HTTP/1.1 POST /rain" - 200 OK
+140.207.54.79:11235 - - [06/Dec/2018 16:42:57] "HTTP/1.1 POST /rain" - 200 OK
+223.166.222.108:5155 - - [06/Dec/2018 16:52:41] "HTTP/1.1 POST /rain" - 200 OK
+223.166.222.108:5037 - - [06/Dec/2018 17:17:21] "HTTP/1.1 POST /rain" - 200 OK
+223.166.222.108:5048 - - [06/Dec/2018 17:17:33] "HTTP/1.1 POST /rain" - 200 OK
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/web/application.py", line 239, in process
+    return self.handle()
+  File "/usr/lib/python2.7/site-packages/web/application.py", line 230, in handle
+    return self._delegate(fn, self.fvars, args)
+  File "/usr/lib/python2.7/site-packages/web/application.py", line 462, in _delegate
+    return handle_class(cls)
+  File "/usr/lib/python2.7/site-packages/web/application.py", line 438, in handle_class
+    return tocall(*args)
+  File "/opt/WeChatDYH/webapp/main/handle.py", line 38, in POST
+    with open('/files/handle.txt', 'w') as f:
+IOError: [Errno 2] No such file or directory: '/files/handle.txt'
+
+140.207.54.79:13638 - - [06/Dec/2018 17:26:52] "HTTP/1.1 POST /rain" - 500 Internal Server Error
+http://0.0.0.0:80/
+Traceback (most recent call last):
+  File "./main/main.py", line 13, in <module>
+    app.run()
+  File "/usr/lib/python2.7/site-packages/web/application.py", line 313, in run
+    return wsgi.runwsgi(self.wsgifunc(*middleware))
+  File "/usr/lib/python2.7/site-packages/web/wsgi.py", line 59, in runwsgi
+    return httpserver.runsimple(func, server_addr)
+  File "/usr/lib/python2.7/site-packages/web/httpserver.py", line 157, in runsimple
+    server.start()
+  File "/usr/lib/python2.7/site-packages/web/wsgiserver/__init__.py", line 1753, in start
+    raise socket.error(msg)
+socket.error: No socket could be created
+61.219.11.151:63927 - - [06/Dec/2018 17:29:21] "HTTP/1.1 GET /" - 404 Not Found
+140.207.54.80:45821 - - [06/Dec/2018 17:30:16] "HTTP/1.1 POST /rain" - 200 OK
+140.207.54.80:59200 - - [06/Dec/2018 17:32:19] "HTTP/1.1 POST /rain" - 200 OK

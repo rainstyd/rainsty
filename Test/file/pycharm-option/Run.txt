@@ -1,0 +1,27 @@
+Run
+Debug
+Run with Coverage
+Profile
+Concurrency Diagram for
+Run
+Debug
+Attach to Local Process
+Edit Configurations
+Import Test Results
+Stop
+Show Running List
+Stop Background Processes
+Step Over
+Force Step Into
+Step Out
+Run to Cursor
+Force Run to Cursor
+Pause Program
+Resume Program
+Evaluate Expression
+Quick Evaluate Expression
+Show Execution Point
+Toggle Line Breakpoint
+Toggle Temporary Line Breakpoint
+Toggle Breakpoint Enabled
+View Breakpoints

@@ -1,0 +1,25 @@
+New Project
+New
+New Scratch File
+Open
+Open URL
+Save as
+Open Recent
+Close Project
+Rename Project
+Settings
+Default Settings
+Import Settings
+Export Settings
+Settings Repository
+Save All
+Synchronize
+Invalidate Cachew/Restart
+Export to HTML
+Print
+Add to Favorites
+File Encoding
+Line Separators
+Make Directory Read-only
+Power Save Mode
+Exit

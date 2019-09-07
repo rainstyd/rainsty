@@ -1,0 +1,15 @@
+Tool Windows
+Quick Documentation
+Recent Files
+Recently Changed Files
+Recent Changes
+Cmpare With
+Quick Switch Scheme
+Toolbar
+Tool Buttons
+Status Bar
+Navigation Bar
+Bidi Text Direction
+Enter Pressentation Mode
+Enter Distraction Free Mode
+Enter Full Screen

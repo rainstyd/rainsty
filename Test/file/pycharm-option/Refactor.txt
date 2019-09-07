@@ -1,0 +1,13 @@
+Refactor This
+Rename
+Change Signature
+Move
+Copy
+Safe Delete
+Extract
+Inline
+Invert Boolean
+Pull Members Up
+Push Members Down
+Convert to Python Package
+Convert to Python Module

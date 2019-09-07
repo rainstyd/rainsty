@@ -1,0 +1,28 @@
+Override Methods
+Implement Methods
+Generate
+Surround With
+Unwrap/Remove
+Completion
+Folding
+Insert Live Template
+Surround with Live Template
+Comment with Line Comment
+Comment with Block Comment
+Reformat Code
+Show reformat File Dialog
+Auto-Indent Lines
+Optimize Imports
+Rearrange Code
+Move Statement Down
+Move Statement up
+Move Element Left
+Move Element Right
+Move Line Down
+Move Line up
+Inspect Code
+Code Clearnup
+Run Inspection by Name
+Configure Current File Analysis
+View Offline Inspection Results
+Locate Duplicates
