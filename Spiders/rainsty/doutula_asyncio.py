@@ -36,11 +36,6 @@ def get_html_xpath(url, xpath):
     return result
 
 
-async def save_img(content, file_path):
-    with open(file_path, 'wb') as w:
-        w.write(content)
-
-
 async def download_img(url):
     try:
         filename = url.split('/')[-1]
@@ -58,7 +53,8 @@ async def download_img(url):
         except BaseException as e:
             print('contant error:' + str(e))
 
-        await save_img(content, file_path)
+        with open(file_path, 'wb') as w:
+            w.write(content)
 
     except BaseException as e:
         print('download_img error: ' + str(e))
@@ -79,6 +75,7 @@ def main():
             url, '//li[@class="list-group-item"]//a/img')) for url in urls]
         loop = asyncio.get_event_loop()
         loop.run_until_complete(asyncio.wait(tasks))
+        loop.close()
     except BaseException as e:
         print('loop error: %s' % e)
 
