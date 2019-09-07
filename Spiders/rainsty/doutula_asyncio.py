@@ -48,10 +48,13 @@ async def download_img(url):
 
         content=""
         try:
-            async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
+            async with aiohttp.ClientSession(
+                connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
+
                 response = await session.get(url, timeout=60)
                 content = await response.read()
                 await session.close()
+
         except BaseException as e:
             print('contant error:' + str(e))
 
@@ -68,10 +71,12 @@ async def get_html_url_xpath(url, xpath):
 
 
 def main():
-    urls = [r['href'] for r in get_html_xpath('https://www.doutula.com/', '//div[@class="col-sm-9 center-wrap"]/a')]
+    urls = [r['href'] for r in get_html_xpath(
+        'https://www.doutula.com/', '//div[@class="col-sm-9 center-wrap"]/a')]
 
     try:
-        tasks = [asyncio.ensure_future(get_html_url_xpath(url, '//li[@class="list-group-item"]//a/img')) for url in urls]
+        tasks = [asyncio.ensure_future(get_html_url_xpath(
+            url, '//li[@class="list-group-item"]//a/img')) for url in urls]
         loop = asyncio.get_event_loop()
         loop.run_until_complete(asyncio.wait(tasks))
     except BaseException as e:
