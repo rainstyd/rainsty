@@ -1,7 +1,10 @@
 " Rainsty Vim Config
+" scp thisfile user@host:/~/
 " mkdir ~/.vim
+" mv ~/vimrc ~/.vim/
 " git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
+" vim
+" :PluginInstall
 
 " Vundle ------------------------------------------------------
 set nocompatible
