@@ -15,24 +15,14 @@
 function pythonLib(){
     gcc --version
     if [ ! $? -eq 0 ];then
-        yum -y install gcc
+        sudo apt-get -y install gcc
     fi
-    zlib_devel=`rpm -qa|grep zlib-devel`
-    if [ -z $zlib_devel ];then
-        echo "Installing lib zlib..."
-        yum -y install zlib*
-    fi
-    openssl_devel=`rpm -qa|grep openssl-devel`
-    if [ -z $openssl_devel ];then
-        echo "Installing lib openssl-devel..."
-        yum -y install openssl
-        yum -y install openssl-devel
-    fi
-    sqlite_devel=`rpm -qa|grep sqlite-devel`
-    if [ -z $sqlite_devel ];then
-        echo "Installing lib sqlite..."
-        yum -y install sqlite-devel
-    fi
+    sudo apt-get -y install zlib*
+    sudo apt-get -y install openssl
+    sudo apt-get -y install libssl-dev
+    sudo apt-get -y install libsqlite3-dev
+    sudo apt-get -y install build-essential checkinstall libc6-dev libbz2-dev
+    sudo apt-get -y install libreadline-gplv2-dev libncursesw5-dev tk-dev libgdbm-dev
 }
 
 function pythonPage(){
@@ -48,21 +38,19 @@ function pythonMake(){
     fileName=`echo $pageName|awk -F ".tgz" '{print $1}'`
     installPath=`pwd`
     cd $fileName
-    ./configure --prefix=$installPath --enable-optimizations --with-ssl
+    ./configure --prefix=$installPath --enable-optimizations --with-ssl --enable-shared CFLAGS=-fPIC
     make
     make install
+    echo "$installPath/lib/" > /etc/ld.so.conf.d/$fileName.conf
+    ldconfig
     cd $installPath
 }
 
 function install(){
-    yum --version
-    if [ ! $? -eq 0 ];then
-        echo "Command yum is not found!"
-        exit 1
-    fi
     pythonLib
     if [ ! $? -eq 0 ];then
-        echo "yum installation error!"
+        echo "Error: Installation libs error!"
+        echo "Please check if there is a download source available!"
         exit 1
     fi
     pythonPage

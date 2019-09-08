@@ -27,12 +27,16 @@ function pythonLib(){
         echo "Installing lib openssl-devel..."
         yum -y install openssl
         yum -y install openssl-devel
+        yum -y install openssl-static
     fi
     sqlite_devel=`rpm -qa|grep sqlite-devel`
     if [ -z $sqlite_devel ];then
         echo "Installing lib sqlite..."
+        yum -y install sqlite
         yum -y install sqlite-devel
     fi
+    yum -y install bzip2 bzip2-devel ncurses lzma libffi-devel
+    yum -y install gdbm gdbm-devel tk tk-devel xz xz-devel
 }
 
 function pythonPage(){
@@ -48,9 +52,11 @@ function pythonMake(){
     fileName=`echo $pageName|awk -F ".tgz" '{print $1}'`
     installPath=`pwd`
     cd $fileName
-    ./configure --prefix=$installPath --enable-optimizations --with-ssl
+    ./configure --prefix=$installPath --enable-optimizations --with-ssl --enable-shared CFLAGS=-fPIC
     make
     make install
+    echo "$installPath/lib/" > /etc/ld.so.conf.d/$fileName.conf
+    ldconfig
     cd $installPath
 }
 
