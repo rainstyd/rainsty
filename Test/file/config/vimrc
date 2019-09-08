@@ -1,4 +1,7 @@
 " Rainsty Vim Config
+" mkdir ~/.vim
+" git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 
 " Vundle ------------------------------------------------------
 set nocompatible
@@ -21,7 +24,6 @@ call vundle#begin()
     Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 filetype plugin indent on
-
 
 " nerdtree ----------------------------------------------------
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
