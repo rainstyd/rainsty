@@ -29,7 +29,18 @@ def ssq_data():
 
 def main():
     print(ssq_data())
-    df = pd.read_csv(save_path)
+    df = pd.read_csv(save_path, sep=' ')
+    print(df)
+    print(df.shape)
+    print(df.info())
+    print(df.dtypes)
+    print(df['six'].dtype)
+    print(df.isnull())
+    print(df.columns)
+    print(df.head(10))
+    print(df.tail(10))
+    df['row_sum'] = df.apply(lambda x: x.sum(), axis=1)
+    df.loc['col_sum'] = df.apply(lambda x: x.sum())
     print(df)
 
 
