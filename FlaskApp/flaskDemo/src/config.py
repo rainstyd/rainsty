@@ -16,5 +16,4 @@ class Config(object):
 
 
 class MainConfig(Config):
-    SECRET_KEY = 'fj4si7ak45hd9bfs7akj1b6k4b7b8k8b4k'
-    RSA_KEY = 'fl9sfd8in3b6uib7vd7hau5eb9k1kj23054h6hub7bhd0alm'
+    SECRET_KEY = 'fj4si7fd3ak45h454yd9tr7hh75bfs7akj1b6k4bhf5f7bh5fh8khg9hg8b4k'

@@ -9,7 +9,7 @@
 """
 
 from flask import Flask
-from .main import api as main
+from src.controller.main import api as main
 
 
 def create_app(config):
@@ -19,5 +19,5 @@ def create_app(config):
 
 
 def register_blueprint(app):
-    app.register_blueprint(main, url_prefix='')
+    app.register_blueprint(main, url_prefix='/main')
     return app
