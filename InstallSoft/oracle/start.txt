@@ -1,0 +1,20 @@
+
+docker run -it -d -p 1521:1521 --name oracle oracleinanutshell/oracle-xe-11g
+docker exec -it oracle bash
+
+
+CREATE TABLESPACE rainsty LOGGING DATAFILE '/u01/app/oracle/oradata/XE/rainsty.dbf' SIZE 10M AUTOEXTEND ON NEXT 3M MAXSIZE 50M EXTENT MANAGEMENT LOCAL;
+
+
+create temporary TABLESPACE rainsty_temp tempfile '/u01/app/oracle/oradata/XE/rainsty_temp.dbf' SIZE 10M AUTOEXTEND ON NEXT 3M MAXSIZE 50M EXTENT MANAGEMENT LOCAL;
+
+
+CREATE USER rainsty IDENTIFIED BY "123456" DEFAULT TABLESPACE rainsty TEMPORARY TABLESPACE rainsty_temp;
+
+
+grant connect,resource,dba to rainsty;
+grant create session to rainsty;
+
+
+select name from v$database;
+select table_name from user_tables order by Table_name;
