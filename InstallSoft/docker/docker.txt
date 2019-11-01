@@ -1,9 +1,0 @@
-# docker 开启mysql容器binlog日志
-docker run --name mysql_test002 -p 3308:3306 -e MYSQL_ROOT_PASSWORD=rainsty -d mysql:5.7.20
-docker exec mysql_test002 bash -c "echo 'log-bin=/var/lib/mysql/mysql-bin' >> /etc/mysql/mysql.conf.d/mysqld.cnf"
-docker exec mysql_test002 bash -c "echo 'binlog-format=ROW' >> /etc/mysql/mysql.conf.d/mysqld.cnf"
-docker exec mysql_test002 bash -c "echo 'server-id=123454' >> /etc/mysql/mysql.conf.d/mysqld.cnf"
-docker restart mysql_test002
-docker exec -it mysql_test002 /bin/bash
-mysql -uroot -prainsty
-grant all privileges  on *.* to root@'%' identified by "rainsty";

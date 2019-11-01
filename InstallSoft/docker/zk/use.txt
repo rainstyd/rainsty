@@ -8,4 +8,13 @@ cd ./docker/kafka/
 docker-compose -f kafka.yml up -d
 
 # 3: 执行下面命令修改kafka参数，请求大小
+docker exec canal_kafka1 bash -c "echo -e '\nmessage.max.bytes=10485760' >> /opt/bitnami/kafka/config/server.properties"
+docker exec canal_kafka1 bash -c "sed -i 's|#max.request.size=|max.request.size=10485760|g' /opt/bitnami/kafka/config/producer.properties"
+docker exec canal_kafka1 bash -c "echo -e '\nfetch.max.bytes=10485760' >> /opt/bitnami/kafka/config/consumer.properties"
+
+docker exec canal_kafka2 bash -c "echo -e '\nmessage.max.bytes=10485760' >> /opt/bitnami/kafka/config/server.properties"
+docker exec canal_kafka2 bash -c "sed -i 's|#max.request.size=|max.request.size=10485760|g' /opt/bitnami/kafka/config/producer.properties"
+docker exec canal_kafka2 bash -c "echo -e '\nfetch.max.bytes=10485760' >> /opt/bitnami/kafka/config/consumer.properties"
+
+docker restart canal_kafka1 canal_kafka2
 

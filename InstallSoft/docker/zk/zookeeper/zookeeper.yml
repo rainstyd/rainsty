@@ -7,7 +7,7 @@ services:
     hostname: canal_zoo1
     container_name: canal_zoo1
     ports:
-      - 2181:2181
+      - 2281:2181
     environment:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=canal_zoo1:2888:3888 server.2=canal_zoo2:2888:3888
@@ -21,7 +21,7 @@ services:
     hostname: canal_zoo2
     container_name: canal_zoo2
     ports:
-      - 2182:2181
+      - 2282:2181
     environment:
       ZOO_MY_ID: 2
       ZOO_SERVERS: server.1=canal_zoo1:2888:3888 server.2=canal_zoo2:2888:3888

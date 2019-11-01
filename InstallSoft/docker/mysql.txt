@@ -13,6 +13,7 @@ docker restart mysql1 mysql2
 
 docker exec -it mysql1 bash
 mysql -uroot -prainsty
+# grant all privileges  on *.* to root@'%' identified by "rainsty";
 GRANT REPLICATION SLAVE ON *.* TO'slave'@'%' identified by 'slave';
 FLUSH PRIVILEGES;
 SHOW MASTER STATUS;
