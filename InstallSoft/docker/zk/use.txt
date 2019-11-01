@@ -16,5 +16,9 @@ docker exec canal_kafka2 bash -c "echo -e '\nmessage.max.bytes=10485760' >> /opt
 docker exec canal_kafka2 bash -c "sed -i 's|#max.request.size=|max.request.size=10485760|g' /opt/bitnami/kafka/config/producer.properties"
 docker exec canal_kafka2 bash -c "echo -e '\nfetch.max.bytes=10485760' >> /opt/bitnami/kafka/config/consumer.properties"
 
+# 4: 设置kafka数据缓存时长
+docker exec canal_kafka1 bash -c "sed -i 's|log.retention.hours=168|log.retention.hours=720|g' /opt/bitnami/kafka/config/server.properties"
+docker exec canal_kafka2 bash -c "sed -i 's|log.retention.hours=168|log.retention.hours=720|g' /opt/bitnami/kafka/config/server.properties"
+
 docker restart canal_kafka1 canal_kafka2
 
