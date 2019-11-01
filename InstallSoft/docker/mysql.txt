@@ -1,0 +1,31 @@
+
+docker network create --subnet=172.20.0.0/16 mysql
+
+docker run --name mysql1 --net mysql --ip 172.20.0.2 -p 3307:3306 -e MYSQL_ROOT_PASSWORD=rainsty -d mysql:5.7.20
+docker run --name mysql2 --net mysql --ip 172.20.0.3 -p 3308:3306 -e MYSQL_ROOT_PASSWORD=rainsty -d mysql:5.7.20
+
+docker exec mysql1 bash -c "echo 'log-bin=/var/lib/mysql/mysql-bin.log' >> /etc/mysql/mysql.conf.d/mysqld.cnf"
+docker exec mysql1 bash -c "echo 'binlog-format=STATEMENT' >> /etc/mysql/mysql.conf.d/mysqld.cnf"
+docker exec mysql1 bash -c "echo 'server-id=10001' >> /etc/mysql/mysql.conf.d/mysqld.cnf"
+docker exec mysql2 bash -c "echo 'server-id=10002' >> /etc/mysql/mysql.conf.d/mysqld.cnf"
+
+docker restart mysql1 mysql2
+
+docker exec -it mysql1 bash
+mysql -uroot -prainsty
+GRANT REPLICATION SLAVE ON *.* TO'slave'@'%' identified by 'slave';
+FLUSH PRIVILEGES;
+SHOW MASTER STATUS;
+show variables like '%binlog_format%';
+
+docker exec -it mysql2 bash
+mysql -uroot -prainsty
+
+change master to master_host='172.20.0.2', master_user='slave', master_password='slave',master_log_file='mysql-bin.000001', master_log_pos=590;
+start slave;
+show slave status \G
+
+
+docker exec mysql1 bash -c "sed -i 's|binlog-format=STATEMENT|binlog-format=ROW|g' /etc/mysql/mysql.conf.d/mysqld.cnf"
+docker restart mysql1
+
