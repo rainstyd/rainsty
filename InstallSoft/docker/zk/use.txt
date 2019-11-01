@@ -1,0 +1,11 @@
+# 1: 安装zookeeper，kafka
+docker network create --subnet=172.131.45.20/16 canal_zk_network
+
+# 2:下面2个yml文件需要修改, port防止冲突
+cd ./docker/zookeeper/
+docker-compose -f zookeeper.yml up -d
+cd ./docker/kafka/
+docker-compose -f kafka.yml up -d
+
+# 3: 执行下面命令修改kafka参数，请求大小
+
