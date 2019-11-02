@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+# encoding: utf-8
+
+"""
+@author: rainsty
+@file:   ${NAME}.py
+@time:   ${DATE} ${TIME}:29
+@description:
+"""
+
