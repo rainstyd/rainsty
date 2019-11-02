@@ -1,0 +1,3 @@
+# deepin 英文版安装google中文输入法
+sudo apt-get install fcitx-googlepinyin
+im-config
