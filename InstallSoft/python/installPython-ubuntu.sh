@@ -71,8 +71,8 @@ function Main(){
     cd /usr/local/bin
     lnName="./python3"
     if [ ! -e $lnName ];then
-        ln -s $installPath/bin/python3 python3
-        ln -s $installPath/bin/pip3 pip3
+        sudo ln -s $installPath/bin/python3 python3
+        sudo ln -s $installPath/bin/pip3 pip3
         if [ $? -eq 0 ];then
             echo "Soft link creation successful!"
         else
