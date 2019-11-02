@@ -1,4 +1,4 @@
-version: '2'
+version: '2.0'
 
 services:
   canal_kafka1:
@@ -17,7 +17,7 @@ services:
       - canal_zoo2
     networks:
       canal_zk_network:
-        ipv4_address: 172.131.45.23
+        ipv4_address: 131.45.20.13
 
   canal_kafka2:
     image: 'bitnami/kafka:latest'
@@ -35,7 +35,7 @@ services:
       - canal_zoo2
     networks:
       canal_zk_network:
-        ipv4_address: 172.131.45.24
+        ipv4_address: 131.45.20.14
 
 networks:
   canal_zk_network:

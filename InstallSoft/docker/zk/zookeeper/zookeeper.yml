@@ -13,7 +13,7 @@ services:
       ZOO_SERVERS: server.1=canal_zoo1:2888:3888 server.2=canal_zoo2:2888:3888
     networks:
       canal_zk_network:
-          ipv4_address: 172.131.45.21
+          ipv4_address: 131.45.20.11
 
   canal_zoo2:
     image: zookeeper:3.4.11
@@ -27,7 +27,7 @@ services:
       ZOO_SERVERS: server.1=canal_zoo1:2888:3888 server.2=canal_zoo2:2888:3888
     networks:
       canal_zk_network:
-          ipv4_address: 172.131.45.22
+          ipv4_address: 131.45.20.12
 
 networks:
   canal_zk_network:
