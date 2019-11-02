@@ -1,7 +1,6 @@
 #!/bin/bash
 # cd /usr/local/share
 # --upload python.tar.gz
-# tar -zxvf python.tar.gz
 # tree
 #   .
 #   └── python
