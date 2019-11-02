@@ -40,8 +40,10 @@ function pythonMake(){
     ./configure --prefix=$installPath --enable-optimizations --with-ssl --enable-shared CFLAGS=-fPIC
     make
     make install
+    sudo touch /etc/ld.so.conf.d/$fileName.conf
+    sudo chmod 777 /etc/ld.so.conf.d/$fileName.conf
     echo "$installPath/lib/" > /etc/ld.so.conf.d/$fileName.conf
-    ldconfig
+    sudo ldconfig
     cd $installPath
 }
 
