@@ -12,6 +12,7 @@
 # --> -rw-r--r--  1 root root   77 Sep  8 20:49 installVim-ubuntu.sh
 # --> drwxr-xr-x 11 root root 4096 Sep  8 20:52 vim/
 # --> root@rainsty:~/vim#
+# update this file python_config_dir="Your python3 config path"
 # ./installVim-ubuntu.sh
 
 
@@ -30,12 +31,12 @@ function vimPage(){
 
 
 function vimMake(){
-    python_config_dir="~/python/lib/python3.6/config-3.6m-x86_64-linux-gnu"
+    python_config_dir="~/python/lib/python3.8/config-3.8-x86_64-linux-gnu"
     vim_install_dir=`pwd`
     cd $vim_install_dir/vim
     ./configure --with-features=huge --enable-multibyte --enable-python3interp=yes --with-python3-config-dir=$python_config_dir --enable-gui=gtk2 --enable-cscope --prefix=$vim_install_dir
-    make
-    make install
+    sudo make
+    sudo make install
     $vim_install_dir/bin/vim --version
 }
 
@@ -49,7 +50,7 @@ function main(){
     exit 1
         else
             echo "vim installation successful!"
-            ln -s $vim_install_dir/bin/vim /usr/local/bin/vim
+            sudo ln -s $vim_install_dir/bin/vim /usr/local/bin/vim
     fi
 }
 
