@@ -19,6 +19,7 @@ function pythonLib(){
     sudo apt-get -y install zlib*
     sudo apt-get -y install openssl
     sudo apt-get -y install libssl-dev
+    sudo apt-get -y install libffi-dev
     sudo apt-get -y install libsqlite3-dev
     sudo apt-get -y install build-essential checkinstall libc6-dev libbz2-dev
     sudo apt-get -y install libreadline-gplv2-dev libncursesw5-dev tk-dev libgdbm-dev
