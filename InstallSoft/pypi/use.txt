@@ -2,9 +2,8 @@
 pip3 install wheel
 pip3 install twine
 
-python setup.py sdist bdist_wheel
-python setup.py register
-
+python3 setup.py sdist bdist_wheel
 twine upload dist/*
-rm -rf build dist src/rainsty.egg-info
+
+rm -rf build dist rainsty.egg-info
 

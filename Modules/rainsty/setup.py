@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# encoding: utf-8
+# -*- coding: utf-8 -*-
 
 """
 @author: rainsty
@@ -7,19 +7,25 @@
 @time:   2019-11-03 20:35:27
 @description:
 """
+
 import os
 import codecs
-from distutils.core import setup
-from setuptools import find_packages
+try:
+    from setuptools import setup
+except BaseException as e:
+    print(e)
+    from distutils.core import setup
 
 
-def read(fname):
-    return codecs.open(os.path.join(os.path.dirname(__file__), fname)).read()
+def read(name):
+    file_name = os.path.dirname(__file__)
+    result = codecs.open(os.path.join(file_name, name)).read()
+    return result
 
 
 setup(
     name='rainsty',
-    version='0.0.1',
+    version='0.0.2',
     description='This is Residual Mark`s Project.',
     long_description=read('README.md'),
     author='rainsty',
@@ -33,8 +39,7 @@ setup(
         'Intended Audience :: Developers',
         'Operating System :: OS Independent'
     ],
-    keywords='',
-    packages=find_packages('src'),
-    package_dir={'': 'src'}
+    keywords='Python',
+    packages=['rainsty']
 )
 

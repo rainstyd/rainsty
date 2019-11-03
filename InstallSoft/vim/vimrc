@@ -106,7 +106,7 @@ func SetTitle()
 
     if &filetype == 'python'
         call setline(1,"\#!/usr/bin/python")
-        call append(line("."), "\# encoding: utf-8")
+        call append(line("."), "\# -*- coding: utf-8 -*-")
         call append(line(".")+1, "")
         call append(line(".")+2, "\"\"\"")
         call append(line(".")+3, "@author: rainsty")
