@@ -9,7 +9,6 @@
 """
 
 import os
-import codecs
 try:
     from setuptools import setup
 except BaseException as e:
@@ -17,29 +16,26 @@ except BaseException as e:
     from distutils.core import setup
 
 
-def read(name):
-    file_name = os.path.dirname(__file__)
-    result = codecs.open(os.path.join(file_name, name)).read()
-    return result
+with open("README.md", "r") as fh:
+        long_description = fh.read()
 
 
 setup(
     name='rainsty',
-    version='0.0.2',
-    description='This is Residual Mark`s Project.',
-    long_description=read('README.md'),
+    version='0.0.3',
     author='rainsty',
     author_email='1285679912@qq.com',
+    description='This is Residual Mark`s Project.',
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     url='https://github.com/Rainstyed/rainsty/tree/master/Modules/rainsty',
-    license='',
-    install_requires=[],
+    packages=['src'],
     classifiers=[
-        'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python',
-        'Intended Audience :: Developers',
-        'Operating System :: OS Independent'
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
     ],
-    keywords='Python',
-    packages=['rainsty']
+    python_requires='>=3.6',
+
 )
 
