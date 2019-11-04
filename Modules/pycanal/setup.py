@@ -22,7 +22,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='pycanal',
-    version='0.0.3',
+    version='0.0.1',
     author='rainsty',
     author_email='1285679912@qq.com',
     description='Alibaba-canal to sql.',
@@ -35,7 +35,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.5',
 
 )
 
