@@ -22,14 +22,14 @@ with open("README.md", "r") as fh:
 
 setup(
     name='rainsty',
-    version='0.0.4',
+    version='0.0.5',
     author='rainsty',
     author_email='1285679912@qq.com',
     description='This is Residual Mark`s Project.',
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://github.com/Rainstyed/rainsty/tree/master/Modules/rainsty',
-    packages=['src'],
+    packages=['rainsty'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

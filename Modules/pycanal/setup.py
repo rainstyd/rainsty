@@ -22,14 +22,14 @@ with open("README.md", "r") as fh:
 
 setup(
     name='pycanal',
-    version='0.0.1',
+    version='0.0.2',
     author='rainsty',
     author_email='1285679912@qq.com',
     description='Alibaba-canal to sql.',
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://github.com/Rainstyed/rainsty/tree/master/Modules/pycanal',
-    packages=['src'],
+    packages=['pycanal'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
