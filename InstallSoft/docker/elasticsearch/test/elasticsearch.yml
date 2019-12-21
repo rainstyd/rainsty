@@ -1,0 +1,63 @@
+version: '2'
+services:
+  es-01:
+    image: elasticsearch:6.8.4
+    container_name: es_01
+    restart: always
+    environment:
+      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./data/es-01:/usr/share/elasticsearch/data
+      - ./config/es-01/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ./logs/es-01:/usr/share/elasticsearch/logs
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - es_net
+
+  es-02:
+    image: elasticsearch:6.8.4
+    container_name: es_02
+    restart: always
+    environment:
+      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./data/es-02:/usr/share/elasticsearch/data
+      - ./config/es-02/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ./logs/es-02:/usr/share/elasticsearch/logs
+    depends_on:
+      - es-01
+    networks:
+      - es_net
+
+  es-03:
+    image: elasticsearch:6.8.4
+    container_name: es_03
+    restart: always
+    environment:
+      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./data/es-03:/usr/share/elasticsearch/data
+      - ./config/es-03/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ./logs/es-03:/usr/share/elasticsearch/logs
+    depends_on:
+      - es-01
+    networks:
+      - es_net
+
+networks:
+  es_net:
+

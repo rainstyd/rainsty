@@ -1,0 +1,18 @@
+# client节点(客户端节点)
+cluster.name: es-cluster
+node.name: es-03
+node.master: true
+node.data: true
+path.data: /usr/share/elasticsearch/data
+path.logs: /usr/share/elasticsearch/logs
+bootstrap.memory_lock: true
+network.host: 0.0.0.0
+http.port: 9200
+transport.tcp.port: 9300
+discovery.zen.ping.unicast.hosts: ["es_01", "es_02", "es_03"]
+discovery.zen.minimum_master_nodes: 2
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+
+xpack.security.enabled: false
+xpack.security.transport.ssl.enabled: false

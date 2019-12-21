@@ -9,7 +9,8 @@ services:
     ports:
       - 2281:2181
     volumes:
-      - ./canal_zoo1_data:/data
+      - ./data/canal_zoo1_data:/data
+      - ./logs/canal_zoo1_datalog:/datalog
     environment:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=canal_zoo1:2888:3888 server.2=canal_zoo2:2888:3888
@@ -24,7 +25,8 @@ services:
     ports:
       - 2282:2181
     volumes:
-      - ./canal_zoo2_data:/data
+      - ./data/canal_zoo2_data:/data
+      - ./logs/canal_zoo2_datalog:/datalog
     environment:
       ZOO_MY_ID: 2
       ZOO_SERVERS: server.1=canal_zoo1:2888:3888 server.2=canal_zoo2:2888:3888
@@ -38,16 +40,18 @@ services:
     volumes:
       - ./producer.properties:/opt/kafka/config/producer.properties
       - ./consumer.properties:/opt/kafka/config/consumer.properties
+      - ./logs/canal_kafka1_logs:/opt/kafka/logs
+      - ./data/canal_kafka1:/kafka
     hostname: canal_kafka1
     container_name: canal_kafka1
     environment:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://127.0.0.1:9192
       KAFKA_MESSAGE_MAX_BYTES: 10485670
-      KAFKA_LOG_RETENTION_HOURS: 720
+      KAFKA_LOG_RETENTION_HOURS: 168
       KAFKA_ZOOKEEPER_CONNECT: canal_zoo1:2181,canal_zoo2:2181
       KAFKA_BROKER_ID: 1
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
-      # KAFKA_CREATE_TOPICS: "canal_topic_database:1:2"
+      # KAFKA_CREATE_TOPICS: "dc_info:1:2"
     depends_on:
       - canal_zoo1
       - canal_zoo2
@@ -61,12 +65,14 @@ services:
     volumes:
       - ./producer.properties:/opt/kafka/config/producer.properties
       - ./consumer.properties:/opt/kafka/config/consumer.properties
+      - ./logs/canal_kafka2_logs:/opt/kafka/logs
+      - ./data/canal_kafka2:/kafka
     hostname: canal_kafka2
     container_name: canal_kafka2
     environment:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://127.0.0.1:9193
       KAFKA_MESSAGE_MAX_BYTES: 10485670
-      KAFKA_LOG_RETENTION_HOURS: 720
+      KAFKA_LOG_RETENTION_HOURS: 168
       KAFKA_ZOOKEEPER_CONNECT: canal_zoo1:2181,canal_zoo2:2181
       KAFKA_BROKER_ID: 2
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
@@ -81,3 +87,4 @@ networks:
   canal_zk_network:
     external:
       name: canal_zk_network
+
