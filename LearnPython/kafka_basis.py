@@ -3,41 +3,47 @@
 
 """
 @author: rainsty
-@file:  kafka_basis.py
-@time:   2019-09-23 13:51:38
+@file:   test_kafka.py
+@time:   2019-11-01 09:52:29
 @description:
 """
 
-import pykafka
 from kafka import KafkaConsumer
 from pykafka import KafkaClient
 from datetime import datetime
 import json
 
-host = '127.0.0.1'
+host = '47.99.139.144'
+port = 9192
+topic_name = 'rainsty'
+group_id = 'rainsty'
 
 
 def get_topic():
-    client = KafkaClient(hosts='{}:9192,{}:9193'.format(host, host))
+    client = KafkaClient(hosts='{}:{}'.format(host, port))
     print(client.topics)
-    topic = client.topics['rainsty']
+    topic = client.topics[topic_name]
     print(topic)
 
 
 def get_message():
     consumer = KafkaConsumer(
-        'rainsty',
-        group_id='rainsty_0001',
+        topic_name,
+        group_id=group_id,
         auto_offset_reset='earliest',
-        bootstrap_servers=['{}:9192'.format(host), '{}:9193'.format(host)]
+        bootstrap_servers=['{}:{}'.format(host, port)]
     )
+    print('start............................................')
     for message in consumer:
         try:
+
             message = json.loads(message.value.decode('utf-8'))
             print(message)
+            break
         except BaseException as e:
             print('{}: {}'.format(datetime.now(), e))
             continue
+
 
 def main():
     get_topic()
@@ -46,4 +52,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
