@@ -11,3 +11,13 @@
 from elasticsearch import Elasticsearch
 import requests
 
+"""
+CURL:
+    
+
+elasticsearch:
+
+
+requests:
+
+"""
