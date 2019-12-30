@@ -8,3 +8,6 @@
 @description:
 """
 
+msg = {
+    0: '成功',
+}
