@@ -15,6 +15,7 @@ from src.middleware.middleware import AuthMiddleware
 
 def create_app(config):
     app = falcon.API(middleware=[AuthMiddleware(config)])
+    app.req_options.auto_parse_form_urlencoded = True
     app = add_route(app, config)
 
     return app

@@ -16,6 +16,8 @@ from configparser import ConfigParser
 class AppConfig(object):
 
     base_path = os.path.dirname(os.path.dirname(__file__))
+    sqlite_db_path = r'sqlite:///{}'.format(os.path.join(base_path, 'sqlite.db'))
+
     log_dir_name = 'logs'
     log_file_name = 'falconApp.log'
 
@@ -28,3 +30,5 @@ class AppConfig(object):
 
     logger = logger.Logger(base_path, log_dir_name, log_file_name)
     logger = logger.get_logger()
+
+    SECRET_KEY = 'fds545jjl665jni222nbi779bla110jnl335'

@@ -8,10 +8,15 @@
 @description:
 """
 
+from src.controller.user import user
 from src.controller.test import test
 
 
 def add_route(app, config):
+
+    # auth
+    app.add_route('/', user.UserLogin(config))
+    app.add_route(config.route_path + '/login', user.UserLogin(config))
 
     # /test
     app.add_route(config.route_path + '/test/main', test.TestMain(config))

@@ -10,6 +10,7 @@
 
 import falcon
 import json
+from src.code import msg
 
 
 class TestMain(object):
@@ -20,11 +21,16 @@ class TestMain(object):
 
     def on_get(self, req, resp):
 
-        self.logger.info(req)
-        self.logger.info(req.params)
-        # marker = req.get_param('marker') or ''
-        # limit = req.get_param_as_int('limit') or 50
+        req_body = req.params
+        self.logger.info(req_body)
 
-        resp.set_header('Powered-By', 'Falcon')
         resp.status = falcon.HTTP_200
-        resp.body = json.dumps({'a': 'b'})
+        resp.body = json.dumps(dict(code=0, msg=msg[0], data={'a': 'b'}))
+
+    def on_post(self, req, resp):
+
+        req_body = req.body
+        self.logger.info(req_body)
+
+        resp.status = falcon.HTTP_200
+        resp.body = json.dumps(dict(code=0, msg=msg[0], data={'c': 'd'}))
