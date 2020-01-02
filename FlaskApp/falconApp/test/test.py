@@ -33,7 +33,7 @@ class APITest(InterfaceTest):
 
 
 if __name__ == '__main__':
-    api = APITest('http://{}:{}/api/'.format(test_host, test_port), version)
+    api = APITest('http://{}:{}/api/'.format(test_host, test_port), version, is_login=True)
 
     # test
     # api.test_login()
