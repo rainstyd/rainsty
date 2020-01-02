@@ -24,8 +24,7 @@ class UserLogin(object):
 
     def on_get(self, req, resp):
         # 首页
-        req_body = req.params
-        self.logger.info(req_body)
+        self.logger.info(req.body)
 
         resp.status = falcon.HTTP_200
         resp.body = json.dumps(dict(code=0, msg='hello, world!'))

@@ -21,16 +21,14 @@ class TestMain(object):
 
     def on_get(self, req, resp):
 
-        req_body = req.params
-        self.logger.info(req_body)
+        self.logger.info(req.body)
 
         resp.status = falcon.HTTP_200
         resp.body = json.dumps(dict(code=0, msg=msg[0], data={'a': 'b'}))
 
     def on_post(self, req, resp):
 
-        req_body = req.body
-        self.logger.info(req_body)
+        self.logger.info(req.body)
 
         resp.status = falcon.HTTP_200
         resp.body = json.dumps(dict(code=0, msg=msg[0], data={'c': 'd'}))
