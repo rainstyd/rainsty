@@ -12,9 +12,9 @@ import os
 from pyspark.sql import SparkSession
 
 os.environ['JAVA_HOME'] = '/root/jdk'
+os.environ['SPARK_HOME'] = '/root/spark'
 os.environ['PYTHON_HOME'] = "/root/python"
 os.environ['PYSPARK_PYTHON'] = "/usr/bin/python"
-os.environ['SPARK_HOME'] = '/root/spark'
 os.environ['SPARK_MASTER_IP'] = 'rainsty'
 
 
