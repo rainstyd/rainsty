@@ -15,14 +15,14 @@ os.environ['JAVA_HOME'] = '/root/jdk'
 os.environ['PYTHON_HOME'] = "/root/python"
 os.environ['PYSPARK_PYTHON'] = "/usr/bin/python"
 os.environ['SPARK_HOME'] = '/root/spark'
-os.environ['SPARK_MASTER_IP'] = '47.99.139.144'
+os.environ['SPARK_MASTER_IP'] = 'rainsty'
 
 
 def create_spark_context():
 
     sc = SparkSession.builder \
         .appName("TestSparkSession") \
-        .master("spark://47.99.139.144:7077") \
+        .master("spark://rainsty:7077") \
         .config('spark.executor.num', '1')\
         .config('spark.executor.memory', '512m')\
         .config("spark.executor.cores", '1')\
