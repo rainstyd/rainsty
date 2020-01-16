@@ -23,8 +23,5 @@ class User(DBBase):
         self.password = password
 
     def to_dict(self):
-        data = dict(
-            username=self.username,
-            password=self.password
-        )
-        return data
+        _dict = {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
+        return _dict

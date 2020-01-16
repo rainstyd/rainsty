@@ -1,0 +1,23 @@
+version: '2.0'
+
+services:
+  canal_zoo1:
+    image: centos:7
+    restart: always
+    hostname: spark
+    container_name: spark
+    ports:
+      - 7077:7077
+      - 8080:8080
+      - 8081:8081
+    volumes:
+      - ./jdk:/usr/local/jdk
+      - ./spark:/usr/local/spark
+      - ./app.sh:/usr/local/app.sh
+      - /usr/sbin/sshd:/usr/sbin/sshd
+    environment:
+      JAVA_HOME: /usr/local/jdk
+      CLASSPATH: .:/usr/local/jdk/lib:/usr/local/jdk/jre/lib
+      SPARK_HOME: /usr/local/spark
+      PATH: /usr/local/spark/bin:/usr/local/jdk/bin:/usr/local/jdk/jre/bin:$PATH
+    command: bash /usr/local/app.sh

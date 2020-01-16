@@ -10,9 +10,10 @@
 
 from pyrainsty.iftest import InterfaceTest
 
-test_host = '127.0.0.1'
-test_port = 5000
-version = 'v0.0.1'
+"""
+source activate rainsty
+gunicorn -w 1 manage_app:app -b 0.0.0.0:5000 --timeout 1800
+"""
 
 
 class APITest(InterfaceTest):
@@ -33,9 +34,11 @@ class APITest(InterfaceTest):
 
 
 if __name__ == '__main__':
+    test_host = '127.0.0.1'
+    test_port = 5000
+    version = 'v0.0.1'
+
     api = APITest('http://{}:{}/api/'.format(test_host, test_port), version, is_login=True)
 
-    # test
-    # api.test_login()
     api.test_main_get()
     api.test_main_post()

@@ -11,6 +11,8 @@
 import falcon
 import json
 from src.code import msg
+from src.models.user import User
+from src.models import db_session
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 
 
@@ -26,6 +28,8 @@ class UserHttpError(falcon.HTTPError):
         if self.description:
             obj['code'] = self.description.get('code')
             obj['msg'] = self.description.get('msg')
+            if self.description.get('token'):
+                obj['token'] = self.description.get('token')
         else:
             obj['code'] = 4000
             obj['msg'] = msg[4000]
@@ -33,8 +37,8 @@ class UserHttpError(falcon.HTTPError):
         return obj
 
 
-class AuthMiddleware(object):
-    """Auth Middleware"""
+class AuthRequest(object):
+    """Auth Request"""
 
     def __init__(self, config):
         self.config = config
@@ -73,17 +77,43 @@ class AuthMiddleware(object):
             except (ValueError, UnicodeDecodeError):
                 raise UserHttpError(description=dict(code=3005, msg=msg[3005]))
 
+
+class AuthToken(object):
+    """Auth Token"""
+
+    def __init__(self, config):
+        self.config = config
+        self.logger = self.config.logger
+
+    def process_request(self, req, resp):
+
+        self.logger.info((req.body, resp.status))
+
         if req.path == '/' and req.method == 'GET':
             # 首页
-            return
+            raise UserHttpError(description=dict(code=0, msg='hello, world!'))
 
         elif req.path == '{}/login'.format(self.config.route_path) and req.method == 'POST':
             # 登录
-            return
+            username = req.body.get('username', None)
+            password = req.body.get('password', None)
+
+            if not username or not password:
+                raise UserHttpError(description=dict(code=3000, msg=msg[3000]))
+
+            self.logger.info('用户: {} 正在登录......'.format(username))
+            # user = db_session.query(User).filter(User.username == username, User.password == password).first()
+            # self.logger.info(user.to_dict())
+
+            if not db_session.query(User).filter(User.username == username, User.password == password).first():
+                raise UserHttpError(description=dict(code=3001, msg=msg[3001]))
+            else:
+                token = Serializer(self.config.SECRET_KEY, expires_in=7200).dumps({'username': username})
+                raise UserHttpError(description=dict(code=0, msg=msg[0], token=token.decode('utf-8')))
 
         elif req.path == '{}/logout'.format(self.config.route_path) and req.method == 'POST':
             # 退出
-            return
+            raise UserHttpError(description=dict(code=0, msg=msg[0]))
 
         else:
             # 验证token
