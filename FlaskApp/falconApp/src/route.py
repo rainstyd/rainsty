@@ -13,10 +13,10 @@ from src.controller.test import test
 
 def add_route(app, config):
 
-    # app middleware
-    # /         主页
-    # /login    登录
-    # /logout   退出
+    # src/middleware/AuthToken
+    # app.add_route('/')                                                                     # 主页
+    # app.add_route(config.route_path + '/login')                                            # 登录
+    # app.add_route(config.route_path + '/logout')                                           # 退出
 
     # /test
     app.add_route(config.route_path + '/test/main', test.TestMain(config))
