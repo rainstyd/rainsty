@@ -117,9 +117,9 @@ class AuthToken(object):
 
         # 验证token
         try:
-            token = Serializer(self.config.SECRET_KEY).loads(req.get_header('Http-Authorization', ''))
-            username = token.get('username')
-            forwarded_host = token.get('forwarded_host')
+            token_dict = Serializer(self.config.SECRET_KEY).loads(req.get_header('Http-Authorization', ''))
+            username = token_dict.get('username')
+            forwarded_host = token_dict.get('forwarded_host')
             req.user = dict(username=username, forwarded_host=forwarded_host)
 
             self.logger.info((username, req.forwarded_host, req.port, req.method, req.path, resp.status, resp.body))
