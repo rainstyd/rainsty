@@ -9,8 +9,19 @@
 """
 
 import os
+import hashlib
+from random import randint
 from pyrainsty import logger
 from configparser import ConfigParser
+
+
+def get_secret_key():
+    s = 'I love her, rainsty love her, Tis all that I can say; It is my vision in the night, My dreaming in the day.'
+    s = ''.join([s[randint(i, len(s) - 1)].replace(' ', '') for i in range(len(s))])
+    sha256 = hashlib.sha256()
+    sha256.update(s.encode('utf-8'))
+    secret_key = sha256.hexdigest()
+    return secret_key
 
 
 class AppConfig(object):
@@ -31,4 +42,4 @@ class AppConfig(object):
     logger = logger.Logger(base_path, log_dir_name, log_file_name)
     logger = logger.get_logger()
 
-    SECRET_KEY = 'fds545jjl665jni222nbi779bla110jnl335'
+    SECRET_KEY = get_secret_key()
