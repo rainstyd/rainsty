@@ -3,7 +3,7 @@
 
 """
 @author: rainsty
-@file:   _create.py
+@file:   __schema_create.py
 @time:   2020-01-21 16:50:29
 @description:
 """
@@ -11,13 +11,13 @@
 import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
-from src.models.user import *
 from src.models import db_session, db_engine
 
 
 if __name__ == '__main__':
     print('Update sqlite table structure...')
     try:
+        from src.models.user import User, DBBase
         DBBase.metadata.create_all(db_engine)
 
         user = db_session.query(User).filter(
