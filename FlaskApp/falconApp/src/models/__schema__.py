@@ -5,7 +5,7 @@
 @author: rainsty
 @file:   __schema__.py
 @time:   2020-01-21 16:50:29
-@description:
+@description: 初始化表结构
 """
 
 import sys
