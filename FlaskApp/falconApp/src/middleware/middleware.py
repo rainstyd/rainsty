@@ -45,7 +45,6 @@ class AuthRequest(object):
         self.logger = self.config.logger
 
     def process_request(self, req, resp):
-
         self.logger.info((req.forwarded_host, req.port, req.method, req.path, resp.status, resp.body))
 
         if not req.client_accepts_json:
@@ -85,10 +84,7 @@ class AuthToken(object):
         self.config = config
         self.logger = self.config.logger
 
-    def process_request(self, req, resp):
-
-        self.logger.info((req.body, resp.status))
-
+    def path_filter(self, req, resp):
         if req.path == '/' and req.method == 'GET':
             # 首页
             raise UserHttpError(description=dict(code=0, msg='hello, world!'))
@@ -101,28 +97,32 @@ class AuthToken(object):
             if not username or not password:
                 raise UserHttpError(description=dict(code=3000, msg=msg[3000]))
 
-            self.logger.info('用户: {} 正在登录......'.format(username))
-            # user = db_session.query(User).filter(User.username == username, User.password == password).first()
-            # self.logger.info(user.to_dict())
+            self.logger.info('user: {} is logging in......'.format(username))
 
             if not db_session.query(User).filter(User.username == username, User.password == password).first():
                 raise UserHttpError(description=dict(code=3001, msg=msg[3001]))
             else:
-                token = Serializer(self.config.SECRET_KEY, expires_in=7200).dumps({'username': username})
+                token_dict = dict(username=username, forwarded_host=req.forwarded_host)
+                token = Serializer(self.config.SECRET_KEY, expires_in=7200).dumps(token_dict)
+                self.logger.info((username, req.forwarded_host, req.port, req.method, req.path, resp.status, resp.body))
                 raise UserHttpError(description=dict(code=0, msg=msg[0], token=token.decode('utf-8')))
 
         elif req.path == '{}/logout'.format(self.config.route_path) and req.method == 'POST':
             # 退出
             raise UserHttpError(description=dict(code=0, msg=msg[0]))
 
-        else:
-            # 验证token
-            try:
-                token = req.get_header('Http-Authorization', '')
-                agent = req.get_header('User-Agent', '').lower()
-                self.logger.info((token, agent))
-                s = Serializer(self.config.SECRET_KEY)
-                s.loads(token).get('username')
-                return
-            except (BaseException, Exception):
-                raise UserHttpError(description=dict(code=3002, msg=msg[3002]))
+    def process_request(self, req, resp):
+        # 过滤path
+        self.path_filter(req, resp)
+
+        # 验证token
+        try:
+            token = Serializer(self.config.SECRET_KEY).loads(req.get_header('Http-Authorization', ''))
+            username = token.get('username')
+            forwarded_host = token.get('forwarded_host')
+            req.user = dict(username=username, forwarded_host=forwarded_host)
+
+            self.logger.info((username, req.forwarded_host, req.port, req.method, req.path, resp.status, resp.body))
+            return
+        except (BaseException, Exception):
+            raise UserHttpError(description=dict(code=3002, msg=msg[3002]))

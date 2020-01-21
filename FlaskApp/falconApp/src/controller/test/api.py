@@ -22,6 +22,7 @@ class TestMain(object):
     def on_get(self, req, resp):
 
         self.logger.info(req.body)
+        self.logger.info(req.user)
 
         resp.status = falcon.HTTP_200
         resp.body = json.dumps(dict(code=0, msg=msg[0], data={'a': 'b'}))
@@ -29,6 +30,7 @@ class TestMain(object):
     def on_post(self, req, resp):
 
         self.logger.info(req.body)
+        self.logger.info(req.user)
 
         resp.status = falcon.HTTP_200
         resp.body = json.dumps(dict(code=0, msg=msg[0], data={'c': 'd'}))
