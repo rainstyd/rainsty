@@ -11,12 +11,12 @@
 import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
-from src.models import db_session, db_engine
 
 
 if __name__ == '__main__':
     print('Update sqlite table structure...')
     try:
+        from src.models import db_session, db_engine
         from src.models.user import User, DBBase
         DBBase.metadata.create_all(db_engine)
 
