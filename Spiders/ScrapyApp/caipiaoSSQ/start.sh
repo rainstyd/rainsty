@@ -3,15 +3,15 @@
 #cteatedtime: 2019-01-08
 
 #mkdir scrapyApp
-#cd scrapyApp
-#/usr/rain/python/bin/scrapy startproject caipiaoSSQ
-#cd caipiaoSSQ
-#/usr/rain/python/bin/scrapy genspider ssq 17500.cn
+# cd scrapyApp
+# scrapy startproject caipiaoSSQ
+# cd caipiaoSSQ
+# scrapy genspider ssq 17500.cn
 
 
 function Main(){
     echo '' > nohup.out
-    /usr/rain/python/bin/scrapy crawl ssq > nohup.out 2>&1
+    scrapy crawl ssq > nohup.out 2>&1
 
     name="./my_ssq.txt"
 
