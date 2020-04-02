@@ -4,7 +4,7 @@ if [ ! $PORT ];then
     PORT=8001
 fi
 
-processInfo="python/bin/python3 appManage.py $PORT"
+processInfo="python3 appManage.py $PORT"
 
 
 function start(){
@@ -16,7 +16,7 @@ function start(){
 
     enterPrt=$"\n"
     echo ${processInfo}
-    nohup ./${processInfo} &
+    nohup ${processInfo} &
     enterPrint=$(echo -e $enterPrt)
     echo $enterPrint
     unset enterPrt

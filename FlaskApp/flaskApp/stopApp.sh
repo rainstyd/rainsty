@@ -3,7 +3,7 @@ PORT=$1
 if [ ! $PORT ];then
     PORT=8001
 fi
-processInfo="python/bin/python3 appManage.py $PORT"
+processInfo="python3 appManage.py $PORT"
 
 
 function stop(){
