@@ -34,7 +34,6 @@ PyDispatcher==2.0.5
 PyHamcrest==2.0.2
 pyOpenSSL==19.0.0
 PySocks==1.7.1
-pyspark==2.4.4
 queuelib==1.5.0
 requests==2.22.0
 ruamel-yaml==0.15.46
