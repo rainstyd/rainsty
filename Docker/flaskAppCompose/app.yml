@@ -4,7 +4,7 @@ services:
   canal_client:
     image: python:3.8.0
     restart: always
-    hostname: python3.8.0
+    hostname: python
     container_name: flaskAppCompose
     environment:
       TZTCANAL: http://127.0.0.1:5000
