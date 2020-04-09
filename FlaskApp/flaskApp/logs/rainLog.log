@@ -1,8 +1,0 @@
-[2018-12-29 20:32:32] _internal.py[line:88] INFO  * Running on http://0.0.0.0:1314/ (Press CTRL+C to quit)
-[2018-12-29 21:44:15] _internal.py[line:88] INFO  * Running on http://0.0.0.0:1314/ (Press CTRL+C to quit)
-[2018-12-29 21:44:20] _internal.py[line:88] INFO 127.0.0.1 - - [29/Dec/2018 21:44:20] "GET /rain HTTP/1.1" 200 -
-[2018-12-29 21:44:20] _internal.py[line:88] INFO 127.0.0.1 - - [29/Dec/2018 21:44:20] "GET /js/entrance.js HTTP/1.1" 200 -
-[2018-12-29 21:44:20] _internal.py[line:88] INFO 127.0.0.1 - - [29/Dec/2018 21:44:20] "GET /js/min.js HTTP/1.1" 200 -
-[2018-12-29 21:44:20] _internal.py[line:88] INFO 127.0.0.1 - - [29/Dec/2018 21:44:20] "GET /css/entrance.css HTTP/1.1" 200 -
-[2018-12-29 21:44:20] _internal.py[line:88] INFO 127.0.0.1 - - [29/Dec/2018 21:44:20] "GET /img/entrance.png HTTP/1.1" 200 -
-[2018-12-29 21:44:20] _internal.py[line:88] INFO 127.0.0.1 - - [29/Dec/2018 21:44:20] "GET /favicon.ico HTTP/1.1" 404 -

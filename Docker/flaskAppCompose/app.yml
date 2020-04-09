@@ -1,0 +1,17 @@
+version: '2.0'
+
+services:
+  canal_client:
+    image: python:3.8.0
+    restart: always
+    hostname: python3.8.0
+    container_name: flaskAppCompose
+    environment:
+      TZTCANAL: http://127.0.0.1:5000
+    ports:
+      - 5000:5000
+    volumes:
+      - ./app.sh:/home/app.sh
+      - ../../FlaskApp/flaskApp:/home/flaskApp
+      - /etc/localtime:/etc/localtime
+    command: bash /home/app.sh
