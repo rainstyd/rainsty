@@ -6,7 +6,7 @@ function main(){
     chmod +x /home/flaskApp/rainDB/bin/rainDB-shell
     cd /home/flaskApp
     # python3 appManage.py 5000
-    bash startApp.sh
+    bash startApp.sh 5000
 }
 
 main
