@@ -4,8 +4,8 @@ import os
 import sys
 import logging
 base_path = os.path.dirname(os.path.dirname(__file__))
-if not os.path.join(base_path, 'logs/rainLog.log'):
-    os.system(r"touch {}{}".format(base_path, 'logs/rainLog.log'))
+with open(os.path.join(base_path, 'logs/rainLog.log'), 'a') as a:
+    a.write('\n')
 from flask import Flask, request
 from controller.rainController import *
 from middleWare import rainMiddleWare as Ware
