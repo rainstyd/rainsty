@@ -5,6 +5,10 @@ import sys
 import logging
 
 base_path = os.path.dirname(os.path.abspath(__file__))
+
+if not os.path.exists(base_path):
+    os.mkdir(base_path)
+
 base_file_path = '{}/{}'.format(base_path, 'logs/rainLog.log')
 print(base_file_path)
 
