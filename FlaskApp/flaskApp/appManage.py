@@ -3,7 +3,7 @@
 import os
 import sys
 import logging
-base_path = os.path.dirname(os.path.dirname(__file__))
+base_path = os.path.dirname(__file__)
 with open('{}/{}'.format(base_path, 'logs/rainLog.log'), 'a') as a:
     a.write('\n')
 from flask import Flask, request
