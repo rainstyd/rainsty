@@ -5,7 +5,7 @@ services:
     image: python:3.8.0
     restart: always
     hostname: python
-    container_name: flaskAppCompose
+    container_name: falconAppCompose
     environment:
       TZTCANAL: http://127.0.0.1:5000
     ports:
