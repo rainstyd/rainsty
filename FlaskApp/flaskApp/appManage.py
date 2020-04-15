@@ -3,6 +3,9 @@
 import os
 import sys
 import logging
+base_path = os.path.dirname(os.path.dirname(__file__))
+if not os.path.join(base_path, 'logs/rainLog.log'):
+    os.system(r"touch {}{}".format(base_path, 'logs/rainLog.log'))
 from flask import Flask, request
 from controller.rainController import *
 from middleWare import rainMiddleWare as Ware
@@ -13,7 +16,6 @@ app = Flask(__name__, static_url_path='', static_folder='file', template_folder=
 app.config['SECRET_KEY'] = os.urandom(24)
 app.config['RAIN_USER'] = './db/rainUser.db'
 app.config['RAINDB_CONF'] = {'path': './rainDB', 'database': 'rain'}
-app.config['LOG_FILE'] = './logs/rainLog.log'
 app.logger = logging
 app.logger.basicConfig(level=logging.INFO, **rainConfig.logConf())
 
@@ -42,9 +44,6 @@ def page_not_found(error):
 
 
 def main(args):
-    if not os.path.exists(app.config['LOG_FILE']):
-        os.system(r"touch {}".format(app.config['LOG_FILE']))
-
     app.run('0.0.0.0', int(args))
 
 
