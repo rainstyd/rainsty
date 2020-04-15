@@ -9,8 +9,8 @@ base_file_path = '{}/{}'.format(base_path, 'logs')
 print(base_file_path)
 
 
-if not os.path.exists(base_path):
-    os.mkdir(base_path)
+if not os.path.exists(base_file_path):
+    os.mkdir(base_file_path)
 
 base_file_path = '{}/{}'.format(base_file_path, 'rainLog.log')
 with open(base_file_path, 'w') as w:
