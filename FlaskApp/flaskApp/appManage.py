@@ -13,6 +13,7 @@ app = Flask(__name__, static_url_path='', static_folder='file', template_folder=
 app.config['SECRET_KEY'] = os.urandom(24)
 app.config['RAIN_USER'] = './db/rainUser.db'
 app.config['RAINDB_CONF'] = {'path': './rainDB', 'database': 'rain'}
+app.config['LOG_FILE'] = './logs/rainLog.log'
 app.logger = logging
 app.logger.basicConfig(level=logging.INFO, **rainConfig.logConf())
 
@@ -41,6 +42,9 @@ def page_not_found(error):
 
 
 def main(args):
+    if not os.path.exists(app.config['LOG_FILE']):
+        os.system(r"touch {}".format(app.config['LOG_FILE']))
+
     app.run('0.0.0.0', int(args))
 
 
