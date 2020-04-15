@@ -5,18 +5,16 @@ import sys
 import logging
 
 base_path = os.path.dirname(os.path.abspath(__file__))
+base_file_path = '{}/{}'.format(base_path, 'logs')
+print(base_file_path)
+
 
 if not os.path.exists(base_path):
     os.mkdir(base_path)
 
-base_file_path = '{}/{}'.format(base_path, 'logs/rainLog.log')
-print(base_file_path)
-
+base_file_path = '{}/{}'.format(base_file_path, 'rainLog.log')
 with open(base_file_path, 'w') as w:
-    w.write('\n')
-
-# if not os.path.exists(base_file_path):
-#     os.mknod(base_file_path)
+    w.write('This is a log file!\n')
 
 from flask import Flask, request
 from controller.rainController import *
