@@ -5,8 +5,8 @@ import sys
 import logging
 base_path = os.path.dirname(os.path.abspath(__file__))
 print('{}/{}'.format(base_path, 'logs/rainLog.log'))
-with open('{}/{}'.format(base_path, 'logs/rainLog.log'), 'a') as a:
-    a.write('\n')
+with open('{}/{}'.format(base_path, 'logs/rainLog.log'), 'w') as w:
+    w.write('\n')
 from flask import Flask, request
 from controller.rainController import *
 from middleWare import rainMiddleWare as Ware
