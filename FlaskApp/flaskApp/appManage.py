@@ -11,8 +11,8 @@ print(base_file_path)
 with open(base_file_path, 'w') as w:
     w.write('\n')
 
-if not os.path.exists(base_file_path):
-    os.mknod(base_file_path)
+# if not os.path.exists(base_file_path):
+#     os.mknod(base_file_path)
 
 from flask import Flask, request
 from controller.rainController import *
