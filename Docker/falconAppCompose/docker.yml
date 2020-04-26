@@ -6,8 +6,6 @@ services:
     restart: always
     hostname: falconAppCompose
     container_name: falconAppCompose
-    environment:
-      TZTCANAL: http://127.0.0.1:5000
     ports:
       - 5001:5000
     volumes:
