@@ -41,10 +41,9 @@ async def download_img(url):
         filename = url.split('/')[-1]
         file_path = FILE_PATH + filename
 
-        content=""
+        content = ""
         try:
-            async with aiohttp.ClientSession(
-                connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
+            async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
 
                 response = await session.get(url, timeout=60)
                 content = await response.read()
@@ -88,4 +87,3 @@ if __name__ == '__main__':
     main()
     end = datetime.now()
     print('Sum the time is: {}S'.format(end - start))
-

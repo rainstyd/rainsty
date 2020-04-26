@@ -9,7 +9,7 @@ import json
 import os
 
 
-file_path = '../../ScrapyApp/caipiaoSSQ/my_ssq.json'
+file_path = '../../Spiders/ScrapyApp/caipiaoSSQ/my_ssq.json'
 save_path = './my_ssq.txt'
 
 

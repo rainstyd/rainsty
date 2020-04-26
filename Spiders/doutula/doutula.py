@@ -80,4 +80,3 @@ if __name__ == '__main__':
     main()
     end = datetime.now()
     print('Sum the time is: {}S'.format(end - start))
-
