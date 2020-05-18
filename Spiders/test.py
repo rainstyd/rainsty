@@ -8,19 +8,19 @@
 @description:
 """
 
-import time
-from selenium import webdriver
-from scrapy.downloadermiddlewares.useragent import UserAgentMiddleware
-
-browser = webdriver.Chrome()
-link1 = 'https://www.baidu.com/'
-time.sleep(10)
-browser.get(link1)
-time.sleep(10)
-browser.find_element_by_id('kw').send_keys('mczaiyun.top')
-time.sleep(10)
-browser.find_element_by_id('su').click()
-
+# import time
+# from selenium import webdriver
+# from scrapy.downloadermiddlewares.useragent import UserAgentMiddleware
+#
+# browser = webdriver.Chrome()
+# link1 = 'https://www.baidu.com/'
+# time.sleep(10)
+# browser.get(link1)
+# time.sleep(10)
+# browser.find_element_by_id('kw').send_keys('mczaiyun.top')
+# time.sleep(10)
+# browser.find_element_by_id('su').click()
+#
 
 user_agent_list = [
         "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 "
@@ -60,3 +60,9 @@ user_agent_list = [
         "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/535.24 "
         "(KHTML, like Gecko) Chrome/19.0.1055.1 Safari/535.24"
 ]
+
+import requests
+proxies = {'http': 'http://rainsty:keyile@47.99.139.144:8388'}
+url = 'http://47.99.139.144:8001/rain'
+res = requests.get(url, proxies=proxies, verify=False)
+print(res.status_code)
