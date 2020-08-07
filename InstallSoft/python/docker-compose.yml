@@ -1,0 +1,14 @@
+version: '2.0'
+
+services:
+  python:
+    image: python:3.6.5
+    restart: always
+    hostname: python365
+    container_name: python365
+    volumes:
+      - ./run.sh:/run.sh
+      - ./requirements.txt:/requirements.txt
+      - ./file:/file
+      - /etc/localtime:/etc/localtime
+    command: bash /run.sh
