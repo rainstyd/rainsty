@@ -64,3 +64,57 @@ http://127.0.0.1:8088
 username/password=admin/Harbor12345
 登陆之后可修改密码，上面为超级管理员初始密码
 ```
+
+# Docker镜像仓库使用  
+
+* 新增Docker配置文件  
+
+```text
+vim /etc/docker/daemon.json
+
+新增如下内容
+{
+    "registry-mirrors": ["https://njrds9qc.mirror.aliyuncs.com"],
+    "insecure-registries":["127.0.0.1:8088", "www.rainsty.com:8088"]
+}
+```
+
+* 重启Docker  
+
+```text
+systemctl daemon-reload
+systemctl restart docker
+```
+
+* 登陆镜像仓库  
+
+```text
+docker login 127.0.0.1:8088
+
+输入账号密码：
+admin/Harbor123456
+
+```
+
+* 拉取镜像仓库image文件  
+
+```text
+docker pull 127.0.0.1:8088/library/image:tag
+docker tag 127.0.0.1:8088/library/image:tag library/image:tag
+```
+
+* 制作镜像上传至镜像仓库  
+
+```text
+docker build -t library/image:tag .
+
+docker login 127.0.0.1:8080
+docker tag library/image:tag 127.0.0.1:8088/library/image:tag
+docker push 127.0.0.1:8088/library/image:tag
+```
+
+* 推出镜像仓库  
+
+```text
+docker logout 127.0.0.1:8080
+```
