@@ -1,7 +1,7 @@
 {
     "title": "RAINSTY DOCUMENTATION",
     "description": "rainsty`s documentation.",
-    "language": "zh-hans",
+    "language": "en",
 
     "plugins": [
         "-lunr",
