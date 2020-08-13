@@ -1,11 +1,13 @@
 ## Docker镜像仓库搭建-基于Harbor  
 
 * 1: 下载Harbor安装包  
+
 ``` text
 wget http://harbor.orientsoft.cn/harbor-v1.5.0/harbor-offline-installer-v1.5.0.tgz
 ```
 
 * 2: 创建证书  
+
 ``` text
 创建目录
 mkdir -p /data/cert/
@@ -22,11 +24,13 @@ openssl x509 -req -days 3650 -in 127.0.0.1.crt -signkey 127.0.0.1.key -out 127.0
 ```  
 
 * 解压Harbor安装包  
+
 ``` text
 tar -zxvf harbor-offline-installer-v1.5.0.tgz
 ```
 
 * 修改Harbor/harbor.cfg  
+
 ``` text
 cd harbor && vim harbor.cfg
 
@@ -42,11 +46,13 @@ vim docker-compose.yml
 ```
 
 * 执行安装  
+
 ``` text
 ./install.sh
 ```
 
 * 验证安装结果  
+
 ``` text
 http://127.0.0.1:8088
 
