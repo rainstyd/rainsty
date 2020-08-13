@@ -52,7 +52,7 @@ services:
     hostname: kafka03
     container_name: kafka03
     ports:
-      - '8192:9092'
+      - '8193:9092'
     environment:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://127.0.0.1:9192
       KAFKA_MESSAGE_MAX_BYTES: 10485670
