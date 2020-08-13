@@ -7,16 +7,16 @@ wget http://harbor.orientsoft.cn/harbor-v1.5.0/harbor-offline-installer-v1.5.0.t
 
 * 2: 创建证书  
 ``` text
-# 创建目录
+创建目录
 mkdir -p /data/cert/
 cd /data/cert/
 
-# 创建证书, 替换以下127.0.0.1为当前服务器的外网地址或者域名domain
+创建证书, 替换以下127.0.0.1为当前服务器的外网地址或者域名domain
 openssl genrsa -des3 -out 127.0.0.1.key 2048
 openssl req -new -key 127.0.0.1.key -out 127.0.0.1.crt
 cp 127.0.0.1.key 127.0.0.1.key.org
 
-# 取消密码
+取消密码
 openssl rsa -in 127.0.0.1.key.org -out 127.0.0.1.key
 openssl x509 -req -days 3650 -in 127.0.0.1.crt -signkey 127.0.0.1.key -out 127.0.0.1.crt
 ```  
