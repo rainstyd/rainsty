@@ -41,7 +41,7 @@ ssl_cert_key = /data/cert/127.0.0.1.key
 
 vim docker-compose.yml
 
-修改container_name=nginx的映射端口, 更改也没访问端口
+修改container_name=nginx的映射端口, 更改页面访问端口
        - 8088:80
 ```
 
