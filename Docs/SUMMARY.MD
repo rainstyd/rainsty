@@ -7,3 +7,4 @@
     * [GitBook](docker/GitBook.Md)
     * [Consul](docker/Consul.MD)
     * [Zookeeper](docker/Zookeeper.MD)
+    * [Kafka](docker/Kafka.MD)
