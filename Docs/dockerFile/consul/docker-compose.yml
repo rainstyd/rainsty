@@ -1,0 +1,18 @@
+version: '2'
+services:
+  consul01:
+    image: consul:1.5.2
+    container_name: consul
+    hostname: consul
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+      CONSUL_BIND_INTERFACE: eth0
+    ports:
+      - "8500:8500"
+    networks:
+      - rainsty
+
+networks:
+  rainsty:
+    external: true
