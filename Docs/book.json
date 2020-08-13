@@ -1,0 +1,29 @@
+{
+    "title": "CANAL",
+    "description": "canal-doc",
+    "language": "zh",
+
+    "plugins": [
+        "-lunr",
+        "-search",
+        "-sharing",
+        "-font-settings",
+        "search-pro",
+        "toc",
+        "anchor-navigation-ex",
+        "expandable-chapters",
+        "back-to-top-button",
+        "code"
+    ],
+
+    "pluginsConfig": {
+        "toc": {
+            "addClass": true,
+            "className": "toc"
+        },
+        "anchor-navigation-ex": {
+            "showLevel": true,
+            "showGoTop": false
+        }
+    }
+}
