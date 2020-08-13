@@ -12,9 +12,9 @@ total 12
 
 * 文件内容  
 
-    [Dockerfile](../file/gitbook/image/Dockerfile)  
-    [run.sh](../file/gitbook/image/run.sh)  
-    [start.sh](../file/gitbook/image/start.sh)  
+    [Dockerfile](../dockerFile/gitbook/image/Dockerfile)  
+    [run.sh](../dockerFile/gitbook/image/run.sh)  
+    [start.sh](../dockerFile/gitbook/image/start.sh)  
 
 * 执行镜像制作  
 
@@ -36,9 +36,9 @@ total 16
 
 * 文件内容  
 
-    [docker-compose.yml](../file/gitbook/docker-compose.yml)  
-    [run.sh](../file/gitbook/run.sh)  
-    [start.sh](../file/gitbook/start.sh)  
+    [docker-compose.yml](../dockerFile/gitbook/docker-compose.yml)  
+    [run.sh](../dockerFile/gitbook/run.sh)  
+    [start.sh](../dockerFile/gitbook/start.sh)  
 
 * 启动容器  
 
