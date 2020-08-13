@@ -1,12 +1,12 @@
-## Docker镜像仓库搭建-基于Harbor  
+# Docker镜像仓库搭建-基于Harbor  
 
-* 1: 下载Harbor安装包  
+* 下载Harbor安装包  
 
 ``` text
 wget http://harbor.orientsoft.cn/harbor-v1.5.0/harbor-offline-installer-v1.5.0.tgz
 ```
 
-* 2: 创建证书  
+* 创建证书  
 
 ``` text
 创建目录
@@ -38,7 +38,11 @@ cd harbor && vim harbor.cfg
 hostname = 127.0.0.1:8088
 ssl_cert = /data/cert/127.0.0.1.crt
 ssl_cert_key = /data/cert/127.0.0.1.key
+```
 
+* 修改docker-compose.yml  
+
+``` text
 vim docker-compose.yml
 
 修改container_name=nginx的映射端口, 更改页面访问端口
@@ -58,4 +62,5 @@ http://127.0.0.1:8088
 
 用户名和密码为：
 username/password=admin/Harbor12345
+登陆之后可修改密码，上面为超级管理员初始密码
 ```
