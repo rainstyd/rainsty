@@ -4,4 +4,5 @@
 * [docker](docker/README.MD)
     * [DockerInstall](docker/DockerInstall.MD)
     * [DockerRegistry](docker/DockerRegistry.MD)
-    * [Gitbook](docker/Gitbook.Md)
+    * [GitBook](docker/GitBook.Md)
+    * [Consul](docker/Consul.MD)
