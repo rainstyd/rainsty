@@ -21,12 +21,12 @@ docker-compose up -d
 # Zookeeper命令
 
 ``` text
-进入容器
+# 进入容器
 docker exec -it zook01 bash
 
-登陆zk客户端
+# 登陆zk客户端
 bin/zkCli.sh
 
-执行查看目录命令
+# 执行查看目录命令
 ls /
 ```

@@ -21,7 +21,7 @@ docker-compose up -d
 # Kafka命令
 
 ``` text
-进入容器
+# 进入容器
 docker exec -it kafka01 bash
 
 ```
