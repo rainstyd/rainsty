@@ -1,4 +1,4 @@
-# Docker镜像仓库搭建-基于Harbor  
+# Docker镜像仓库搭建  
 
 * 下载Harbor安装包  
 
@@ -69,7 +69,7 @@ username/password=admin/Harbor12345
 
 * 新增Docker配置文件  
 
-```text
+``` text
 vim /etc/docker/daemon.json
 
 新增如下内容
@@ -81,14 +81,14 @@ vim /etc/docker/daemon.json
 
 * 重启Docker  
 
-```text
+``` text
 systemctl daemon-reload
 systemctl restart docker
 ```
 
 * 登陆镜像仓库  
 
-```text
+``` text
 docker login 127.0.0.1:8088
 
 输入账号密码：
@@ -98,14 +98,14 @@ admin/Harbor123456
 
 * 拉取镜像仓库image文件  
 
-```text
+``` text
 docker pull 127.0.0.1:8088/library/image:tag
 docker tag 127.0.0.1:8088/library/image:tag library/image:tag
 ```
 
 * 制作镜像上传至镜像仓库  
 
-```text
+``` text
 docker build -t library/image:tag .
 
 docker login 127.0.0.1:8080
@@ -113,8 +113,8 @@ docker tag library/image:tag 127.0.0.1:8088/library/image:tag
 docker push 127.0.0.1:8088/library/image:tag
 ```
 
-* 推出镜像仓库  
+* 退出镜像仓库  
 
-```text
+``` text
 docker logout 127.0.0.1:8080
 ```
