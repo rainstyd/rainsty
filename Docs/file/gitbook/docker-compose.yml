@@ -9,7 +9,7 @@ services:
     ports:
       - "8080:4000"
     volumes:
-      - ../../Docs:/gitbook
+      - ../../../Docs:/gitbook
       - ./run.sh:/run.sh
     networks:
       - rainsty

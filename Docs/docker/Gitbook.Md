@@ -12,9 +12,9 @@ total 12
 
 * 文件内容  
 
-[Dockerfile](../../Docker/gitbook/image/Dockerfile)
-[run.sh](../../Docker/gitbook/image/run.sh)
-[start.sh](../../Docker/gitbook/image/start.sh)
+[Dockerfile](../file/gitbook/image/Dockerfile)
+[run.sh](../file/gitbook/image/run.sh)
+[start.sh](../file/gitbook/image/start.sh)
 
 * 执行镜像制作  
 
