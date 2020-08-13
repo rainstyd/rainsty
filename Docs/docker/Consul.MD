@@ -37,7 +37,6 @@ docker network create -d overlay consul_overlay
 * 启动consul容器  
 
 ``` text
-docker network create rainsty
 docker-compose up -d
 ```
 

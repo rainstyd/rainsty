@@ -15,4 +15,5 @@ services:
 
 networks:
   rainsty:
-    external: true
+    external:
+      name: rainsty
