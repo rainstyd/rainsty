@@ -11,10 +11,10 @@ total 12
 ```
 
 * 文件内容  
-
-[Dockerfile](../file/gitbook/image/Dockerfile)
-[run.sh](../file/gitbook/image/run.sh)
-[start.sh](../file/gitbook/image/start.sh)
+    复制链接地址可下载文件  
+    [Dockerfile](../file/gitbook/image/Dockerfile)  
+    [run.sh](../file/gitbook/image/run.sh)  
+    [start.sh](../file/gitbook/image/start.sh)  
 
 * 执行镜像制作  
 
