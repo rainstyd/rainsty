@@ -9,16 +9,16 @@ wget http://harbor.orientsoft.cn/harbor-v1.5.0/harbor-offline-installer-v1.5.0.t
 * 创建证书  
 
 ``` text
-创建目录
+# 创建目录
 mkdir -p /data/cert/
 cd /data/cert/
 
-创建证书, 替换以下127.0.0.1为当前服务器的外网地址或者域名domain
+# 创建证书, 替换以下127.0.0.1为当前服务器的外网地址或者域名domain
 openssl genrsa -des3 -out 127.0.0.1.key 2048
 openssl req -new -key 127.0.0.1.key -out 127.0.0.1.crt
 cp 127.0.0.1.key 127.0.0.1.key.org
 
-取消密码
+# 取消密码
 openssl rsa -in 127.0.0.1.key.org -out 127.0.0.1.key
 openssl x509 -req -days 3650 -in 127.0.0.1.crt -signkey 127.0.0.1.key -out 127.0.0.1.crt
 ```  
@@ -34,7 +34,7 @@ tar -zxvf harbor-offline-installer-v1.5.0.tgz
 ``` text
 cd harbor && vim harbor.cfg
 
-修改如下配置:
+# 修改如下配置:
 hostname = 127.0.0.1:8088
 ssl_cert = /data/cert/127.0.0.1.crt
 ssl_cert_key = /data/cert/127.0.0.1.key
@@ -45,8 +45,8 @@ ssl_cert_key = /data/cert/127.0.0.1.key
 ``` text
 vim docker-compose.yml
 
-修改container_name=nginx的映射端口, 更改页面访问端口
-       - 8088:80
+# 修改container_name=nginx的映射端口, 更改页面访问端口
+- 8088:80
 ```
 
 * 执行安装  
@@ -60,9 +60,9 @@ vim docker-compose.yml
 ``` text
 http://127.0.0.1:8088
 
-用户名和密码为：
+# 用户名和密码为：
 username/password=admin/Harbor12345
-登陆之后可修改密码，上面为超级管理员初始密码
+# 登陆之后可修改密码，上面为超级管理员初始密码
 ```
 
 # Docker镜像仓库使用  
@@ -72,7 +72,7 @@ username/password=admin/Harbor12345
 ``` text
 vim /etc/docker/daemon.json
 
-新增如下内容
+# 新增如下内容
 {
     "registry-mirrors": ["https://njrds9qc.mirror.aliyuncs.com"],
     "insecure-registries":["127.0.0.1:8088", "www.rainsty.com:8088"]
@@ -91,7 +91,7 @@ systemctl restart docker
 ``` text
 docker login 127.0.0.1:8088
 
-输入账号密码：
+# 输入账号密码：
 admin/Harbor123456
 
 ```
