@@ -4,12 +4,12 @@ services:
   canal_client:
     image: python:3.8.0
     restart: always
-    hostname: falconAppCompose
-    container_name: falconAppCompose
+    hostname: flaskAppCompose
+    container_name: flaskAppCompose
     ports:
-      - 5001:5000
+      - 5000:5000
     volumes:
       - ./app.sh:/home/app.sh
-      - ../../FlaskApp/falconApp:/home/falconApp
+      - ../flaskApp:/home/flaskApp
       - /etc/localtime:/etc/localtime
     command: bash /home/app.sh
