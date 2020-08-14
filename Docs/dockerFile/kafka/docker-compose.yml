@@ -16,7 +16,8 @@ services:
       KAFKA_LOG_DIRS: "/kafka"
       KAFKA_CREATE_TOPICS: "rainsty:1:1"
     volumes:
-      - ./volumes/kafka01:/kafka
+      - ./volumes/kafka01/data:/kafka
+      - ./volumes/kafka01/logs:/opt/kafka/logs
     networks:
       - rainsty
 
@@ -35,7 +36,8 @@ services:
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
       KAFKA_LOG_DIRS: "/kafka"
     volumes:
-      - ./volumes/kafka02:/kafka
+      - ./volumes/kafka02/data:/kafka
+      - ./volumes/kafka02/logs:/opt/kafka/logs
     networks:
       - rainsty
 
@@ -54,7 +56,8 @@ services:
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
       KAFKA_LOG_DIRS: "/kafka"
     volumes:
-      - ./volumes/kafka03:/kafka
+      - ./volumes/kafka03/data:/kafka
+      - ./volumes/kafka03/logs:/opt/kafka/logs
     networks:
       - rainsty
 

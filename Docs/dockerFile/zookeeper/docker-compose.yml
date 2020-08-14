@@ -1,7 +1,7 @@
 version: '2'
 services:
   zook01:
-    image: zookeeper
+    image: zookeeper:3.4.13
     hostname: zook01
     container_name: zook01
     ports:
@@ -18,7 +18,7 @@ services:
       - rainsty
 
   zook02:
-    image: zookeeper
+    image: zookeeper:3.4.13
     hostname: zook02
     container_name: zook02
     ports:
@@ -35,7 +35,7 @@ services:
       - rainsty
 
   zook03:
-    image: zookeeper
+    image: zookeeper:3.4.13
     hostname: zook03
     container_name: zook03
     ports:
