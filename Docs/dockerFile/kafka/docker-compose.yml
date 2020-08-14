@@ -1,13 +1,13 @@
 version: '2'
 services:
   kafka01:
-    image: 'wurstmeister/kafka'
+    image: wurstmeister/kafka
     hostname: kafka01
     container_name: kafka01
     ports:
-      - '8191:9092'
+      - "8191:9092"
     environment:
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://127.0.0.1:9192
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://127.0.0.1:8191
       KAFKA_MESSAGE_MAX_BYTES: 10485670
       KAFKA_LOG_RETENTION_HOURS: 168
       KAFKA_ZOOKEEPER_CONNECT: zook01:2181,zook02:2181,zook03:2181
@@ -21,13 +21,13 @@ services:
       - rainsty
 
   kafka02:
-    image: 'wurstmeister/kafka'
+    image: wurstmeister/kafka
     hostname: kafka02
     container_name: kafka02
     ports:
       - '8192:9092'
     environment:
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://127.0.0.1:9192
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://127.0.0.1:8192
       KAFKA_MESSAGE_MAX_BYTES: 10485670
       KAFKA_LOG_RETENTION_HOURS: 168
       KAFKA_ZOOKEEPER_CONNECT: zook01:2181,zook02:2181,zook03:2181
@@ -40,13 +40,13 @@ services:
       - rainsty
 
   kafka03:
-    image: 'wurstmeister/kafka'
+    image: wurstmeister/kafka
     hostname: kafka03
     container_name: kafka03
     ports:
-      - '8193:9092'
+      - "8193:9092"
     environment:
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://127.0.0.1:9192
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://127.0.0.1:8193
       KAFKA_MESSAGE_MAX_BYTES: 10485670
       KAFKA_LOG_RETENTION_HOURS: 168
       KAFKA_ZOOKEEPER_CONNECT: zook01:2181,zook02:2181,zook03:2181
