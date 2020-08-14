@@ -11,6 +11,15 @@
 * 文件内容  
 
     [docker-compose.yml](../dockerFile/kafka/docker-compose.yml)
+
+* 修改kafka外网访问IP  
+
+``` text
+vim docker-compose.yml
+
+# 修改每个节点的参数IP
+ 30     ¦ KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://192.168.0.179:9192
+```
   
 * 执行安装  
 
