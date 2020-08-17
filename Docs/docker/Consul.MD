@@ -3,7 +3,7 @@
 * 目录结构  
 
 ``` text
-[root@kafka-001-0002 05_consul]# ll
+[root@rainsty 05_consul]# ll
 总用量 4
 -rw-r--r-- 1 root root 458 7月  15 09:44 docker-compose.yml
 ```
