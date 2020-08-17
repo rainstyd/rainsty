@@ -1,0 +1,23 @@
+version: '2'
+services:
+  mysql:
+    image: mysql
+    container_name: mysql
+    hostname: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+      - "33060:33060"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      TZ: 'Asia/Shanghai'
+    volumes:
+      - ./volumes/mysql.conf.d/my.cnf:/etc/mysql/my.cnf
+      - ./volumes/data:/var/lib/mysql
+    networks:
+      - rainsty
+
+networks:
+     rainsty:
+       external:
+         name: rainsty
