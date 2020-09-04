@@ -8,43 +8,127 @@
 @description:
 """
 
+from pyrainsty import connect
 from sklearn import linear_model
 from sklearn.cluster import KMeans
+from random import randint
 
 
-reg = linear_model.LinearRegression()
-reg.fit([[0, 0], [1, 1], [2, 2]], [0, 1, 2])
-print(reg.coef_)
+# reg = linear_model.LinearRegression()
+# reg.fit([[0, 0], [1, 1], [2, 2]], [0, 1, 2])
+# print(reg.coef_)
 
+label = []
+for i in range(1000):
+     label.append('label{}'.format(i))
 
-x = [[0.0888, 0.5885],
-     [0.1399, 0.8291],
-     [0.0747, 0.4974],
-     [0.0983, 0.5772],
-     [0.1276, 0.5703],
-     [0.1671, 0.5835],
-     [0.1906, 0.5276],
-     [0.1061, 0.5523],
-     [0.2446, 0.4007],
-     [0.1670, 0.4770],
-     [0.2485, 0.4313],
-     [0.1227, 0.4909],
-     [0.1240, 0.5668],
-     [0.1461, 0.5113],
-     [0.2315, 0.3788],
-     [0.0494, 0.5590],
-     [0.1107, 0.4799],
-     [0.2521, 0.5735],
-     [0.1007, 0.6318],
-     [0.1067, 0.4326],
-     [0.1956, 0.4280]
-]
+user = []
+for i in range(1000):
+     u = []
+     for j in range(len(label)):
+          s = randint(0, 10)
+          if s == 1:
+               u.append(1)
+          else:
+               u.append(0)
+     user.append(u)
 
-print(x)
-clf = KMeans(n_clusters=3)
-y_pred = clf.fit_predict(x)
+clf = KMeans(n_clusters=4)
+y_pred = clf.fit_predict(user)
 
 # 输出完整的kmeans函数，包括很多省略参数
-print(clf)
+# print(clf)
 # 输出聚类预测结果，20行数据，每个y_pred对应x一行或一个球员，聚成三类，类标为0,1,2
-print(y_pred)
+# print(y_pred)
+
+l_0 = {}
+l_1 = {}
+l_2 = {}
+l_3 = {}
+
+for i in range(len(y_pred)):
+     d = y_pred[i]
+     if d == 0:
+          for j in range(len(user[i])):
+               if user[i][j] == 1:
+                    l_0[label[j]] = l_0.get(label[j], 0) + 1
+
+     if d == 1:
+          for j in range(len(user[i])):
+               if user[i][j] == 1:
+                    l_1[label[j]] = l_1.get(label[j], 0) + 1
+
+     if d == 2:
+          for j in range(len(user[i])):
+               if user[i][j] == 1:
+                    l_2[label[j]] = l_2.get(label[j], 0) + 1
+
+     if d == 3:
+          for j in range(len(user[i])):
+               if user[i][j] == 1:
+                    l_3[label[j]] = l_3.get(label[j], 0) + 1
+
+l_0 = sorted(l_0.items(), key=lambda x: x[1], reverse=True)
+l_1 = sorted(l_1.items(), key=lambda x: x[1], reverse=True)
+l_2 = sorted(l_2.items(), key=lambda x: x[1], reverse=True)
+l_3 = sorted(l_3.items(), key=lambda x: x[1], reverse=True)
+
+# l_1 = sorted(l_1, reverse=True)
+# l_2 = sorted(l_2, reverse=True)
+# l_3 = sorted(l_3, reverse=True)
+
+print(l_0[:10])
+print(l_1[:10])
+print(l_2[:10])
+print(l_3[:10])
+
+# print(l_0[:10])
+# print(l_1[:10])
+# print(l_2[:10])
+# print(l_3[:10])
+
+l_0 = {}
+l_1 = {}
+l_2 = {}
+l_3 = {}
+
+for i in range(len(y_pred)):
+     d = y_pred[i]
+     if d == 0:
+          for j in range(len(user[i])):
+               if user[i][j] == 1:
+                    l_0[label[j]] = l_0.get(label[j], 0) + 1
+
+     if d == 1:
+          for j in range(len(user[i])):
+               if user[i][j] == 1:
+                    l_1[label[j]] = l_1.get(label[j], 0) + 1
+
+     if d == 2:
+          for j in range(len(user[i])):
+               if user[i][j] == 1:
+                    l_2[label[j]] = l_2.get(label[j], 0) + 1
+
+     if d == 3:
+          for j in range(len(user[i])):
+               if user[i][j] == 1:
+                    l_3[label[j]] = l_3.get(label[j], 0) + 1
+
+l_0 = sorted(l_0.items(), key=lambda x: x[1], reverse=True)
+l_1 = sorted(l_1.items(), key=lambda x: x[1], reverse=True)
+l_2 = sorted(l_2.items(), key=lambda x: x[1], reverse=True)
+l_3 = sorted(l_3.items(), key=lambda x: x[1], reverse=True)
+
+# l_1 = sorted(l_1, reverse=True)
+# l_2 = sorted(l_2, reverse=True)
+# l_3 = sorted(l_3, reverse=True)
+
+print(l_0[:10])
+print(l_1[:10])
+print(l_2[:10])
+print(l_3[:10])
+
+# print(l_0[:10])
+# print(l_1[:10])
+# print(l_2[:10])
+# print(l_3[:10])
