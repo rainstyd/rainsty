@@ -22,11 +22,11 @@ with open(config_file, 'rb') as rb:
 print(code)
 
 with codecs.open(config_file, 'r', encoding=code['encoding']) as r:
-    conf.readfp(r)
+    # conf.readfp(r)
+    conf.read_file(r)
 
 sections = conf.sections()
 print(sections)
 
 config = dict(conf.items('config'))
 print(config)
-
