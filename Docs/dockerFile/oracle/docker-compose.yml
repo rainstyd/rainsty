@@ -1,0 +1,19 @@
+version: '2'
+services:
+  oracle:
+    image: oracleinanutshell/oracle-xe-11g:latest
+    container_name: oracle
+    hostname: oracle
+    restart: always
+    ports:
+      - 1521:1521
+      - 5500:5500
+    environment:
+      TZ: 'Asia/Shanghai'
+    networks:
+      - rainsty
+
+networks:
+     rainsty:
+       external:
+         name: rainsty
