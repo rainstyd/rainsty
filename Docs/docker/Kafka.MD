@@ -59,6 +59,36 @@ kafka-topics.sh --zookeeper zook01:2181 --delete --topic topicName
 kafka-topics.sh --zookeeper zook01:2181 --describe --topic topicName
 ```
 
+* 生产者Producer生产数据  
+
+``` text
+kafka-console-producer.sh --bootstrap-server kafka01:9092,kafka02:9092,kafka03:9092 --topic topicName
+```
+
+* 消费者Consumer消费数据  
+
+``` text
+kafka-console-consumer.sh --bootstrap-server kafka01:9092,kafka02:9092,kafka03:9092 --topic topicName --group rainsty
+```
+
+* 查看Consumer所有消费组  
+
+``` text
+kafka-consumer-groups.sh --bootstrap-server kafka01:9092,kafka02:9092,kafka03:9092 --list
+```
+
+* 查看Consumer消费组消费情况  
+
+``` text
+kafka-consumer-groups.sh --bootstrap-server kafka01:9092,kafka02:9092,kafka03:9092 --describe --group rainsty
+```
+
+* 删除Consumer消费组  
+
+``` text
+kafka-consumer-groups.sh --bootstrap-server kafka01:9092,kafka02:9092,kafka03:9092 --delete --group rainsty
+```
+
 * 修改Topic分区数量  
 
 ``` text
@@ -122,34 +152,4 @@ aaa
 bbb
 ccc
 bash-4.4#
-```
-
-* 生产者Producer生产数据  
-
-``` text
-kafka-console-producer.sh --bootstrap-server kafka01:9092,kafka02:9092,kafka03:9092 --topic topicName
-```
-
-* 消费者Consumer消费数据  
-
-``` text
-kafka-console-consumer.sh --bootstrap-server kafka01:9092,kafka02:9092,kafka03:9092 --topic topicName --group rainsty
-```
-
-* 查看Consumer所有消费组  
-
-``` text
-kafka-consumer-groups.sh --bootstrap-server kafka01:9092,kafka02:9092,kafka03:9092 --list
-```
-
-* 查看Consumer消费组消费情况  
-
-``` text
-kafka-consumer-groups.sh --bootstrap-server kafka01:9092,kafka02:9092,kafka03:9092 --describe --group rainsty
-```
-
-* 删除Consumer消费组  
-
-``` text
-kafka-consumer-groups.sh --bootstrap-server kafka01:9092,kafka02:9092,kafka03:9092 --delete --group rainsty
 ```
