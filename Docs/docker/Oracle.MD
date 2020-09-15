@@ -22,8 +22,6 @@ root@rainsty:oracle#
 
 ``` text
 docker-compose up -d
-vim volumes/listener.ora
-docker cp volumes/listener.ora oracle:/u01/app/oracle/product/11.2.0/xe/network/admin
 ```
 
 # Oracle命令  
@@ -58,9 +56,10 @@ select * from all_users;
 grant connect,resource,create session to oracle;
 ```
 
-* 更改监听端口  
+* 更改监听HOST  
 
 ``` text
+vim volumes/listener.ora
 docker cp volumes/listener.ora oracle:/u01/app/oracle/product/11.2.0/xe/network/admin
 docker-com restart
 ```
