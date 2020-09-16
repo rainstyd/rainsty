@@ -20,7 +20,6 @@ total 90872
 
 ``` text
 bash Miniconda3-latest-Linux-x86_64.sh
-# 按enter--三下空格--输入yes--按enter--输入yes
 source ~/.bashrc
 ```
 
