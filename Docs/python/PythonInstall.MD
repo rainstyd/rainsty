@@ -38,6 +38,9 @@ vim /root/.condarc
       - defaults
     show_channel_urls: true
     pip_interop_enabled: false
+
+# 查看配置
+conda config --show channels
 ```
 
 * 执行卸载  
