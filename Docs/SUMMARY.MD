@@ -10,6 +10,7 @@
     * [Kafka](docker/Kafka.MD)
     * [Mysql](docker/Mysql.MD)
     * [Oracle](docker/Oracle.MD)
+    * [Python](docker/Python.MD)
 
 * [python](python/README.MD)
     * [PythonInstall](python/PythonInstall.MD)
