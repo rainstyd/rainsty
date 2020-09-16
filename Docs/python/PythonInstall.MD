@@ -28,7 +28,7 @@ source ~/.bashrc
 
 ``` text
 vim /root/.condarc
-# 插入一下内容
+# 插入以下内容
     ssl_verify: true
     channels:
       - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
