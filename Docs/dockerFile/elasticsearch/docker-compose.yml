@@ -1,0 +1,64 @@
+version: '2'
+services:
+  es-01:
+    image: elasticsearch:6.8.4
+    container_name: es_01
+    restart: always
+    environment:
+      - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./volumes/data/es-01:/usr/share/elasticsearch/data
+      - ./volumes/es-01/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ./volumes/logs/es-01:/usr/share/elasticsearch/logs
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - rainsty
+
+  es-02:
+    image: elasticsearch:6.8.4
+    container_name: es_02
+    restart: always
+    environment:
+      - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./volumes/data/es-02:/usr/share/elasticsearch/data
+      - ./volumes/es-02/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ./volumes/logs/es-02:/usr/share/elasticsearch/logs
+    depends_on:
+      - es-01
+    networks:
+      - rainsty
+
+  es-03:
+    image: elasticsearch:6.8.4
+    container_name: es_03
+    restart: always
+    environment:
+      - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./volumes/data/es-03:/usr/share/elasticsearch/data
+      - ./volumes/es-03/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ./volumes/logs/es-03:/usr/share/elasticsearch/logs
+    depends_on:
+      - es-01
+    networks:
+      - rainsty
+
+networks:
+  rainsty:
+    external:
+      name: rainsty

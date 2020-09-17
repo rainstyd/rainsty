@@ -1,0 +1,21 @@
+# docker run -d -p 9100:9100 docker.io/mobz/elasticsearch-head:5
+version: '2'
+services:
+  consul:
+    image: mobz/elasticsearch-head:5
+    container_name: elasticsearchHead
+    hostname: elasticsearchHead
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - ./volumes/vendor.js:/usr/src/app/_site/vendor.js
+    ports:
+      - "9100:9100"
+    networks:
+      - rainsty
+
+networks:
+  rainsty:
+    external:
+      name: rainsty
