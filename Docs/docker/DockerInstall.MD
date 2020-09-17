@@ -9,3 +9,10 @@ sudo apt-get update
 sudo apt-get install docker-ce
 
 ```
+
+# Docker安装-CentOS系统  
+
+``` text
+# docker官方一键安装
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+```
