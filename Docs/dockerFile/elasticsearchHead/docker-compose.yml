@@ -8,10 +8,10 @@ services:
     restart: always
     environment:
       TZ: Asia/Shanghai
-    volumes:
-      - ./volumes/vendor.js:/usr/src/app/_site/vendor.js
     ports:
       - "9100:9100"
+    volumes:
+      - ./volumes/vendor.js:/usr/src/app/_site/vendor.js
     networks:
       - rainsty
 

@@ -6,6 +6,9 @@ services:
     restart: always
     environment:
       - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
     ulimits:
       memlock:
         soft: -1
@@ -14,9 +17,6 @@ services:
       - ./volumes/data/es-01:/usr/share/elasticsearch/data
       - ./volumes/es-01/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       - ./volumes/logs/es-01:/usr/share/elasticsearch/logs
-    ports:
-      - "9200:9200"
-      - "9300:9300"
     networks:
       - rainsty
 
