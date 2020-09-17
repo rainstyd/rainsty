@@ -1,0 +1,23 @@
+version: '2.0'
+
+services:
+  python:
+    image: redis:latest
+    container_name: redis
+    hostname: redis
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+    ports:
+     - "6379:6379"
+    volumes:
+      - ./volumes/run.sh:/run.sh
+      - ./volumes/data:/data
+    command: bash /run.sh
+    networks:
+      - rainsty
+
+networks:
+     rainsty:
+       external:
+         name: rainsty
