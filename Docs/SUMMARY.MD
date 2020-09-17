@@ -1,7 +1,7 @@
 # documentation
 
 
-* [docker](docker/README.MD)
+* [Docker](docker/README.MD)
     * [DockerInstall](docker/DockerInstall.MD)
     * [DockerRegistry](docker/DockerRegistry.MD)
     * [GitBook](docker/GitBook.MD)
@@ -12,7 +12,7 @@
     * [Oracle](docker/Oracle.MD)
     * [Python](docker/Python.MD)
 
-* [python](python/README.MD)
+* [Python](python/README.MD)
     * [PythonInstall](python/PythonInstall.MD)
     * [datetime](python/datetime.MD)
     
