@@ -3,14 +3,14 @@ version: '2.0'
 services:
   gitbook:
     image: rainsty/gitbook:latest
-    restart: always
     hostname: gitbook
     container_name: gitbook
+    restart: always
     ports:
       - "8080:4000"
     volumes:
       - ../../../Docs:/gitbook
-      - ./run.sh:/run.sh
+      - ./volumes/run.sh:/run.sh
     networks:
       - rainsty
 

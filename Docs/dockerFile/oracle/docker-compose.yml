@@ -6,10 +6,10 @@ services:
     hostname: oracle
     restart: always
     ports:
-      - 1521:1521
-      - 5500:5500
+      - "1521:1521"
+      - "5500:5500"
     environment:
-      TZ: 'Asia/Shanghai'
+      TZ: Asia/Shanghai
     networks:
       - rainsty
 

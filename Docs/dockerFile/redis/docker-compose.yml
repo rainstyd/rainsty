@@ -3,8 +3,8 @@ version: '2.0'
 services:
   python:
     image: redis:latest
-    container_name: redis
     hostname: redis
+    container_name: redis
     restart: always
     environment:
       TZ: Asia/Shanghai

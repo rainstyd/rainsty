@@ -9,7 +9,7 @@ services:
       - "3306:3306"
       - "33060:33060"
     environment:
-      TZ: 'Asia/Shanghai'
+      TZ: Asia/Shanghai
       MYSQL_ROOT_PASSWORD: 123456
     volumes:
       - ./volumes/mysql.conf.d/my.cnf:/etc/mysql/my.cnf
