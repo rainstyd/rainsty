@@ -7,7 +7,7 @@ services:
     hostname: python
     container_name: python
     environment:
-      TZ: 'Asia/Shanghai'
+      TZ: Asia/Shanghai
     volumes:
       - ./volumes/run.sh:/run.sh
       - ./volumes/requirements.txt:/requirements.txt
