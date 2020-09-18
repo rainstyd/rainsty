@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-function checkSelf {
+function checkSelf() {
     check_ll=`cat /root/.bashrc |grep "^alias ll" | awk -F '=' '{print $1}'`
 
     if ! [ -n "${check_ll}" ]; then
@@ -11,7 +11,7 @@ function checkSelf {
 }
 
 
-function envSelf {
+function envSelf() {
     if [[ -z "$REDIS_PORT" ]]; then
         export REDIS_PORT="6379"
     fi
@@ -30,13 +30,13 @@ function envSelf {
 }
 
 
-function runSelf {
+function runSelf() {
     echo $REDIS_SOMAXCONN > /proc/sys/net/core/somaxconn
     redis-server --port $REDIS_PORT --requirepass $REDIS_PASSWORD  --appendonly $REDIS_APPENDONLY
 }
 
 
-function main {
+function main() {
     checkSelf
     envSelf
     runSelf
