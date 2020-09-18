@@ -34,6 +34,7 @@ function runSelf {
 function main {
     checkSelf
     envSelf
+    runSelf
 }
 
 
