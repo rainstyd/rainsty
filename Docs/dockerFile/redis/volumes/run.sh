@@ -2,9 +2,9 @@
 
 
 function checkSelf() {
-    check_ll=`cat /root/.bashrc |grep "^alias ll" | awk -F '=' '{print $1}'`
+    CHECK_LL=`cat /root/.bashrc |grep "^alias ll" | awk -F '=' '{print $1}'`
 
-    if ! [ -n "${check_ll}" ]; then
+    if [[ -z "$CHECK_LL" ]]; then
         sed -i "s/# alias ll='ls \$LS_OPTIONS -l'/alias ll='ls \$LS_OPTIONS -l'/g" /root/.bashrc
         source /root/.bashrc
     fi
