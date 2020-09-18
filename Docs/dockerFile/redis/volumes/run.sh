@@ -13,7 +13,7 @@ function checkSelf {
 
 function envSelf {
     if [[ -z "$REDIS_PORT" ]]; then
-        export $REDIS_PORT="6379"
+        export REDIS_PORT="6379"
     fi
 
     if [[ -z "$REDIS_PASSWORD" ]]; then
@@ -23,10 +23,15 @@ function envSelf {
     if [[ -z "$REDIS_APPENDONLY" ]]; then
         export REDIS_APPENDONLY="yes"
     fi
+
+    if [[ -z "$REDIS_SOMAXCONN" ]]; then
+        export REDIS_SOMAXCONN="512"
+    fi
 }
 
 
 function runSelf {
+    echo $REDIS_SOMAXCONN > /proc/sys/net/core/somaxconn
     redis-server --port $REDIS_PORT --requirepass $REDIS_PASSWORD  --appendonly $REDIS_APPENDONLY
 }
 

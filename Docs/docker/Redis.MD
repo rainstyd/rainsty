@@ -22,7 +22,7 @@ total 8
 
 ``` text
 echo "vm.overcommit_memory = 1" >> /etc/sysctl.conf
-echo "net.core.somaxconn = 1024" >> /etc/sysctl.conf
+# echo "net.core.somaxconn = 1024" >> /etc/sysctl.conf
 cat /etc/sysctl.conf
 sysctl -p
 docker-compose up -d
