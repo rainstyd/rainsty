@@ -1,0 +1,16 @@
+version: '2.0'
+
+services:
+  canal_client:
+    image: python:3.8.0
+    restart: always
+    hostname: rainstyApp
+    container_name: rainstyApp
+    ports:
+      - "5000:5000"
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - ./app.sh:/home/app.sh
+      - ../rainstyApp:/home/rainstyApp
+    command: bash /home/app.sh
