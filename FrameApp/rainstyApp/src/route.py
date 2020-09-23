@@ -51,9 +51,8 @@ def add_route(app, config):
 
     print(start_action)
     action_list = get_action_list()
-    for action in action_list:
-        print(action)
 
+    for action in action_list:
         if action['method'] == 'GET':
             func_action = action_product_get(action.get('class'))
         elif action['method'] == 'POST':
@@ -62,6 +61,7 @@ def add_route(app, config):
             func_action = action_product(action.get('class'))
 
         func_path = config.route_path + '/reqxml/{}'.format(action.get('action'))
+        print(func_path, func_action)
         app.add_route(func_path, func_action)
 
     return app
