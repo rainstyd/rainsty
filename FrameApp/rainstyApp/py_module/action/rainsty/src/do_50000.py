@@ -17,6 +17,5 @@ def do_action(req, resp):
 
     print(req.path)
     print('aaaaaaa')
-    self.logger.info('这是一个测试日志打印!')
     resp.status = '200'
     resp.body = json.dumps(dict(code=0, msg='成功', data={'a': 'b'}))
