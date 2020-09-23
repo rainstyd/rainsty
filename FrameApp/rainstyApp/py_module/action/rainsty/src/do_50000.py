@@ -12,7 +12,7 @@ import json
 from py_module.agent import action
 
 
-@action('50000')
+@action('50000', 'aaa', 'GET')
 def do_action(req, resp):
 
     print(req.path)
