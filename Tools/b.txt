@@ -1,0 +1,6 @@
+  ans['Title'] = sql_r_d.get('TITLE').replace('|','：')
+        ans['GRID0'] = sql_r_d.get('CONTTEXT').replace('\\r\\n','\r\n')
+        ans['time'] = sql_r_d.get('SHOWTIME').split(' ')[1] if sql_r_d.get('SHOWTIME') else ''
+        ans['dates'] = sql_r_d.get('SHOWTIME').split(' ')[0].replace('-', "") if sql_r_d.get('SHOWTIME') else ''
+        ans['media'] = sql_r_d.get('SOURCE')
+        ans['PIC'] = sql_r_d.get('IMAGE')
