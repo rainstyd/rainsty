@@ -1,10 +1,10 @@
-# Conda安装  
+# Conda安装(Linux)  
 
 * 下载miniconda安装包  
 
 ``` text
 # 清华大学软件下载站: https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/?C=M&O=D
-mkdir /root/miniconda3_install && cd /root/miniconda3_install
+mkdir ~/miniconda3_install && cd ~/miniconda3_install
 wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```
 

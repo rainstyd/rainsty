@@ -8,6 +8,8 @@
 @description:
 """
 
+import functools
+
 
 action_list = []
 action_dict = {}
@@ -24,6 +26,12 @@ def action(_action, _name, _method):
         action_list.append(action_dict)
         action_dict = {}
 
+        @functools.wraps(_func)
+        def w(*args, **kwargs):
+            print('call %s(): the param is %s,%s,%s.' % (_func.__name__, _action, _name, _method))
+            return _func(*args, **kwargs)
+
+        return w
     return decorator
 
 
