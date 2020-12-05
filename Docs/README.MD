@@ -5,4 +5,4 @@
 * [2: Python](python/README.MD)
 
 
-[Github-https://github.com/Rainstyed/rainsty](https://github.com/Rainstyed/rainsty)
+[https://github.com/Rainstyed/rainsty](https://github.com/Rainstyed/rainsty)

@@ -284,6 +284,111 @@ select UPPER("Sky love Ocean!")
 
 ## Mysql数字函数  
 
+### ABS(x)  
+
+``` text
+# 返回 x 的绝对值　　	
+select ABS(-5.201314)
+```
+
+### ACOS  
+
+``` text	
+# 求 x 的反余弦值(参数是弧度)		
+select ACOS(0.25)
+```
+
+### ASIN(x)	  
+
+``` text
+# 求反正弦值(参数是弧度)			
+select ASIN(0.25)
+```
+
+### ATAN(x)	  
+
+``` text
+# 求反正切值(参数是弧度)	  		
+select ATAN(0.25)
+```
+
+### ATAN2(n, m)	  
+
+``` text
+# 求反正切值(参数是弧度)	  		
+select ATAN2(-0.8, 2)
+```
+
+### AVG(expression)	  
+
+``` text
+# 返回一个表达式的平均值，expression 是一个字段	  		
+select AVG(price) from (select 0.5 price union select 0.7 price)
+```
+
+### CEIL(x)	  
+
+``` text
+# 返回大于或等于 x 的最小整数　	  		
+select CEIL(5.201314)
+```
+
+### CEILING(x)	  
+
+``` text
+# 返回大于或等于 x 的最小整数　  		
+select CEILING(5.201314)
+```
+
+### COS(x)	  
+
+``` text
+# 求余弦值(参数是弧度)	  		
+select COS(5.2)
+```
+
+### COT(x)	  
+
+``` text
+# 求余切值(参数是弧度)	  		
+select COT(5.2)
+```
+
+### COUNT(expression)	  
+
+``` text
+# 返回查询的记录总数，expression 参数是一个字段或者 * 号	  		
+select COUNT(c) from (select 5 c union select 6 c union select 7 c) a
+```
+
+### DEGREES(x)	  
+
+``` text
+# 将弧度转换为角度　　	  		
+select DEGREES(5.2)
+```
+
+### n DIV m	  
+
+``` text
+# 整除，n 为被除数，m 为除数	  		
+select 10 DIV 2
+```
+
+### EXP(x)	  
+
+``` text
+# 返回 e 的 x 次方　　	  		
+select EXP()
+```
+
+### FLOOR(x)	  
+
+``` text
+# 返回小于或等于 x 的最大整数　　	  		
+select FLOOR(5.2)
+```
+
 ### FORMAT(x,n)  
 
 ``` text
@@ -291,30 +396,672 @@ select UPPER("Sky love Ocean!")
 select FORMAT(52.131400, 4)
 ```
 
-### AAA  
+### GREATEST(expr1, expr2, expr3, ...)	  
 
 ``` text
-# AAAAAA
-select AAA()
+# 返回列表中的最大值	(隐士转换类型)  		
+select GREATEST(1, 4, 5.2, 9)
+```
+
+### LEAST(expr1, expr2, expr3, ...)	  
+
+``` text
+# 返回列表中的最小值	  		
+select LEAST(1, 4, 5.2, 9)
+```
+
+### LN(x)  
+
+``` text
+# 返回数字x的自然对数，以 e 为底。	  		
+select LN(2)
+```
+
+### LOG(x) 或 LOG(base, x)	  
+
+``` text
+# 返回自然对数(以 e 为底的对数)，如果带有 base 参数，则 base 为指定带底数。　　	  		
+select LOG(2) union select LOG(2, 3)
+```
+
+### LOG10(x)	  
+
+``` text
+# 返回以 10 为底的对数　　	  		
+select LOG10(2)
+```
+
+### LOG2(x)	  
+
+``` text
+# 返回以 2 为底的对数　　  		
+select LOG2(2)
+```
+
+### MAX(expression)	  
+
+``` text
+# 返回字段 expression 中的最大值	  		
+select MAX(c) from (select 5 c union select 2 c) a
+```
+
+### MIN(expression)	  
+
+``` text
+# 返回字段 expression 中的最小值	  		
+select MIN(c) from (select 5 c union select 2 c) a
+```
+
+### MOD(x,y)	  
+
+``` text
+# 返回 x 除以 y 以后的余数　	  		
+select MOD(5, 2)
+```
+
+### PI()	  
+
+``` text
+# 返回圆周率(3.141593）　　	  		
+select PI()
+```
+
+### POW(x,y)	  
+
+``` text
+# 返回 x 的 y 次方　	  		
+select POW(2, 3)
+```
+
+### POWER(x, y)   
+
+``` text
+# 返回 x 的 y 次方　	  		
+select POWER(2, 3)
+```
+
+### RADIANS(x)	  
+
+``` text
+# 将角度转换为弧度　　	  		
+select RADIANS(180)
+```
+
+### RAND()	  
+
+``` text
+# 返回 0 到 1 的随机数　　	  		
+select RAND()
+```
+
+### ROUND(x, n)	  
+
+``` text
+# 返回离 x 最近的整数	,n 为小数点后位数，默认为0， 四舍五入  		
+select ROUND(5.2013149) union select ROUND(5.2013149, 6)
+```
+
+### SIGN(x)	  
+
+``` text
+# 返回 x 的符号，x 是负数、0、正数分别返回 -1、0 和 1　	  		
+select SIGN(5)
+```
+
+### SIN(x)	  
+
+``` text
+# 求正弦值(参数是弧度)　　	  		
+select SIN(31)
+```
+
+### SQRT(x)	  
+
+``` text
+# 返回x的平方根　　	  		
+select SQRT(2)
+```
+
+### SUM(expression)	  
+
+``` text
+# 返回指定字段的总和	  		
+select SUM(c) from (select 5 c union select 6 c) a
+```
+
+### TAN(x)	  
+
+``` text
+# 求正切值(参数是弧度)	  		
+select TAN(5.2)
+```
+
+### TRUNCATE(x,y)	  
+
+``` text
+# 返回数值 x 保留到小数点后 y 位的值（与 ROUND 最大的区别是不会进行四舍五入）	  		
+select TRUNCATE(5.201314, 3)
+```
+
+## MySQL日期函数  
+
+### ADDDATE(d,n)	  
+
+``` text
+# 计算起始日期 d 加上 n 天的日期	  		
+SELECT ADDDATE("2017-06-15", INTERVAL 10 DAY)
+```
+
+### ADDTIME(t,n)	  
+
+``` text
+# n 是一个时间表达式，时间 t 加上时间表达式 n	  		
+SELECT ADDTIME('2011-11-11 11:11:11', 5)
+```
+
+### CURDATE()	  
+
+``` text
+# 返回当前日期	  		
+select CURDATE()
+```
+
+### CURRENT_DATE()	  
+
+``` text
+# 返回当前日期	  		
+select CURRENT_DATE()
+```
+
+### CURRENT_TIME	  
+
+``` text
+# 返回当前时间	  		
+select CURRENT_TIME()
+```
+
+### CURRENT_TIMESTAMP()	  
+
+``` text
+# 返回当前日期和时间	  		
+select CURRENT_TIMESTAMP(6)
+```
+
+### CURTIME()	  
+
+``` text
+# 返回当前时间	  		
+select CURTIME()
+```
+
+### DATE()	  
+
+``` text
+# 从日期或日期时间表达式中提取日期值	
+SELECT DATE("2017-06-15")
+```
+
+### DATEDIFF(d1,d2)	  
+
+``` text
+# 计算日期 d1->d2 之间相隔的天数	  		
+SELECT DATEDIFF('2001-01-01','2001-02-02')
+```
+
+### DATE_ADD(d，INTERVAL expr type)	  
+
+``` text
+# 计算起始日期 d 加上一个时间段后的日期(默认是天)	  		
+SELECT ADDDATE('2011-11-11 11:11:11',1) union SELECT ADDDATE('2011-11-11 11:11:11', INTERVAL 5 MINUTE)
+```
+
+### DATE_FORMAT(d,f)	  
+
+``` text
+# 按表达式 f的要求显示日期 d	  		
+SELECT DATE_FORMAT('2011-11-11 11:11:11','%Y-%m-%d %H:%i:%S')
+```
+
+### DATE_SUB(date,INTERVAL expr type)	  
+
+``` text
+# 函数从日期减去指定的时间间隔。	  		
+select DATE_SUB('2011-11-11 11:11:11', INTERVAL 2 day)
+```
+
+### DAY(d)	  
+
+``` text
+# 返回日期值 d 的日期部分	  		
+select DAY('2011-11-11 11:11:11')
+```
+
+### DAYNAME(d)	  
+
+``` text
+# 返回日期 d 是星期几，如 Monday,Tuesday	  		
+select DAYNAME('2011-11-11 11:11:11')
+```
+
+### DAYOFMONTH(d)	  
+
+``` text
+# 计算日期 d 是本月的第几天	  		
+select DAY('2011-11-11 11:11:11')
+```
+
+### DAYOFWEEK(d)	  
+
+``` text
+# 日期 d 今天是星期几，1 星期日，2 星期一，以此类推	  		
+select DAYOFWEEK('2011-11-11 11:11:11')
+```
+
+### DAYOFYEAR(d)	  
+
+``` text
+# 计算日期 d 是本年的第几天	  		
+select DAYOFYEAR('2011-11-11 11:11:11')
+```
+
+### EXTRACT(type FROM d)
+
+``` text
+# AAAA  		
+select DAY('2011-11-11 11:11:11')
 ```
 
 ### AAA  
 
 ``` text
-# AAAAAA	
-select AAA()
+# 从日期 d 中获取指定的值，type 指定返回的值。
+type可取值为：
+MICROSECOND
+SECOND
+MINUTE
+HOUR
+DAY
+WEEK
+MONTH
+QUARTER
+YEAR
+SECOND_MICROSECOND
+MINUTE_MICROSECOND
+MINUTE_SECOND
+HOUR_MICROSECOND
+HOUR_SECOND
+HOUR_MINUTE
+DAY_MICROSECOND
+DAY_SECOND
+DAY_MINUTE
+DAY_HOUR
+YEAR_MONTH
+
+SELECT EXTRACT(MINUTE FROM '2011-11-11 11:11:11')
 ```
 
-### AAA  
+### FROM_DAYS(n)
 
 ``` text
-# AAAAAA	
-select AAA()
+# 计算从 0000 年 1 月 1 日开始 n 天后的日期
+SELECT FROM_DAYS(1111)
 ```
 
-### AAA  
+### HOUR(t)
 
 ``` text
-# AAAAAA		
-select AAA()
+# 返回 t 中的小时值
+select HOUR('2011-11-11 11:11:11')
 ```
+
+### LAST_DAY(d)
+
+``` text
+# 返回给给定日期的那一月份的最后一天
+select LAST_DAY('2011-11-11 11:11:11')
+```
+
+### LOCALTIME()
+
+``` text
+# 返回当前日期和时间
+select LOCALTIME()
+```
+
+### LOCALTIMESTAMP()
+
+``` text
+# 返回当前日期和时间
+select LOCALTIMESTAMP()
+```
+
+### MAKEDATE(year, day-of-year)
+
+``` text
+# 基于给定参数年份 year 和所在年中的天数序号 day-of-year 返回一个日期
+select MAKEDATE(2019, 100)
+```
+
+### MAKETIME(hour, minute, second)
+
+``` text
+# 组合时间，参数分别为小时、分钟、秒
+SELECT MAKETIME(11, 35, 4);
+```
+
+### MICROSECOND(date)
+
+``` text
+# 返回日期参数所对应的微秒数
+SELECT MICROSECOND("2017-06-20 09:34:00.000023");
+```
+
+### MINUTE(t)
+
+``` text
+# 返回 t 中的分钟值
+SELECT MINUTE('1:2:3')
+```
+
+### MONTHNAME(d)
+
+``` text
+# 返回日期当中的月份名称，如 November
+SELECT MONTHNAME('2011-11-11 11:11:11')
+```
+
+### MONTH(d)
+
+``` text
+# 返回日期d中的月份值，1 到 12
+SELECT MONTH('2011-11-11 11:11:11')
+```
+
+### NOW()
+
+``` text
+# 返回当前日期和时间
+select NOW()
+```
+
+### PERIOD_ADD(period, number)
+
+``` text
+# 为 年-月 组合日期添加一个时段
+SELECT PERIOD_ADD(201703, 5);
+```
+
+### PERIOD_DIFF(period1, period2)
+
+``` text
+# 返回两个时段之间的月份差值
+SELECT PERIOD_DIFF(201710, 201703);
+```
+
+### QUARTER(d)
+
+``` text
+# 返回日期d是第几季节，返回 1 到 4
+SELECT QUARTER('2011-11-11 11:11:11')
+```
+
+### SECOND(t)
+
+``` text
+# 返回 t 中的秒钟值
+SELECT SECOND('1:2:3')
+```
+
+### SEC_TO_TIME(s)
+
+``` text
+# 将以秒为单位的时间 s 转换为时分秒的格式
+SELECT SEC_TO_TIME(4320)
+```
+
+### STR_TO_DATE(string, format_mask)
+
+``` text
+# 将字符串转变为日期
+SELECT STR_TO_DATE("August 10 2017", "%M %d %Y");
+```
+
+### SUBDATE(d,n)
+
+``` text
+# 日期 d 减去 n 天后的日期
+SELECT SUBDATE('2011-11-11 11:11:11', 1)
+```
+
+### SUBTIME(t,n)
+
+``` text
+# 时间 t 减去 n 秒的时间
+SELECT SUBTIME('2011-11-11 11:11:11', 5)
+```
+
+### SYSDATE()
+
+``` text
+# 返回当前日期和时间
+SELECT SYSDATE()
+```
+
+### TIME(expression)
+
+``` text
+# 提取传入表达式的时间部分
+SELECT TIME("19:30:10");
+```
+
+### TIME_FORMAT(t,f)
+
+``` text
+# 按表达式 f 的要求显示时间 t
+SELECT TIME_FORMAT('11:11:11','%r')
+```
+
+### TIME_TO_SEC(t)
+
+``` text
+# 将时间 t 转换为秒
+SELECT TIME_TO_SEC('1:12:00')
+```
+
+### TIMEDIFF(time1, time2)
+
+``` text
+# 计算时间差值
+SELECT TIMEDIFF("13:10:11", "13:10:10");
+```
+
+### TIMESTAMP(expression, interval)
+
+``` text
+# 单个参数时，函数返回日期或日期时间表达式；有2个参数时，将参数加和
+SELECT TIMESTAMP("2017-07-23",  "13:10:11");
+```
+
+### TO_DAYS(d)
+
+``` text
+# 计算日期 d 距离 0000 年 1 月 1 日的天数
+SELECT TO_DAYS('0001-01-01 01:01:01')
+```
+
+### WEEK(d)
+
+``` text
+# 计算日期 d 是本年的第几个星期，范围是 0 到 53
+SELECT WEEK('2011-11-11 11:11:11')
+```
+
+### WEEKDAY(d)
+
+``` text
+# 日期 d 是星期几，0 表示星期一，1 表示星期二
+SELECT WEEKDAY("2017-06-15");
+```
+
+### WEEKOFYEAR(d)
+
+``` text
+# 计算日期 d 是本年的第几个星期，范围是 0 到 53
+SELECT WEEKOFYEAR('2011-11-11 11:11:11')
+```
+
+### YEAR(d)
+
+``` text
+# 返回年份
+SELECT YEAR("2017-06-15");
+```
+
+### YEARWEEK(date, mode)
+
+``` text
+# 返回年份及第几周（0到53），mode 中 0 表示周天，1表示周一，以此类推
+SELECT YEARWEEK("2017-06-15");
+```
+
+## MySQL高级函数
+
+### BIN(x)
+
+``` text
+# 返回 x 的二进制编码
+select DBINAY(15)
+```
+
+### BINARY(s)
+
+``` text
+# 将字符串 s 转换为二进制字符串
+SELECT BINARY "RUNOOB";
+```
+
+### CASE expression WHEN condition1 THEN result1 ELSE result END cond
+
+``` text
+# CASE 表示函数开始，END 表示函数结束。如果 condition1 成立，则返回 result1, 如果 condition2 成立，
+则返回 result2，当全部不成立则返回 result，而当有一个成立之后，后面的就不执行了。
+
+SELECT
+    CASE
+    WHEN a.c = 1 THEN '1' ELSE '0' END CC
+FROM (select 1 c) a
+```
+
+### CAST(x AS type)
+
+``` text
+# 转换数据类型
+SELECT CAST("2017-08-29" AS DATE);
+```
+
+### COALESCE(expr1, expr2, ...., expr_n)
+
+``` text
+# 返回参数中的第一个非空表达式（从左向右）
+SELECT COALESCE(NULL, NULL, NULL, 'rainsty', NULL, 'www.rainsty.com');
+```
+
+### CONNECTION_ID()
+
+``` text
+# 返回唯一的连接 ID
+SELECT CONNECTION_ID();
+```
+
+### CONV(x,f1,f2)
+
+``` text
+# 返回 f1 进制数变成 f2 进制数
+SELECT CONV(15, 10, 2);
+```
+
+### CONVERT(s USING cs)
+
+``` text
+# 函数将字符串 s 的字符集变成 cs
+SELECT CHARSET(CONVERT('ABC' USING gbk))
+```
+
+### CURRENT_USER()
+
+``` text
+# 返回当前用户
+SELECT CURRENT_USER();
+```
+
+### DATABASE()
+
+``` text
+# 返回当前数据库名
+SELECT DATABASE();
+```
+
+### IF(expr,v1,v2)
+
+``` text
+# 如果表达式 expr 成立，返回结果 v1；否则，返回结果 v2。
+SELECT IF(1 > 0,'正确','错误')
+```
+
+### IFNULL(v1,v2)
+
+``` text
+# 如果 v1 的值不为 NULL，则返回 v1，否则返回 v2。
+SELECT IFNULL(null,'Hello Word')
+```
+
+### ISNULL(expression)
+
+``` text
+# 判断表达式是否为 NULL
+SELECT ISNULL(NULL);
+```
+
+### LAST_INSERT_ID()
+
+``` text
+# 返回最近生成的 AUTO_INCREMENT 值
+SELECT LAST_INSERT_ID();
+```
+
+### NULLIF(expr1, expr2)
+
+``` text
+# 比较两个字符串，如果字符串 expr1 与 expr2 相等 返回 NULL，否则返回 expr1
+SELECT NULLIF(25, 25);
+```
+
+### SESSION_USER()
+
+``` text
+# 返回当前用户
+SELECT SESSION_USER();
+```
+
+### SYSTEM_USER()
+
+``` text
+# 返回当前用户
+SELECT SYSTEM_USER();
+```
+
+### USER()
+
+``` text
+# 返回当前用户
+SELECT USER();
+```
+
+### VERSION()
+
+``` text
+# 返回当前数据库版本号
+SELECT VERSION();
+```
+
+## Mysql常用语句
