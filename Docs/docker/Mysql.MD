@@ -67,6 +67,423 @@ FLUSH PRIVILEGES;
 
 # Mysql常用语法  
 
+## Mysql基础语句  
+
+### 创建DATABASE  
+
+``` text
+CREATE DATABASE rainsty;
+```
+
+### 切换DATABASE  
+
+``` text
+USE rainsty;
+```
+
+### 创建TABLE  
+
+``` text
+CREATE TABLE `student` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `student_id` int(10) NOT NULL COMMENT '学生编号',
+  `name` varchar(16) NOT NULL COMMENT '学生姓名',
+  `sex` int(1) DEFAULT NULL COMMENT '性别: 1-男, 2-女;',
+  `input_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  `update_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `student_student_id` (`student_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='学生表';
+```  
+
+### INSERT数据  
+
+``` text
+INSERT INTO student (student_id, name, sex) values (2020050101, '郭尽一', 1);
+INSERT INTO student (student_id, name, sex) values (2020050102, '郭尽二', 2);
+INSERT INTO student (student_id, name, sex) values (2020050103, '郭尽三', 1);
+INSERT INTO student (student_id, name, sex) values (2020050104, '郭尽四', 1);
+INSERT INTO student (student_id, name, sex) values (2020050105, '郭尽五', 2);
+INSERT INTO student (student_id, name, sex) values (2020050106, '郭尽六', 1);
+INSERT INTO student (student_id, name, sex) values (2020050107, '郭尽七', 2);
+INSERT INTO student (student_id, name, sex) values (2020050108, '郭尽八', 2);
+INSERT INTO student (student_id, name, sex) values (2020050109, '郭尽九', 1);
+INSERT INTO student (student_id, name, sex) values (2020050110, '郭尽十', 1);
+```
+
+### UPDATE数据  
+
+``` text
+UPDATE student SET name='郭吾十',sex=2 WHERE student_id=2020050110;
+```
+
+### DELETE数据  
+
+``` text
+DELETE FROM student WHERE student_id=2020050110;
+```
+
+### ALTER表  
+
+``` text
+# 修改表名称
+ALTER TABLE `rainsty`.`student` RENAME TO `rainsty`.`student01`;
+ALTER TABLE `rainsty`.`student01` RENAME TO `rainsty`.`student`;
+# 修改表字段类型
+ALTER TABLE `rainsty`.`student` CHANGE COLUMN `student_id` `studentid` INT(20) NOT NULL COMMENT '学生编号1'
+ALTER TABLE `rainsty`.`student` CHANGE COLUMN `studentid` `student_id` INT(10) NOT NULL COMMENT '学生编号'
+# 增加表字段
+ALTER TABLE `rainsty`.`student` ADD COLUMN `age` INT(3) DEFAULT NULL COMMENT '学生年龄' AFTER `sex`;
+# 删除字段
+ALTER TABLE `rainsty`.`student` DROP COLUMN `age`;
+```
+
+### DROP表  
+
+``` text
+删除表
+DROP TABLE `rainsty`.`student`;
+```
+
+### 创建FUNCTION  
+
+``` text
+DELIMITER ;;
+CREATE DEFINER=`root`@`%` FUNCTION `rainsty`(`aaa` int(2),`bbb` int(2)) RETURNS decimal(20,6)
+BEGIN
+
+	DECLARE c DECIMAL(20,6);
+	
+	SELECT (aaa+bbb) C INTO c;
+
+RETURN c;
+END
+;;
+DELIMITER ;
+```
+
+``` text
+# 调用函数
+select rainsty(111,222);
+```
+
+## Mysql查询  
+
+``` text
+# 创建表基础数据
+CREATE TABLE `student` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `student_id` int(10) NOT NULL COMMENT '学生编号',
+  `name` varchar(16) NOT NULL COMMENT '学生姓名',
+  `sex` int(1) DEFAULT NULL COMMENT '性别: 1-男, 2-女;',
+  `input_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  `update_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `student_student_id` (`student_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='学生表';
+
+INSERT INTO student (student_id, name, sex) values (2020050101, '郭尽一', 1);
+INSERT INTO student (student_id, name, sex) values (2020050102, '郭尽二', 2);
+INSERT INTO student (student_id, name, sex) values (2020050103, '郭尽三', 1);
+INSERT INTO student (student_id, name, sex) values (2020050104, '郭尽四', 1);
+INSERT INTO student (student_id, name, sex) values (2020050105, '郭尽五', 2);
+INSERT INTO student (student_id, name, sex) values (2020050106, '郭尽六', 1);
+INSERT INTO student (student_id, name, sex) values (2020050107, '郭尽七', 2);
+INSERT INTO student (student_id, name, sex) values (2020050108, '郭尽八', 2);
+INSERT INTO student (student_id, name, sex) values (2020050109, '郭尽九', 1);
+INSERT INTO student (student_id, name, sex) values (2020050110, '郭尽十', 1);
+
+CREATE TABLE `academic` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `student_id` int(10) NOT NULL COMMENT '学生编号',
+  `year` int(10) NOT NULL COMMENT '学年',
+  `term` int(1) NOT NULL COMMENT '学期: 1:上学期, 2:下学期',
+  `english` int(3) DEFAULT NULL COMMENT '英语成绩',
+  `math` int(3) DEFAULT NULL COMMENT '数学成绩',
+  `input_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  `update_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `student_student_id` (`student_id`, `year`, `term`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='成绩表';
+
+INSERT INTO academic (student_id, year, term, english, math) values (2020050101, 2020, 1, 80, 92);
+INSERT INTO academic (student_id, year, term, english, math) values (2020050101, 2020, 2, 83, 71);
+INSERT INTO academic (student_id, year, term, english, math) values (2020050102, 2020, 1, 70, 82);
+INSERT INTO academic (student_id, year, term, english, math) values (2020050102, 2020, 2, 81, 81);
+INSERT INTO academic (student_id, year, term, english, math) values (2020050103, 2020, 1, 53, 72);
+INSERT INTO academic (student_id, year, term, english, math) values (2020050103, 2020, 2, 63, 69);
+INSERT INTO academic (student_id, year, term, english, math) values (2020050104, 2020, 1, 90, 82);
+INSERT INTO academic (student_id, year, term, english, math) values (2020050104, 2020, 2, 30, 76);
+INSERT INTO academic (student_id, year, term, english, math) values (2020050105, 2020, 1, 87, 75);
+INSERT INTO academic (student_id, year, term, english, math) values (2020050105, 2020, 2, 89, 81);
+INSERT INTO academic (student_id, year, term, english, math) values (2020050106, 2020, 1, 70, 91);
+INSERT INTO academic (student_id, year, term, english, math) values (2020050106, 2020, 2, 63, 01);
+INSERT INTO academic (student_id, year, term, english, math) values (2020050107, 2020, 1, 48, 98);
+INSERT INTO academic (student_id, year, term, english, math) values (2020050107, 2020, 2, 73, 84);
+INSERT INTO academic (student_id, year, term, english, math) values (2020050108, 2020, 1, 64, 68);
+INSERT INTO academic (student_id, year, term, english, math) values (2020050108, 2020, 2, 78, 51);
+INSERT INTO academic (student_id, year, term, english, math) values (2020050109, 2020, 1, 86, 79);
+INSERT INTO academic (student_id, year, term, english, math) values (2020050109, 2020, 2, 87, 68);
+INSERT INTO academic (student_id, year, term, english, math) values (2020050110, 2020, 1, 94, 72);
+INSERT INTO academic (student_id, year, term, english, math) values (2020050110, 2020, 2, 99, 81);
+
+```  
+
+### 基础查询
+
+#### WHERE(过滤条件)
+``` text
+SELECT 
+    *
+FROM
+    `student`
+WHERE
+    student_id > 2020050106;
+```
+
+#### ORDER(排序)
+``` text
+# 单字段排序
+SELECT 
+    *
+FROM
+    `student`
+ORDER BY student_id DESC;
+# 多字段排序
+SELECT 
+    *
+FROM
+    `student`
+ORDER BY student_id DESC, name ASC;
+```
+
+#### LIMIT(取多少条)
+``` text
+SELECT 
+    *
+FROM
+    `student`
+LIMIT 10
+```
+
+#### OFFSET(从第几条开始取多少条)
+``` text
+SELECT 
+    *
+FROM
+    `student`
+LIMIT 10 OFFSET 0
+```
+
+#### AS(字段设置别名和表设置别名, 可省略AS)
+``` text
+SELECT 
+    a.student_id AS sid
+FROM
+    `student` a
+```
+
+#### AS临时表(用双括号包起来的查询语句)
+``` text
+SELECT 
+    *
+FROM
+    (SELECT 
+        *
+    FROM
+        `student`) a
+WHERE
+    a.sex = 1
+```
+
+#### LIKE(模糊查询,%为通配符)
+
+``` text
+SELECT 
+    *
+FROM
+    `student`
+WHERE
+    name LIKE '%一' OR name LIKE '郭%'
+        OR name LIKE '%尽%'
+```
+
+#### IN(表示字段值在一个集合里)
+``` text
+SELECT 
+    *
+FROM
+    `student`
+WHERE
+    student_id IN (2020050103 , 2020050107)
+```
+
+#### NOT IN(表示字段值不在一个集合里)
+``` text
+SELECT 
+    *
+FROM
+    `student`
+WHERE
+    student_id NOT IN (2020050103 , 2020050107)
+```
+
+#### IS NULL(表示字段值为NULL)
+``` text
+SELECT 
+    *
+FROM
+    `student`
+WHERE
+    student_id IS NULL
+```
+
+#### IS NOT NULL(表示字段值为不NULL)
+``` text
+SELECT 
+    *
+FROM
+    `student`
+WHERE
+    student_id IS NOT NULL
+```
+
+#### WHERE多条件AND
+``` text
+SELECT 
+    a.id, a.name, a.*
+FROM
+    `student` a
+WHERE
+    student_id > 2020050106 AND a.sex = 2;
+    
+```
+
+#### WHERE多条件OR
+``` text
+SELECT 
+    a.id, a.name, a.*
+FROM
+    `student` a
+WHERE
+    student_id = 2020050106
+        OR student_id = 2020050107;
+
+```
+
+#### WHERE多条件AND和OR共用
+``` text
+SELECT 
+    a.id, a.name, a.*
+FROM
+    `student` a
+WHERE
+    (student_id = 2020050106
+        OR student_id = 2020050107)
+        AND a.sex = 2;
+```
+
+### 高级查询  
+
+#### WHERE多表查询  
+
+``` text
+SELECT 
+    *
+FROM
+    `student` a,
+    `academic` b
+WHERE
+    a.student_id = b.student_id
+```
+
+#### 左连接  
+
+``` text
+SELECT 
+    *
+FROM
+    `student` a
+        LEFT JOIN
+    `academic` b ON a.student_id = b.student_id
+```
+
+#### 右连接  
+
+``` text
+SELECT 
+    *
+FROM
+    `student` a
+        RIGHT JOIN
+    `academic` b ON a.student_id = b.student_id
+```
+
+#### 内连接  
+
+``` text
+SELECT 
+    *
+FROM
+    `student` a
+        INNER JOIN
+    `academic` b ON a.student_id = b.student_id
+```
+
+#### 右外连接  
+
+``` text
+SELECT 
+    *
+FROM
+    `student` a
+        RIGHT OUTER JOIN
+    `academic` b ON a.student_id = b.student_id
+```
+
+#### GROUP(分组，求数量，求总和，求平均，数据去重)
+
+``` text
+# 分组求数量（求男生和女生的数量）
+SELECT 
+    sex, COUNT(sex)
+FROM
+    `student`
+GROUP BY sex
+
+# 分组求总和（求2020各学期英语总成绩）
+SELECT 
+    term, SUM(english)
+FROM
+    `academic`
+WHERE
+    year = 2020
+GROUP BY term
+
+# 分组求总和（求2020各学期英语平均成绩）
+SELECT 
+    term, AVG(english)
+FROM
+    `academic`
+WHERE
+    year = 2020
+GROUP BY term
+
+# 分组数据去重（求2020各学期英语最高成绩）
+SELECT 
+    *
+FROM
+    (SELECT 
+        term, english
+    FROM
+        `academic`
+    WHERE
+        year = 2020
+    GROUP BY term , english
+    ORDER BY term , english DESC) a
+GROUP BY term
+```
+
 ## Mysql字符串函数  
 
 ### ASCII(s)   
@@ -1063,5 +1480,3 @@ SELECT USER();
 # 返回当前数据库版本号
 SELECT VERSION();
 ```
-
-## Mysql常用语句
