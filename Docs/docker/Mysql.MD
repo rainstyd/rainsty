@@ -291,7 +291,7 @@ FROM
     (SELECT 
         *
     FROM
-        `student`) a
+        `student`) AS a
 WHERE
     a.sex = 1
 ```
@@ -395,6 +395,32 @@ FROM
     `academic` b
 WHERE
     a.student_id = b.student_id
+```
+
+#### UNION(两条同字段返回的数据结果上下拼接, 会去重)  
+
+``` text
+SELECT 
+    student_id
+FROM
+    `student` 
+UNION SELECT 
+    student_id
+FROM
+    `academic`
+```
+
+#### UNION ALL(两条同字段返回的数据结果上下拼接, 不去重)  
+
+``` text
+SELECT 
+    student_id
+FROM
+    `student` 
+UNION ALL SELECT 
+    student_id
+FROM
+    `academic`
 ```
 
 #### 左连接  
