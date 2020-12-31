@@ -1107,14 +1107,7 @@ select DAYOFWEEK('2011-11-11 11:11:11')
 select DAYOFYEAR('2011-11-11 11:11:11')
 ```
 
-### EXTRACT(type FROM d)
-
-``` text
-# AAAA  		
-select DAY('2011-11-11 11:11:11')
-```
-
-### AAA  
+### EXTRACT(type FROM d)	  
 
 ``` text
 # 从日期 d 中获取指定的值，type 指定返回的值。
