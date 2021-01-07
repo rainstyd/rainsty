@@ -27,7 +27,9 @@ with codecs.open(config_file, 'r', encoding=code['encoding']) as r:
     conf.read_file(r)
 
 # 读取配置文件内容
-sections = conf.sections()
-print(sections)
-config = dict(conf.items('config'))
-print(config)
+# sections = conf.sections()
+# print(sections)
+# config = dict(conf.items('config'))
+# print(config)
+
+print(configparser.ConfigParser.getboolean(conf, 'config', 'sex'))
