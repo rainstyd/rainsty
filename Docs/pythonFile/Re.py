@@ -190,3 +190,9 @@ s = 'oNe12twothree34fourRneD133PO2twFothr555eTe3UI4fourR'
 r = re.split(r'[a-z]+', s, 5, re.I)
 print(r)
 print(len(r))
+
+print('=========================================================================')
+r = re.match(r'^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$', '192.168.0.1')
+print(r)
+print(r.span())
+print(r.group())
