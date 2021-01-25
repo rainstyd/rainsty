@@ -32,5 +32,4 @@
 |2049|10000|-|-|-|-|-|-|-|
 
 
-
-[目标收益图](../moneyFile/Figure_1.png)
+<img src="../moneyFile/Figure_1.png" style="zoom:50%">
