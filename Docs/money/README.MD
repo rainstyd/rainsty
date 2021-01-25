@@ -3,4 +3,4 @@
 |2020|10000|-|-|-|-|-|-|-|
 |2021|10000|-|-|-|-|-|-|-|
 
-<img src="../moneyFile/Figure_1.png" style="zoom:50%">
+<img src="../moneyFile/Figure_1.png" style="zoom:100%">
