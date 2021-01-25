@@ -14,8 +14,8 @@ import matplotlib.pyplot as plt
 PROFIT = {
     2019: 10000,
     '2019': '2020/10/14',
-    2020: 11833,
-    '2020_date': '2021/01/28'
+    # 2020: 11833,
+    # '2020_date': '2021/01/28'
 }
 
 
@@ -84,4 +84,4 @@ if __name__ == '__main__':
             _dict.get('f', '-'),
         ))
 
-    get_img(_tup1, _tup2)
+    # get_img(_tup1, _tup2)
