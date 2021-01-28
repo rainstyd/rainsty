@@ -13,8 +13,8 @@ from datetime import datetime
 
 
 PROFIT = {
-    # '2020': 11833,
-    # '2020_date': '2021/01/28'
+    '2020': 11019.37,
+    '2020_date': '2021/01/27'
 }
 
 
@@ -67,8 +67,8 @@ if __name__ == '__main__':
         if i0:
             _dict['t'] = PROFIT.get('{}_date'.format(h))
             _dict['a'] = i0
-            _dict['b'] = i0 - i1
-            _dict['c'] = i0 - c
+            _dict['b'] = round(i0 - i1, 2)
+            _dict['c'] = round(i0 - c, 2)
             _dict['d'] = round((i0 - i1) / i1 * 100, 2)
             _dict['e'] = round((i0 - c) / c * 100, 2)
             _dict['f'] = round((i0 - a) / a * 100, 6)
