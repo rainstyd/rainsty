@@ -4,9 +4,7 @@
 |2021|10000|-|-|-|-|-|-|-|
 
 
-* [History](History.MD)
+* [基金交易记录](History.MD)
 
 
 <img src="../moneyFile/Figure_1.png" style="zoom:100%">
-
-
