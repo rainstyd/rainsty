@@ -11,6 +11,8 @@
                 4: tdx选择沪深A股和999999/399001
                 5: tdx选择导出文件目录/格式开始导出数据
                 6: 导出完成执行python -u stock.py
+                7: 登陆东方财富终端创建新分组
+                8: 功能/自选导入/高级选项/选择文件导入自选股
 """
 
 import os
@@ -149,7 +151,7 @@ def main():
         for d in data:
             w.write('{}\n'.format(d))
 
-    with open('stock_result_end.txt', 'r') as r:
+    with open('stock_result_end.txt', 'w') as w:
         for d in data:
             w.write('{}\n'.format(d.get('stock')))
 
