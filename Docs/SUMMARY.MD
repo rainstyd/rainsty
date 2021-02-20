@@ -25,4 +25,3 @@
     * [Yaml](python/Yaml.MD)
 
 * [Money](money/README.MD)
-    * [History](money/History.MD)
