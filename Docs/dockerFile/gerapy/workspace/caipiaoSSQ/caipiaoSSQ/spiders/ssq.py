@@ -12,9 +12,13 @@ class SsqSpider(scrapy.Spider):
 
     url_set = set()
 
-    url_set.add('http://www.17500.cn/ssq/awardlist.php?p=1')
+    def start_requests(self):
+        url = 'http://www.17500.cn/ssq/awardlist.php?p=1'
+        SsqSpider.url_set.add(url)
+        yield self.make_requests_from_url(url)
 
     def parse(self, response):
+
         allSSQ = response.css('table.sortable')
 
         file_name = ['期号', '日期', '周', '开奖号码', '本期投注', '返奖比', '奖池金额', '一等奖', '奖金一',
