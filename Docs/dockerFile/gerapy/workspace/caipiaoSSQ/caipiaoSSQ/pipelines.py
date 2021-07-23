@@ -9,5 +9,4 @@ import json
 
 class CaipiaossqPipeline(object):
     def process_item(self, item, spider):
-        with open("./my_ssq.txt",'a') as fp:
-            fp.write(json.dumps(item['name'], ensure_ascii=False) + '\n')
+        print(json.dumps(item['name'], ensure_ascii=False))
