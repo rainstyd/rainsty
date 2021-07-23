@@ -6,11 +6,13 @@ from caipiaoSSQ.items import CaipiaossqItem
 
 class SsqSpider(scrapy.Spider):
     name = 'ssq'
-    allowed_domains = ['17500.cn']
-    start_urls = ['http://www.17500.cn/ssq/awardlist.php?p=1']
-    print(start_urls[0])
+    # allowed_domains = ['17500.cn']
+    # start_urls = ['http://www.17500.cn/ssq/awardlist.php?p=1']
+    # print(start_urls[0])
 
     url_set = set()
+
+    url_set.add('http://www.17500.cn/ssq/awardlist.php?p=1')
 
     def parse(self, response):
         allSSQ = response.css('table.sortable')
