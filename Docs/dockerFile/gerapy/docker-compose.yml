@@ -1,0 +1,21 @@
+version: '2.0'
+
+services:
+  gerapy:
+    image: rainsty/gerapy
+    hostname: gerapy
+    container_name: gerapy
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - ./workspace:/projects
+    ports:
+      - "8000:8000"
+    networks:
+      - rainsty
+
+networks:
+     rainsty:
+       external:
+         name: rainsty

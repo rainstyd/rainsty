@@ -1,0 +1,19 @@
+version: '2.0'
+
+services:
+  scrapyd:
+    image: rainsty/scrapyd
+    hostname: scrapyd
+    container_name: scrapyd
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+    ports:
+      - "6800:6800"
+    networks:
+      - rainsty
+
+networks:
+     rainsty:
+       external:
+         name: rainsty

@@ -1,0 +1,24 @@
+version: '2.0'
+
+services:
+  gerapy:
+    image: python:3.6.5
+    hostname: gerapy
+    container_name: gerapy
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - ./volumes/run.sh:/run.sh
+      - ./volumes/requirements.txt:/requirements.txt
+      - ./workspace:/projects
+    command: /bin/bash -c "/bin/bash /run.sh; gerapy runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    networks:
+      - rainsty
+
+networks:
+     rainsty:
+       external:
+         name: rainsty

@@ -1,0 +1,24 @@
+version: '2.0'
+
+services:
+  scrapyd:
+    image: python:3.6.5
+    hostname: scrapyd
+    container_name: scrapyd
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - ./volumes/run.sh:/run.sh
+      - ./volumes/requirements.txt:/requirements.txt
+      - ./volumes/scrapyd.conf:/etc/scrapyd/scrapyd.conf
+    command: /bin/bash -c "/bin/bash /run.sh; scrapyd"
+    ports:
+      - "6800:6800"
+    networks:
+      - rainsty
+
+networks:
+     rainsty:
+       external:
+         name: rainsty
