@@ -9,4 +9,4 @@ import json
 
 class CaipiaossqPipeline(object):
     def process_item(self, item, spider):
-        self.logger.info(json.dumps(item['name'], ensure_ascii=False))
+        spider.logger.info(json.dumps(item['name'], ensure_ascii=False))

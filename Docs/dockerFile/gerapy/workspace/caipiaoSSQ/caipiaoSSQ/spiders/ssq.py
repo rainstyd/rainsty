@@ -14,6 +14,7 @@ class SsqSpider(scrapy.Spider):
     def start_requests(self):
         url = 'http://www.17500.cn/ssq/awardlist.php?p=1'
         SsqSpider.url_set.add(url)
+        self.logger.info(url)
         yield self.make_requests_from_url(url)
 
     def parse(self, response):

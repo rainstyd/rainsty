@@ -119,29 +119,22 @@ class SeleniumDownloadMiddleware(object):
         return s
 
     def spider_opened(self, spider):
-        spider.logger.info('Spider opened: %s' % spider.name)
-
         option = webdriver.ChromeOptions()
         option.add_argument('headless')
         option.add_argument('--no-sandbox')
         option.add_argument('--disable-dev-shm-usage')
 
-        # if spider.is_test != '1':
-        #     self.driver = webdriver.Chrome(chrome_options=option)
-        # else:
-        #     driver_path = r"F:\python\Lib\site-packages\selenium\webdriver\chrome\chromedriver.exe"
-        #     self.driver = webdriver.Chrome(chrome_options=option, executable_path=driver_path)
-
         self.driver = webdriver.Chrome(chrome_options=option)
+        spider.logger.info('Chrome driver is opened......')
 
-    def spider_closed(self):
+    def spider_closed(self, spider):
         self.driver.quit()
-        print('Chrome driver is closed......')
+        spider.logger.info('Chrome driver is closed......')
 
     def process_request(self, request, spider):
 
         self.driver.get(request.url)
-        # print(spider.db)
+        spider.logger.info(request.url)
         time.sleep(1)
         source = self.driver.page_source
         return HtmlResponse(url=self.driver.current_url, body=source, encoding='utf-8', request=request)
