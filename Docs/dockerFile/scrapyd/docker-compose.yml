@@ -8,8 +8,8 @@ services:
     restart: always
     environment:
       TZ: Asia/Shanghai
-    ports:
-      - "6800:6800"
+    # ports:
+    #   - "6800:6800"
     networks:
       - rainsty
 
