@@ -1,6 +1,6 @@
 FROM python:3.6.5
 
-MAINTAINER rainsty
+MAINTAINER rainsty <rainstyd@sina.com>
 
 WORKDIR /
 
