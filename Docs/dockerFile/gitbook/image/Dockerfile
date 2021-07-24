@@ -1,5 +1,6 @@
 FROM fellah/gitbook:latest
-MAINTAINER rainsty <1285679912@qq.com>
+
+MAINTAINER rainsty <rainstyd@sina.com>
 
 ADD run.sh /run.sh
 ENV TZ Asia/Shanghai
