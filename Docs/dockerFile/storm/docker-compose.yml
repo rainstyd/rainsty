@@ -1,0 +1,57 @@
+version: '2.0'
+
+services:
+  ui:
+    image: rainsty/storm
+    hostname: ui
+    container_name: ui
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - ./volumes/storm.yaml:/apache-storm-1.1.0/conf/storm.yaml
+    command: storm ui
+    ports:
+      - "8081:8000"
+    depends_on:
+      - nimbus
+    networks:
+      - rainsty
+
+  nimbus:
+    image: rainsty/storm
+    hostname: nimbus
+    container_name: nimbus
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - ./volumes/storm.yaml:/apache-storm-1.1.0/conf/storm.yaml
+      - ./workspace:/workspace
+    command: storm nimbus
+    ports:
+      - "8082:8000"
+    networks:
+      - rainsty
+
+  supervisor:
+    image: rainsty/storm
+    hostname: supervisor
+    container_name: supervisor
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - ./volumes/storm.yaml:/apache-storm-1.1.0/conf/storm.yaml
+    command: storm supervisor
+    ports:
+      - "8083:8000"
+    networks:
+      - rainsty
+    depends_on:
+      - nimbus
+
+networks:
+  rainsty:
+    external:
+      name: rainsty
