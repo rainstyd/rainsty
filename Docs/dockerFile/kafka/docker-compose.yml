@@ -62,6 +62,6 @@ services:
       - rainsty
 
 networks:
-     rainsty:
-       external:
-         name: rainsty
+  rainsty:
+    external:
+      name: rainsty
