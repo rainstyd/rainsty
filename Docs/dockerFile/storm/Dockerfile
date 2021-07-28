@@ -37,6 +37,7 @@ RUN mv /leiningen-2.9.1/lein /usr/local/bin/ && mv /leiningen-2.9.1 /root/.lein
 ADD ./volumes/run.sh /
 ADD ./volumes/requirements.txt /
 
+RUN chmod +x /run.sh
 RUN pip install --upgrade pip -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
 RUN pip install -r requirements.txt -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
 RUN mkdir /log && mkdir /pyenv
