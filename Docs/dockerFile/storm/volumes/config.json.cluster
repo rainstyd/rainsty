@@ -10,7 +10,7 @@
             "workers": ["supervisor"],
             "log": {
                 "path": "/log",
-                "file": "pystorm_{topology_name}_{component_name}_{task_id}_{pid}.log",
+                "file": "{topology_name}_{component_name}_{task_id}_{pid}.log",
                 "max_bytes": 1000000,
                 "backup_count": 10,
                 "level": "info"
