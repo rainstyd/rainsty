@@ -66,7 +66,8 @@ pymysql==0.9.3\n\
 confluent-kafka==1.6.0\n\
 chardet==4.0.0" > requirements.txt \
     && chmod +x /docker-entrypoint.sh \
-    && mkdir /log && mkdir /pyenv \
+    && mkdir /opt/storm/logs && mkdir /opt/storm/pyenv \
+    && ln -s /opt/storm/logs log && ln -s /opt/storm/pyenv pyenv \
     && pip install --upgrade pip -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com \
     && pip install -r requirements.txt -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
 
