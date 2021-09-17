@@ -20,11 +20,11 @@ services:
     environment:
       TZ: Asia/Shanghai
     networks:
-      - httpd
+      - rainsty
 
 
 networks:
 
-  httpd:
+  rainsty:
     external:
-      name: htppd
+      name: rainsty
