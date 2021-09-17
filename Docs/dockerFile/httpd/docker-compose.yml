@@ -1,0 +1,30 @@
+# mkdir volumes
+# echo -e "<a href=\"registry\">registry</a>" > volumes/index.html
+
+version: '2'
+
+
+services:
+
+  script:
+    image: amd64/httpd
+    # image: arm64v8/httpd
+    hostname: httpd
+    container_name: httpd
+    restart: always
+    ports:
+      - 8799:80
+    volumes:
+      - ./volumes/registry:/usr/local/apache2/htdocs/registry
+      - ./volumes/index.html:/usr/local/apache2/htdocs/index.html
+    environment:
+      TZ: Asia/Shanghai
+    networks:
+      - httpd
+
+
+networks:
+
+  httpd:
+    external:
+      name: htppd
