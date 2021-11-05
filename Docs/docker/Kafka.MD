@@ -62,7 +62,7 @@ kafka-topics.sh --zookeeper zook01:2181 --describe --topic topicName
 * 生产者Producer生产数据  
 
 ``` text
-kafka-console-producer.sh --bootstrap-server kafka01:9092,kafka02:9092,kafka03:9092 --topic topicName
+kafka-console-producer.sh --broker-list kafka01:9092,kafka02:9092,kafka03:9092 --topic topicName
 ```
 
 * 消费者Consumer消费数据  
