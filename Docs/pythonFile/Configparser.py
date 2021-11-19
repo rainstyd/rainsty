@@ -33,3 +33,7 @@ with codecs.open(config_file, 'r', encoding=code['encoding']) as r:
 # print(config)
 
 print(configparser.ConfigParser.getboolean(conf, 'config', 'sex'))
+
+print(type(dict(conf['DEFAULT'])))
+print(dict(conf['DEFAULT']))
+print(list(conf.keys()))

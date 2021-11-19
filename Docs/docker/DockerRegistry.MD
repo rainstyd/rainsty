@@ -82,8 +82,7 @@ vim /etc/docker/daemon.json
 * 重启Docker  
 
 ``` text
-systemctl daemon-reload
-systemctl restart docker
+systemctl daemon-reload && systemctl restart docker
 ```
 
 * 登陆镜像仓库  
