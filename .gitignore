@@ -1,6 +1,6 @@
 __pycache__
 *.pyc
-.idea*
+*.idea*
+*.DS_Store*
+*.vscode*
 zj_test*
-.DS_Store*
-.vscode*

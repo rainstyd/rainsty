@@ -1,0 +1,20 @@
+version: '2'
+services:
+  nfs:
+    image: itsthenetwork/nfs-server-alpine
+    container_name: nfs
+    hostname: nfs
+    restart: always
+    ports:
+      - "2049:2049"
+    environment:
+      SHARED_DIRECTORY: "/nfsroot"
+    volumes:
+      - ./volumes/nfsroot:/nfsroot
+    networks:
+      - rainsty
+
+networks:
+  rainsty:
+    external:
+      name: rainsty

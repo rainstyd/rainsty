@@ -38,25 +38,41 @@ docker exec -it kafka01 bash
 * 查看Topic列表  
 
 ``` text
-kafka-topics.sh --zookeeper zook01:2181 --list
+kafka-topics.sh --zookeeper zoo01:2181 --list
+```
+``` text
+# arm-kafka-2.4.0
+bin/kafka-topics.sh --zookeeper zoo01:2181/kafka --list
 ```
 
 * 创建Topic主题  
 
 ``` text
-kafka-topics.sh --zookeeper zook01:2181 --create --partitions 24 --replication-factor 1 --topic topicName
+kafka-topics.sh --zookeeper zoo01:2181 --create --partitions 24 --replication-factor 1 --topic topicName
+```
+``` text
+# arm-kafka-2.4.0
+bin/kafka-topics.sh --zookeeper zoo01:2181/kafka --create --partitions 24 --replication-factor 1 --topic topicName
 ```
 
 * 删除Topic主题  
 
 ``` text
-kafka-topics.sh --zookeeper zook01:2181 --delete --topic topicName
+kafka-topics.sh --zookeeper zoo01:2181 --delete --topic topicName
+```
+``` text
+# arm-kafka-2.4.0
+bin/kafka-topics.sh --zookeeper zoo01:2181/kafka --delete --topic topicName
 ```
 
 * 查看Topic描述  
 
 ``` text
-kafka-topics.sh --zookeeper zook01:2181 --describe --topic topicName
+kafka-topics.sh --zookeeper zoo01:2181 --describe --topic topicName
+```
+``` text
+# arm-kafka-2.4.0
+bin/kafka-topics.sh --zookeeper zoo01:2181/kafka --describe --topic topicName
 ```
 
 * 生产者Producer生产数据  
@@ -93,7 +109,7 @@ kafka-consumer-groups.sh --bootstrap-server kafka01:9092,kafka02:9092,kafka03:90
 
 ``` text
 # 更改数量应大于现有数量
-kafka-topics.sh --zookeeper zook01:2181 --alter --partitions 6 --topic topicName
+kafka-topics.sh --zookeeper zoo01:2181 --alter --partitions 6 --topic topicName
 ```
 
 * 修改Topic副本数量
@@ -138,7 +154,7 @@ vim topicName_replication.json
 }
 
 # 执行修改命令  
-kafka-reassign-partitions.sh --zookeeper zook01:2181 --execute --reassignment-json-file topicName_replication.json 
+kafka-reassign-partitions.sh --zookeeper zoo01:2181 --execute --reassignment-json-file topicName_replication.json 
 
 # 没有vim时，如何新建文件并插入内容
 bash-4.4# touch a.txt

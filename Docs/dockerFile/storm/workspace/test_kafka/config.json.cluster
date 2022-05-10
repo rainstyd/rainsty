@@ -1,0 +1,27 @@
+{
+    "serializer": "json",
+    "topology_specs": "topologies/",
+    "virtualenv_specs": "virtualenvs/",
+    "envs": {
+        "prod": {
+            "user": "root",
+            "ssh_password": "123456",
+            "nimbus": "nimbus01",
+            "workers": [
+                "supervisor01"
+            ],
+            "log": {
+                "path": "/opt/storm/logs",
+                "file": "{topology_name}-{component_name}-{task_id}_{pid}.log",
+                "max_bytes": 1000000,
+                "backup_count": 10,
+                "level": "info"
+            },
+            "virtualenv_root": "/opt/storm/pyenv",
+            "use_ssh_for_nimbus": false,
+            "install_virtualenv": false,
+            "use_virtualenv": false
+
+        }
+    }
+}
