@@ -38,40 +38,24 @@ docker exec -it kafka01 bash
 * 查看Topic列表  
 
 ``` text
-kafka-topics.sh --zookeeper zoo01:2181 --list
-```
-``` text
-# arm-kafka-2.4.0
 bin/kafka-topics.sh --zookeeper zoo01:2181/kafka --list
 ```
 
 * 创建Topic主题  
 
 ``` text
-kafka-topics.sh --zookeeper zoo01:2181 --create --partitions 24 --replication-factor 1 --topic topicName
-```
-``` text
-# arm-kafka-2.4.0
 bin/kafka-topics.sh --zookeeper zoo01:2181/kafka --create --partitions 24 --replication-factor 1 --topic topicName
 ```
 
 * 删除Topic主题  
 
 ``` text
-kafka-topics.sh --zookeeper zoo01:2181 --delete --topic topicName
-```
-``` text
-# arm-kafka-2.4.0
 bin/kafka-topics.sh --zookeeper zoo01:2181/kafka --delete --topic topicName
 ```
 
 * 查看Topic描述  
 
 ``` text
-kafka-topics.sh --zookeeper zoo01:2181 --describe --topic topicName
-```
-``` text
-# arm-kafka-2.4.0
 bin/kafka-topics.sh --zookeeper zoo01:2181/kafka --describe --topic topicName
 ```
 
