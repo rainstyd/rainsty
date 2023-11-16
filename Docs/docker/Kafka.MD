@@ -44,7 +44,7 @@ kafka-topics.sh --zookeeper zoo01:2181/kafka --list
 * 创建Topic主题  
 
 ``` text
-kafka-topics.sh --zookeeper zoo01:2181/kafka --create --partitions 24 --replication-factor 1 --topic topicName
+kafka-topics.sh --zookeeper zoo01:2181/kafka --create --partitions 1 --replication-factor 1 --topic topicName
 ```
 
 * 删除Topic主题  
@@ -67,7 +67,7 @@ kafka-console-producer.sh --broker-list kafka01:9092,kafka02:9092,kafka03:9092 -
 
 * 消费者Consumer消费数据  
 
-``` text
+``` java
 kafka-console-consumer.sh --bootstrap-server kafka01:9092,kafka02:9092,kafka03:9092 --topic topicName --group rainsty
 ```
 

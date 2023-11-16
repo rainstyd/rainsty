@@ -1,2 +1,0 @@
-chardet==3.0.4
-pymysql==0.9.3

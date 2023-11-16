@@ -1,0 +1,53 @@
+version: '2'
+
+services:
+
+  spark01:
+    image: alarm/spark:latest
+    container_name: spark01
+    hostname: spark01
+    restart: always
+    ports:
+      - "8081:8080"
+      - "7071:7077"
+    volumes:
+      - ./volumes/spark/01:/logs
+    environment:
+      TZ: Asia/Shanghai
+    networks:
+      - zoo_net
+
+  spark02:
+    image: alarm/spark:latest
+    container_name: spark02
+    hostname: spark02
+    restart: always
+    ports:
+      - "8082:8080"
+      - "7072:7077"
+    volumes:
+      - ./volumes/spark/02:/logs
+    environment:
+      TZ: Asia/Shanghai
+    networks:
+      - zoo_net
+
+  spark03:
+    image: alarm/spark:latest
+    container_name: spark03
+    hostname: spark03
+    restart: always
+    ports:
+      - "8083:8080"
+      - "7073:7077"
+    volumes:
+      - ./volumes/spark/03:/logs
+    environment:
+      TZ: Asia/Shanghai
+    networks:
+      - zoo_net
+
+networks:
+    zoo_net:
+      external:
+        name: tzt_overlay

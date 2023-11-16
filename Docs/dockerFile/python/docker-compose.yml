@@ -2,17 +2,16 @@ version: '2.0'
 
 services:
   python:
-    image: python:3.6.5
+    image: python:3.6.8
     hostname: python
     container_name: python
     restart: always
     environment:
       TZ: Asia/Shanghai
     volumes:
-      - ./volumes/run.sh:/run.sh
-      - ./volumes/requirements.txt:/requirements.txt
       - ./volumes/file:/file
-    command: bash /run.sh
+      - ./volumes/pyenv:/opt/storm/pyenv
+    command: tail -f /dev/null
     networks:
       - rainsty
 
@@ -20,3 +19,7 @@ networks:
   rainsty:
     external:
       name: rainsty
+
+# sed -i "s/# alias ll='ls \$LS_OPTIONS -l'/alias ll='ls \$LS_OPTIONS -l'/g" /root/.bashrc & source /root/.bashrc
+# pip install --upgrade pip -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
+# pip install -r requirements.txt -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
