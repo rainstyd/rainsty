@@ -5,7 +5,7 @@
 @author: rainsty
 @file:   wechat.py
 @time:   2020-11-25 10:33:29
-@description: windows登陆微信，执行脚本 python wechat.py 小宝贝 30
+@description: windows登陆微信，执行脚本 python wechat.py XXX 13 20
 """
 
 import sys
