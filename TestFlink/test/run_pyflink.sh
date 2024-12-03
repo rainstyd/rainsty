@@ -2,6 +2,7 @@
 #打造虚拟环境包
 bin/python3.10 -m pip install virtualenv  -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
 bin/virtualenv --python=3.10.14 --never-download test_flink_1171_env_py31014
+echo "apache-flink==1.17.1" > test_flink_1171_env_py31014.txt
 test_flink_1171_env_py31014/bin/python -m pip install -r test_flink_1171_env_py31014.txt -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
 zip -r test_flink_1171_env_py31014.zip test_flink_1171_env_py31014
 
