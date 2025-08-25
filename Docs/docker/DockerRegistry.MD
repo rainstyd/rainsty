@@ -117,3 +117,8 @@ docker push 127.0.0.1:8088/library/image:tag
 ``` text
 docker logout 127.0.0.1:8080
 ```
+
+* 拉取跨平台镜像
+``` text
+docker pull --platform linux/arm64 <image-name>:<tag>
+```
